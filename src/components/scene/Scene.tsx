@@ -28,7 +28,14 @@ export function SceneFallback() {
       aria-busy="true"
       aria-label="Loading 3D scene"
     >
-      <div className="size-10 animate-spin rounded-full border-2 border-white/15 border-t-white/70" />
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(107,124,255,0.1)_0%,transparent_65%)] motion-safe:animate-pulse"
+        aria-hidden="true"
+      />
+      <div
+        className="size-10 motion-safe:animate-spin rounded-full border-2 border-white/15 border-t-white/70 motion-reduce:border-t-white/40"
+        role="presentation"
+      />
     </div>
   );
 }
@@ -152,7 +159,7 @@ function SceneCanvas() {
 
 export function Scene() {
   return (
-    <div className="absolute inset-0 z-0">
+    <div className="scene-enter absolute inset-0 z-0">
       <Suspense fallback={<SceneFallback />}>
         <SceneCanvas />
       </Suspense>
