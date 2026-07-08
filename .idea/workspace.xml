@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="c1affc39-5af7-4b8d-b597-264d57310f17" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/next-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +74,7 @@
       <option name="presentableId" value="Default" />
       <updated>1783540711359</updated>
       <workItem from="1783540712719" duration="8690000" />
-      <workItem from="1783551859233" duration="149000" />
+      <workItem from="1783551859233" duration="597000" />
     </task>
     <servers />
   </component>

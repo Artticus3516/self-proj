@@ -13,7 +13,7 @@ const NAV_LINKS = [
 ];
 
 // ─── Stage 1 & 2: Perfect Center-Out Animation Logic ─────────────────────
-const barVariants = {
+const barVariants:any  = {
     // 1. Hovering high above the viewport, completely invisible
     initial: {
         y: -100,
@@ -58,19 +58,20 @@ const barVariants = {
 };
 
 // ─── ADDED: Missing container variants to fix the reference error ───
-const contentContainerVariants = {
+// ─── Stage 3: content items stagger up (Explicitly Typed for Vercel) ──────────
+const contentContainerVariants: any = {
     hidden: {},
     visible: {
         transition: { staggerChildren: 0.07 },
     },
 };
 
-const contentItemVariants = {
+const contentItemVariants: any = {
     hidden: { opacity: 0, y: 7 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.32, ease: "easeOut" as const },
+        transition: { duration: 0.32, ease: "easeOut" },
     },
 };
 
