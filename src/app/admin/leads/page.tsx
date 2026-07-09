@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabase";
 import type { Database } from "@/lib/database.types";
+import { getLeadsAction } from "./actions";
 
 type Lead = Database["public"]["Tables"]["leads"]["Row"];
 
@@ -20,11 +20,7 @@ export default function LeadsDashboardPage() {
 
   useEffect(() => {
     async function fetchLeads() {
-      const { data } = await supabase
-        .from("leads")
-        .select("*")
-        .order("created_at", { ascending: false })
-        .limit(500);
+      const data = await getLeadsAction();
       setLeads(data ?? []);
     }
     void fetchLeads();
@@ -46,7 +42,7 @@ export default function LeadsDashboardPage() {
       </div>
 
       {/* Table */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 overflow-hidden">
+      <div data-testid="leads-list" className="rounded-xl border border-zinc-800 bg-zinc-900/60 overflow-hidden">
         {leads.length === 0 ? (
           <div className="px-5 py-14 text-center space-y-2">
             <p className="text-sm text-zinc-600">No leads yet.</p>

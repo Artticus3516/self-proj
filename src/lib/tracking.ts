@@ -12,15 +12,19 @@ export async function recordPageView(path: string): Promise<void> {
   const consent = localStorage.getItem(CONSENT_KEY);
   if (consent !== "accepted") return; // Strict enforcement — bail out if not explicitly granted
 
-  const { error } = await supabase.from("traffic_logs").insert({
-    path,
-    user_agent: navigator.userAgent,
-    consent_granted: true,
-  });
-
-  if (error) {
-    // Silent fail — never disrupt the user experience for analytics errors
-    console.warn("[tracking] Failed to record page view:", error.message);
+  try {
+    await fetch("/api/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        path,
+        user_agent: navigator.userAgent,
+        consent_granted: true,
+        timestamp: new Date().toISOString(),
+      }),
+    });
+  } catch (err: any) {
+    console.warn("[tracking] Failed to record page view:", err.message);
   }
 }
 

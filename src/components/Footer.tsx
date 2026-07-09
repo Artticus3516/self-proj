@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 const FOOTER_LINKS = [
@@ -25,6 +27,7 @@ const FOOTER_LINKS = [
       { label: "Privacy Policy", href: "/privacy" },
       { label: "Cookie Policy",  href: "/cookies" },
       { label: "Terms of Use",   href: "/terms" },
+      { label: "Cookie Settings", href: "#cookie-settings" },
     ],
   },
 ];
@@ -81,12 +84,26 @@ export function Footer() {
               <ul className="space-y-2.5">
                 {col.links.map((l) => (
                   <li key={l.label}>
-                    <Link
-                      href={l.href}
-                      className="text-xs text-zinc-500 hover:text-zinc-200 transition-colors duration-200"
-                    >
-                      {l.label}
-                    </Link>
+                    {l.href === "#cookie-settings" ? (
+                      <button
+                        data-testid="privacy-settings-btn"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          localStorage.removeItem("cookie-consent");
+                          window.dispatchEvent(new CustomEvent("show-cookie-banner"));
+                        }}
+                        className="text-xs text-zinc-500 hover:text-zinc-200 transition-colors duration-200 text-left cursor-pointer"
+                      >
+                        {l.label}
+                      </button>
+                    ) : (
+                      <Link
+                        href={l.href}
+                        className="text-xs text-zinc-500 hover:text-zinc-200 transition-colors duration-200"
+                      >
+                        {l.label}
+                      </Link>
+                    )}
                   </li>
                 ))}
               </ul>

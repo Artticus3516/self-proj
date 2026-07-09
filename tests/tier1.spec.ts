@@ -98,7 +98,7 @@ test.describe('F2: Database CRUD & Admin Dashboard', () => {
     await page.fill('input[type="email"], input[name="email"]', 'admin@agency.com');
     await page.fill('input[type="password"], input[name="password"]', 'adminpassword');
     await page.click('button[type="submit"]');
-    await expect(page).toHaveURL(/\/admin/);
+    await expect(page).toHaveURL(/\/admin(?!\/login)/);
   }
 
   test('Test 2.1: Verify Admin Dashboard displays lists of services, blogs, and leads retrieved from the database', async ({ page }) => {
@@ -409,7 +409,7 @@ test.describe('F4: Admin Auth, Security & Rate-limiting', () => {
     await expect(page).toHaveURL(/\/admin\/login|\/login/);
 
     // Clean error message is visible
-    const errorMsg = page.locator('.error-message, [data-testid="error-message"], text=/invalid|failed|incorrect/i');
+    const errorMsg = page.locator('.error-message, [data-testid="error-message"], :text-matches("invalid|failed|incorrect", "i")');
     await expect(errorMsg).toBeVisible();
   });
 

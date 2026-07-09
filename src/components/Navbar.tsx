@@ -126,7 +126,7 @@ export function Navbar() {
                 {/* ── Morphing container: dot → glassmorphic bar ── */}
                 <motion.div
                     className="mt-3 flex items-center justify-between px-5 overflow-hidden backdrop-blur-xl"
-                    variants={barVariants}
+                    variants={barVariants as any}
                     initial="initial"
                     animate={barControls}
                     style={{ originX: 0.5 }}

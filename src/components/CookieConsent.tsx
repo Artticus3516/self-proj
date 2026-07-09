@@ -18,6 +18,12 @@ export function CookieConsent() {
     }
   }, []);
 
+  useEffect(() => {
+    const handleShow = () => setVisible(true);
+    window.addEventListener("show-cookie-banner", handleShow);
+    return () => window.removeEventListener("show-cookie-banner", handleShow);
+  }, []);
+
   const handleAccept = () => {
     localStorage.setItem(CONSENT_KEY, "accepted");
     // Dispatch event so tracking.ts can react immediately on this page
@@ -51,7 +57,7 @@ export function CookieConsent() {
               <span className="mt-0.5 text-lg" aria-hidden="true">🍪</span>
               <div>
                 <p className="text-sm font-semibold text-white">
-                  Your Privacy Choices
+                  Your Privacy Choices (Cookie Consent)
                 </p>
                 <p className="mt-1 text-xs leading-relaxed text-zinc-400">
                   We use cookies and similar technologies to analyse site traffic
@@ -83,7 +89,7 @@ export function CookieConsent() {
                 onClick={handleReject}
                 className="flex-1 rounded-xl border border-zinc-700 bg-transparent px-4 py-2.5 text-xs font-medium text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-white"
               >
-                Reject All
+                Reject All (Decline)
               </button>
               <button
                 onClick={handleAccept}

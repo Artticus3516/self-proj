@@ -6,6 +6,8 @@ import type { Database } from "@/lib/database.types";
 
 type TrafficLog = Database["public"]["Tables"]["traffic_logs"]["Row"];
 
+const CARD_CLASSES = "rounded-xl border border-zinc-800 bg-zinc-900/60 p-5";
+
 function StatCard({
   label,
   value,
@@ -73,7 +75,7 @@ export default function TrafficDashboardPage() {
 
       {/* Top paths */}
       {topPaths.length > 0 && (
-        <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-5">
+        <div className={CARD_CLASSES}>
           <h2 className="text-sm font-semibold text-zinc-300 mb-4">Top Pages</h2>
           <div className="space-y-2">
             {topPaths.map(([path, count]) => (
