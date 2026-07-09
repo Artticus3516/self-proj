@@ -9,6 +9,7 @@ const NAV_LINKS = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
+    { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
 ];
 
@@ -167,8 +168,8 @@ export function Navbar() {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                                <span className="text-sm font-semibold tracking-tight text-white/90 group-hover:text-white transition-colors">
-                  Agency
+                <span className="text-sm font-semibold tracking-tight text-white/90 group-hover:text-white transition-colors">
+                  Atlas
                 </span>
                             </Link>
                         </motion.div>

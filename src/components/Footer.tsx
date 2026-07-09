@@ -58,7 +58,7 @@ export function Footer() {
                 />
               </svg>
               <span className="text-sm font-semibold tracking-tight text-white/80 group-hover:text-white transition-colors">
-                Agency
+                Atlas
               </span>
             </Link>
             <p className="text-xs leading-relaxed text-zinc-600 font-light max-w-[180px]">
@@ -100,7 +100,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="font-mono text-[10px] text-zinc-700 tracking-wide">
-            © {year} Agency. All rights reserved.
+            © {year} Atlas. All rights reserved.
           </p>
           <p className="font-mono text-[10px] text-zinc-800 tracking-wide">
             Engineered for uptime. Built for scale.
