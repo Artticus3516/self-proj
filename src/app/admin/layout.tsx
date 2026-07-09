@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const NAV = [
   { href: "/admin/traffic", label: "Traffic", icon: "📊" },
@@ -7,7 +10,18 @@ const NAV = [
   { href: "/admin/blog", label: "Blog Posts", icon: "📝" },
 ];
 
-export default function AdminLayout({ children }: LayoutProps<"/admin">) {
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+    } catch (e) {
+      // Ignore errors and force client redirect
+    }
+    router.replace("/admin/login");
+  };
+
   return (
     <div className="min-h-screen bg-[#030303] text-white flex">
       {/* Sidebar */}
@@ -36,13 +50,20 @@ export default function AdminLayout({ children }: LayoutProps<"/admin">) {
         </nav>
 
         {/* Footer */}
-        <div className="border-t border-zinc-800 px-5 py-4">
+        <div className="border-t border-zinc-800 px-5 py-4 flex flex-col gap-3">
           <Link
             href="/"
             className="flex items-center gap-2 text-xs text-zinc-600 hover:text-zinc-400 transition-colors"
           >
             ← Back to site
           </Link>
+          <button
+            data-testid="logout-btn"
+            onClick={handleLogout}
+            className="flex items-center gap-2 text-xs text-red-500/80 hover:text-red-400 transition-colors text-left font-medium cursor-pointer"
+          >
+            ❌ Logout
+          </button>
         </div>
       </aside>
 

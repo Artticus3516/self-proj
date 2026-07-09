@@ -18,14 +18,34 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Agency — Web, IaaS & SaaS Solutions",
+  title: "Atlas — Premium UI Web Design & Interactive 3D Portfolios",
   description:
-    "A full-service digital agency delivering world-class websites, cloud infrastructure, and software-as-a-service solutions for modern businesses.",
+    "Atlas is a next-generation digital agency specializing in website development, custom SaaS engineering, and interactive 3D portfolios built to enterprise standards.",
+  keywords: [
+    "website development",
+    "digital agency",
+    "interactive 3D portfolios",
+    "premium UI web design",
+    "IaaS infrastructure",
+    "SaaS development",
+    "cloud architecture",
+    "web design saas",
+    "saas development services",
+    "enterprise web design",
+    "react development studio",
+    "cloud saas solutions",
+    "ux web design agency",
+  ],
+  alternates: {
+    canonical: "https://atlas-agency.com",
+  },
   openGraph: {
     type: "website",
-    title: "Digital Agency — Web, IaaS & SaaS Solutions",
+    title: "Atlas — Premium UI Web Design & Interactive 3D Portfolios",
     description:
-      "A full-service digital agency delivering world-class websites, cloud infrastructure, and software-as-a-service solutions.",
+      "Resilient digital infrastructure, custom SaaS engineering, and interactive 3D portfolios designed for enterprise velocity.",
+    url: "https://atlas-agency.com",
+    siteName: "Atlas",
   },
 };
 

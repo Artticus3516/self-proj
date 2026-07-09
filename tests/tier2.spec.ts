@@ -74,7 +74,7 @@ test.describe('F1: Core Pages & WebGL Hero - Tier 2', () => {
     await page.goto('/does-not-exist');
 
     // Verify 404-related text or headers are visible on screen
-    const notFoundText = page.locator('h1, h2, p, text=404, text=not found, text=Page not found').first();
+    const notFoundText = page.locator('h1, h2, p, :text("404"), :text("not found"), :text("Page not found")').first();
     await expect(notFoundText).toBeVisible();
 
     // Verify link to return home exists and navigates back to root
@@ -130,7 +130,7 @@ test.describe('F2: Database CRUD & Admin Dashboard - Tier 2', () => {
     await page.fill('input[type="email"], input[name="email"]', 'admin@agency.com');
     await page.fill('input[type="password"], input[name="password"]', 'adminpassword');
     await page.click('button[type="submit"]');
-    await expect(page).toHaveURL(/\/admin/);
+    await expect(page).toHaveURL(/\/admin(?!\/login)/);
   }
 
   test('Test 2.6: Verify Service creation rejects empty title or description', async ({ page }) => {
@@ -228,7 +228,7 @@ test.describe('F2: Database CRUD & Admin Dashboard - Tier 2', () => {
     await page.click('button[type="submit"]');
 
     // Confirm submission success display
-    const successMsg = page.locator('.success-message, [data-testid="success-message"], text=/thank you|success|received|submitted/i');
+    const successMsg = page.locator('.success-message, [data-testid="success-message"], :text-matches("thank you|success|received|submitted", "i")');
     await expect(successMsg).toBeVisible();
 
     // Login to admin and verify lead shows up in Leads view
@@ -300,6 +300,7 @@ test.describe('F3: Traffic Tracking & Cookie Consent - Tier 2', () => {
 
     // Case 2: Decline Consent
     await page.context().clearCookies();
+    await page.evaluate(() => localStorage.clear());
     await page.goto('/');
     await expect(consentBanner).toBeVisible();
     await consentBanner.locator('button:has-text("Decline")').click();

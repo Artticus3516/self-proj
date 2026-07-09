@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { supabase } from "@/lib/supabase";
+import { useActionState } from "react";
+import { submitContactAction } from "./actions";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 type FormState = { name: string; email: string; company: string; message: string };
@@ -59,30 +59,8 @@ function TerminalField({
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function ContactPage() {
-  const [form, setForm] = useState<FormState>({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
-  });
-  const [archReq, setArchReq] = useState(ARCH_REQUIREMENTS[0]);
-  const [scale, setScale] = useState(SCALE_OPTIONS[0]);
-  const [status, setStatus] = useState<Status>("idle");
-
-  const update = (field: keyof FormState, value: string) =>
-    setForm((prev) => ({ ...prev, [field]: value }));
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus("submitting");
-    const { error } = await supabase.from("leads").insert({
-      name: form.company || "(no company)",
-      email: form.email,
-      // message encodes all enterprise intake parameters for CMS admin view
-      message: `[${archReq}] [${scale}] ${form.message}`,
-    });
-    setStatus(error ? "error" : "success");
-  };
+  const [state, formAction, isPending] = useActionState(submitContactAction, { status: "idle" });
+  const status = state.status;
 
   return (
     <main className="min-h-screen bg-transparent text-white flex items-center justify-center px-4 py-20">
@@ -110,7 +88,7 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="p-6 space-y-6">
+          <form action={formAction} className="p-6 space-y-6">
             {/* Section heading */}
             <div className="pb-2 border-b border-white/[0.05]">
               <h2 className="text-base font-semibold text-white tracking-tight">Initialize Core Architecture.</h2>
@@ -120,9 +98,8 @@ export default function ContactPage() {
             {/* Row 1 — Company Name */}
             <TerminalField index="01" label="COMPANY_NAME">
               <input
+                name="name"
                 required
-                value={form.company}
-                onChange={(e) => update("company", e.target.value)}
                 placeholder="Acme Corp"
                 className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
                            text-sm text-white font-mono placeholder:text-zinc-700
@@ -134,8 +111,7 @@ export default function ContactPage() {
             {/* Row 2 — Architecture Requirement */}
             <TerminalField index="02" label="ARCHITECTURE_REQUIREMENT">
               <select
-                value={archReq}
-                onChange={(e) => setArchReq(e.target.value)}
+                name="archReq"
                 className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
                            text-sm text-white font-mono
                            outline-none focus:border-white focus:ring-1 focus:ring-white/20
@@ -150,8 +126,7 @@ export default function ContactPage() {
             {/* Row 3 — Estimated Scale */}
             <TerminalField index="03" label="ESTIMATED_SCALE">
               <select
-                value={scale}
-                onChange={(e) => setScale(e.target.value)}
+                name="scale"
                 className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
                            text-sm text-white font-mono
                            outline-none focus:border-white focus:ring-1 focus:ring-white/20
@@ -166,10 +141,9 @@ export default function ContactPage() {
             {/* Row 4 — Email */}
             <TerminalField index="04" label="EMAIL_ADDRESS">
               <input
+                name="email"
                 required
                 type="email"
-                value={form.email}
-                onChange={(e) => update("email", e.target.value)}
                 placeholder="cto@enterprise.com"
                 className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
                            text-sm text-white font-mono placeholder:text-zinc-700
@@ -181,10 +155,9 @@ export default function ContactPage() {
             {/* Row 5 — Message */}
             <TerminalField index="05" label="BRIEF_DESCRIPTION">
               <textarea
+                name="message"
                 required
                 rows={5}
-                value={form.message}
-                onChange={(e) => update("message", e.target.value)}
                 placeholder="Describe your project scope and timeline..."
                 className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
                            text-sm text-white font-mono placeholder:text-zinc-700
@@ -197,11 +170,11 @@ export default function ContactPage() {
             <div className="flex items-center gap-4">
               <button
                 type="submit"
-                disabled={status === "submitting" || status === "success"}
+                disabled={isPending || status === "success"}
                 className="px-8 py-3 rounded-full bg-white text-black font-semibold text-sm transition-all duration-300 hover:bg-zinc-200 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] disabled:opacity-50 disabled:cursor-not-allowed text-center"
               >
-                {status === "submitting"
-                  ? "TRANSMITTING..."
+                {isPending 
+                  ? "TRANSMITTING..." 
                   : status === "success"
                   ? "ORDER RECEIVED ✓"
                   : "SUBMIT_ORDER //"}

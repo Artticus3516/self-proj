@@ -1,16 +1,10 @@
-import { supabase } from "@/lib/supabase";
+"use client";
+
+import { useState, useEffect } from "react";
 import type { Database } from "@/lib/database.types";
+import { getLeadsAction } from "./actions";
 
 type Lead = Database["public"]["Tables"]["leads"]["Row"];
-
-async function getLeads(): Promise<Lead[]> {
-  const { data } = await supabase
-    .from("leads")
-    .select("*")
-    .order("created_at", { ascending: false })
-    .limit(500);
-  return data ?? [];
-}
 
 function parseMessage(raw: string) {
   // Format: "[Arch Req] [Scale] Description" or plain message
@@ -21,8 +15,16 @@ function parseMessage(raw: string) {
   return { archReq: null, scale: null, body: raw };
 }
 
-export default async function LeadsDashboardPage() {
-  const leads = await getLeads();
+export default function LeadsDashboardPage() {
+  const [leads, setLeads] = useState<Lead[]>([]);
+
+  useEffect(() => {
+    async function fetchLeads() {
+      const data = await getLeadsAction();
+      setLeads(data ?? []);
+    }
+    void fetchLeads();
+  }, []);
 
   return (
     <div className="p-8 space-y-8 max-w-6xl">
@@ -40,7 +42,7 @@ export default async function LeadsDashboardPage() {
       </div>
 
       {/* Table */}
-      <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 overflow-hidden">
+      <div data-testid="leads-list" className="rounded-xl border border-zinc-800 bg-zinc-900/60 overflow-hidden">
         {leads.length === 0 ? (
           <div className="px-5 py-14 text-center space-y-2">
             <p className="text-sm text-zinc-600">No leads yet.</p>

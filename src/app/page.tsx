@@ -17,7 +17,7 @@ export default function Home() {
         </div>
         
         <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white via-zinc-200 to-zinc-500 drop-shadow-sm select-none">
-          3D Verse
+          Atlas
         </h1>
         
         <p className="text-zinc-400 text-lg md:text-xl max-w-2xl leading-relaxed font-light tracking-wide">

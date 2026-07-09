@@ -9,6 +9,7 @@ const NAV_LINKS = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/services", label: "Services" },
+    { href: "/blog", label: "Blog" },
     { href: "/contact", label: "Contact" },
 ];
 
@@ -126,7 +127,7 @@ export function Navbar() {
                 {/* ── Morphing container: dot → glassmorphic bar ── */}
                 <motion.div
                     className="mt-3 flex items-center justify-between px-5 overflow-hidden backdrop-blur-xl"
-                    variants={barVariants}
+                    variants={barVariants as any}
                     initial="initial"
                     animate={barControls}
                     style={{ originX: 0.5 }}
@@ -168,8 +169,8 @@ export function Navbar() {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                                <span className="text-sm font-semibold tracking-tight text-white/90 group-hover:text-white transition-colors">
-                  Agency
+                <span className="text-sm font-semibold tracking-tight text-white/90 group-hover:text-white transition-colors">
+                  Atlas
                 </span>
                             </Link>
                         </motion.div>
