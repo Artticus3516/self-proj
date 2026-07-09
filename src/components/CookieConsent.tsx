@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const CONSENT_KEY = "cookie-consent";
 
@@ -74,13 +75,13 @@ export function CookieConsent() {
 
             {/* Links */}
             <div className="mb-4 flex gap-3 text-[11px] text-zinc-500">
-              <a href="/privacy" className="hover:text-zinc-300 underline underline-offset-2 transition-colors">
+              <Link href="/privacy" className="hover:text-zinc-300 underline underline-offset-2 transition-colors">
                 Privacy Policy
-              </a>
+              </Link>
               <span aria-hidden>·</span>
-              <a href="/cookies" className="hover:text-zinc-300 underline underline-offset-2 transition-colors">
+              <Link href="/cookies" className="hover:text-zinc-300 underline underline-offset-2 transition-colors">
                 Cookie Policy
-              </a>
+              </Link>
             </div>
 
             {/* Actions */}
