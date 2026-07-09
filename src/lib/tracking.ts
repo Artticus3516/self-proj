@@ -1,6 +1,6 @@
 import { supabase } from "./supabase";
 
-const CONSENT_KEY = "cookie_consent";
+const CONSENT_KEY = "cookie-consent";
 
 /**
  * Records a page visit to traffic_logs ONLY if the user has granted cookie consent.
@@ -10,7 +10,7 @@ export async function recordPageView(path: string): Promise<void> {
   if (typeof window === "undefined") return; // Server-side guard
 
   const consent = localStorage.getItem(CONSENT_KEY);
-  if (consent !== "granted") return; // Strict enforcement — bail out if not explicitly granted
+  if (consent !== "accepted") return; // Strict enforcement — bail out if not explicitly granted
 
   const { error } = await supabase.from("traffic_logs").insert({
     path,

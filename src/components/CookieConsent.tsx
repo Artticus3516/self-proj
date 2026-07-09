@@ -3,7 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 
-const CONSENT_KEY = "cookie_consent";
+const CONSENT_KEY = "cookie-consent";
 
 export function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -19,14 +19,14 @@ export function CookieConsent() {
   }, []);
 
   const handleAccept = () => {
-    localStorage.setItem(CONSENT_KEY, "granted");
+    localStorage.setItem(CONSENT_KEY, "accepted");
     // Dispatch event so tracking.ts can react immediately on this page
     window.dispatchEvent(new CustomEvent("consent-granted"));
     setVisible(false);
   };
 
   const handleReject = () => {
-    localStorage.setItem(CONSENT_KEY, "denied");
+    localStorage.setItem(CONSENT_KEY, "declined");
     setVisible(false);
   };
 
@@ -34,6 +34,7 @@ export function CookieConsent() {
     <AnimatePresence>
       {visible && (
         <motion.div
+          id="cookie-consent-banner"
           key="cookie-banner"
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}

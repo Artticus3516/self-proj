@@ -33,7 +33,10 @@ export default function AdminLoginPage() {
     await new Promise((r) => setTimeout(r, 400));
 
     // Mock credential check (replace with real BaaS auth in production)
-    if (username === "admin" && password === "password") {
+    if (
+      (username === "admin" || username === "admin@agency.com") &&
+      (password === "password" || password === "adminpassword")
+    ) {
       // Set mock session cookie
       document.cookie = "admin_session=mock-session-token-xyz-9876; path=/; SameSite=Strict";
       failedAttempts.count = 0;
@@ -73,7 +76,8 @@ export default function AdminLoginPage() {
             </label>
             <input
               id="username"
-              type="text"
+              name="email"
+              type="email"
               autoComplete="username"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
@@ -89,6 +93,7 @@ export default function AdminLoginPage() {
             </label>
             <input
               id="password"
+              name="password"
               type="password"
               autoComplete="current-password"
               value={password}

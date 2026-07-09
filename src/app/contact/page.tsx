@@ -120,6 +120,7 @@ export default function ContactPage() {
             {/* Row 1 — Company Name */}
             <TerminalField index="01" label="COMPANY_NAME">
               <input
+                name="name"
                 required
                 value={form.company}
                 onChange={(e) => update("company", e.target.value)}
@@ -166,6 +167,7 @@ export default function ContactPage() {
             {/* Row 4 — Email */}
             <TerminalField index="04" label="EMAIL_ADDRESS">
               <input
+                name="email"
                 required
                 type="email"
                 value={form.email}
@@ -181,6 +183,7 @@ export default function ContactPage() {
             {/* Row 5 — Message */}
             <TerminalField index="05" label="BRIEF_DESCRIPTION">
               <textarea
+                name="message"
                 required
                 rows={5}
                 value={form.message}
