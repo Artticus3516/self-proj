@@ -1,11 +1,11 @@
 "use server";
 import { supabaseAdmin } from "@/lib/supabase";
 
-export async function getLeadsAction() {
+export async function getTrafficLogsAction() {
   const { data } = await supabaseAdmin
-    .from("leads")
+    .from("traffic_logs")
     .select("*")
-    .order("created_at", { ascending: false })
-    .limit(500);
+    .order("timestamp", { ascending: false })
+    .limit(200);
   return data;
 }

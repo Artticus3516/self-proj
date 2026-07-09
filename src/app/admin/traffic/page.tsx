@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabase";
 import type { Database } from "@/lib/database.types";
+import { getTrafficLogsAction } from "./actions";
 
 type TrafficLog = Database["public"]["Tables"]["traffic_logs"]["Row"];
 
@@ -31,11 +31,7 @@ export default function TrafficDashboardPage() {
 
   useEffect(() => {
     async function fetchTrafficLogs() {
-      const { data } = await supabase
-        .from("traffic_logs")
-        .select("*")
-        .order("timestamp", { ascending: false })
-        .limit(200);
+      const data = await getTrafficLogsAction();
       setLogs(data ?? []);
     }
     void fetchTrafficLogs();
