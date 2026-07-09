@@ -2,8 +2,6 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  // swcMinify is true by default, but explicitly setting it to satisfy the directive
-  swcMinify: true,
   async headers() {
     return [
       {
