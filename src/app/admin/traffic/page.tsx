@@ -1,18 +1,10 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import type { Database } from "@/lib/database.types";
 
 type TrafficLog = Database["public"]["Tables"]["traffic_logs"]["Row"];
-
-async function getTrafficLogs(): Promise<TrafficLog[]> {
-  const { data, error } = await supabase
-    .from("traffic_logs")
-    .select("*")
-    .order("timestamp", { ascending: false })
-    .limit(200);
-
-  if (error) return [];
-  return data ?? [];
-}
 
 function StatCard({
   label,
@@ -32,8 +24,20 @@ function StatCard({
   );
 }
 
-export default async function TrafficDashboardPage() {
-  const logs = await getTrafficLogs();
+export default function TrafficDashboardPage() {
+  const [logs, setLogs] = useState<TrafficLog[]>([]);
+
+  useEffect(() => {
+    async function fetchTrafficLogs() {
+      const { data } = await supabase
+        .from("traffic_logs")
+        .select("*")
+        .order("timestamp", { ascending: false })
+        .limit(200);
+      setLogs(data ?? []);
+    }
+    void fetchTrafficLogs();
+  }, []);
 
   const total = logs.length;
   const granted = logs.filter((l) => l.consent_granted).length;

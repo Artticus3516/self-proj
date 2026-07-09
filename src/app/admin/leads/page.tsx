@@ -1,16 +1,10 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabase";
 import type { Database } from "@/lib/database.types";
 
 type Lead = Database["public"]["Tables"]["leads"]["Row"];
-
-async function getLeads(): Promise<Lead[]> {
-  const { data } = await supabase
-    .from("leads")
-    .select("*")
-    .order("created_at", { ascending: false })
-    .limit(500);
-  return data ?? [];
-}
 
 function parseMessage(raw: string) {
   // Format: "[Arch Req] [Scale] Description" or plain message
@@ -21,8 +15,20 @@ function parseMessage(raw: string) {
   return { archReq: null, scale: null, body: raw };
 }
 
-export default async function LeadsDashboardPage() {
-  const leads = await getLeads();
+export default function LeadsDashboardPage() {
+  const [leads, setLeads] = useState<Lead[]>([]);
+
+  useEffect(() => {
+    async function fetchLeads() {
+      const { data } = await supabase
+        .from("leads")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(500);
+      setLeads(data ?? []);
+    }
+    void fetchLeads();
+  }, []);
 
   return (
     <div className="p-8 space-y-8 max-w-6xl">
