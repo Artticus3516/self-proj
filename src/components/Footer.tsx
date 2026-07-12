@@ -36,7 +36,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/[0.06] bg-[#030303]" role="contentinfo">
+    <footer className="border-t border-black/5 dark:border-white/[0.06] bg-transparent" role="contentinfo">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14">
 
         {/* Top section: brand + link columns */}
@@ -44,32 +44,32 @@ export function Footer() {
           {/* Brand block */}
           <div className="col-span-2 sm:col-span-1 space-y-4">
             <Link href="/" className="flex items-center gap-2.5 group" aria-label="Home">
-              <svg width="20" height="20" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 40 40" fill="none" aria-hidden="true" className="text-zinc-900 dark:text-white">
                 <path
                   d="M20 2L38 20L20 38L2 20L20 2Z"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="1.5"
                   strokeLinejoin="round"
                 />
                 <path
                   d="M20 10L30 20L20 30L10 20L20 10Z"
-                  fill="white"
+                  fill="currentColor"
                   fillOpacity="0.15"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="1"
                   strokeLinejoin="round"
                 />
               </svg>
-              <span className="text-sm font-semibold tracking-tight text-white/80 group-hover:text-white transition-colors">
+              <span className="text-sm font-semibold tracking-tight text-zinc-900/80 dark:text-white/80 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">
                 Atlas
               </span>
             </Link>
-            <p className="text-xs leading-relaxed text-zinc-600 font-light max-w-[180px]">
+            <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-600 font-light max-w-[180px]">
               Digital infrastructure &amp; software engineering for enterprise organisations.
             </p>
             <div className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" aria-hidden="true" />
-              <span className="font-mono text-[10px] text-zinc-600 tracking-widest uppercase">
+              <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-600 tracking-widest uppercase">
                 Systems Online
               </span>
             </div>
@@ -78,7 +78,7 @@ export function Footer() {
           {/* Link columns */}
           {FOOTER_LINKS.map((col) => (
             <div key={col.heading} className="space-y-4">
-              <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-700 uppercase">
+              <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-700 uppercase">
                 {col.heading}
               </p>
               <ul className="space-y-2.5">
@@ -92,14 +92,14 @@ export function Footer() {
                           localStorage.removeItem("cookie-consent");
                           window.dispatchEvent(new CustomEvent("show-cookie-banner"));
                         }}
-                        className="text-xs text-zinc-500 hover:text-zinc-200 transition-colors duration-200 text-left cursor-pointer"
+                        className="text-xs text-zinc-600 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors duration-200 text-left cursor-pointer"
                       >
                         {l.label}
                       </button>
                     ) : (
                       <Link
                         href={l.href}
-                        className="text-xs text-zinc-500 hover:text-zinc-200 transition-colors duration-200"
+                        className="text-xs text-zinc-600 hover:text-zinc-900 dark:text-zinc-500 dark:hover:text-zinc-200 transition-colors duration-200"
                       >
                         {l.label}
                       </Link>
@@ -112,14 +112,14 @@ export function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-white/[0.05] mb-6" />
+        <div className="h-px bg-black/[0.05] dark:bg-white/[0.05] mb-6" />
 
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <p className="font-mono text-[10px] text-zinc-700 tracking-wide">
+          <p className="font-mono text-[10px] text-zinc-500 dark:text-zinc-700 tracking-wide">
             © {year} Atlas. All rights reserved.
           </p>
-          <p className="font-mono text-[10px] text-zinc-800 tracking-wide">
+          <p className="font-mono text-[10px] text-zinc-600 dark:text-zinc-800 tracking-wide">
             Engineered for uptime. Built for scale.
           </p>
         </div>

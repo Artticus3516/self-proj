@@ -30,7 +30,7 @@ export function PreLoader() {
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#030303]"
+          className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white dark:bg-[#030303]"
           aria-label="Loading"
           role="status"
         >
@@ -48,31 +48,32 @@ export function PreLoader() {
               viewBox="0 0 40 40"
               fill="none"
               aria-hidden="true"
+              className="text-zinc-900 dark:text-white"
             >
               <path
                 d="M20 2L38 20L20 38L2 20L20 2Z"
-                stroke="white"
+                stroke="currentColor"
                 strokeWidth="1.5"
                 strokeLinejoin="round"
               />
               <path
                 d="M20 10L30 20L20 30L10 20L20 10Z"
-                fill="white"
+                fill="currentColor"
                 fillOpacity="0.15"
-                stroke="white"
+                stroke="currentColor"
                 strokeWidth="1"
                 strokeLinejoin="round"
               />
             </svg>
-            <span className="text-xs tracking-[0.35em] text-zinc-400 uppercase font-light">
+            <span className="text-xs tracking-[0.35em] text-zinc-500 dark:text-zinc-400 uppercase font-light">
               Loading
             </span>
           </motion.div>
 
           {/* Progress bar */}
-          <div className="h-px w-48 overflow-hidden rounded-full bg-zinc-800">
+          <div className="h-px w-48 overflow-hidden rounded-full bg-black/10 dark:bg-zinc-800">
             <motion.div
-              className="h-full bg-white rounded-full"
+              className="h-full bg-zinc-900 dark:bg-white rounded-full"
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ duration: 1.2, ease: "easeInOut" }}

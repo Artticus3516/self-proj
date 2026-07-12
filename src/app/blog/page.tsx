@@ -52,18 +52,18 @@ function BlogCard({
 
       <Link href={`/blog/${post.id}`} className="flex flex-col flex-1 focus:outline-none">
         {/* Card header */}
-        <div className="flex items-start justify-between p-6 pb-4 border-b border-white/[0.06]">
+        <div className="flex items-start justify-between p-6 pb-4 border-b border-black/5 dark:border-white/[0.06]">
           <div className="space-y-1">
-            <span className="font-mono text-[10px] tracking-[0.3em] text-zinc-600 uppercase">
+            <span className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
               Engineering — {formattedDate}
             </span>
-            <h2 className="text-lg font-semibold text-white tracking-tight leading-snug group-hover:text-zinc-200 transition-colors duration-300">
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-white tracking-tight leading-snug group-hover:text-black dark:group-hover:text-zinc-200 transition-colors duration-300">
               {post.title}
             </h2>
           </div>
           {/* Mechanical corner chevron */}
           <span
-            className="mt-1 text-zinc-700 group-hover:text-zinc-400 transition-colors duration-300 text-lg leading-none select-none"
+            className="mt-1 text-zinc-400 dark:text-zinc-700 group-hover:text-zinc-900 dark:group-hover:text-zinc-400 transition-colors duration-300 text-lg leading-none select-none"
             aria-hidden="true"
           >
             ↗
@@ -115,7 +115,7 @@ export default function BlogPage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#030303] text-white">
+    <main className="min-h-screen">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 pt-32 pb-24">
         {/* ── Page header ──────────────────────────────────────────────── */}
         <motion.div
@@ -124,10 +124,10 @@ export default function BlogPage() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="mb-16 max-w-3xl"
         >
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.08] text-white">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.08] text-zinc-900 dark:text-white">
             Insights & <br className="sm:hidden" /> Engineering
           </h1>
-          <p className="mt-5 text-base leading-relaxed text-zinc-500 font-light max-w-xl">
+          <p className="mt-5 text-base leading-relaxed text-zinc-600 dark:text-zinc-500 font-light max-w-xl">
             Deep dives into enterprise architecture, SaaS scaling, and premium
             web design. Thoughts from the engineers and designers at Atlas.
           </p>
@@ -146,8 +146,8 @@ export default function BlogPage() {
                 key={tag}
                 className={`px-4 py-2 rounded-full text-xs font-mono tracking-wide transition-colors duration-300 ${
                   i === 0
-                    ? "bg-white text-black"
-                    : "bg-zinc-900/50 text-zinc-400 border border-white/10 hover:bg-zinc-800 hover:text-white"
+                    ? "bg-zinc-900 text-white dark:bg-white dark:text-black"
+                    : "bg-white/60 dark:bg-zinc-900/50 text-zinc-600 dark:text-zinc-400 border border-black/5 dark:border-white/10 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white"
                 }`}
               >
                 {tag}
@@ -178,21 +178,21 @@ export default function BlogPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.4, ease: "easeOut" }}
-          className="relative rounded-2xl border border-white/10 bg-zinc-950/40 backdrop-blur-xl p-8 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 overflow-hidden"
+          className="relative rounded-2xl border border-black/5 dark:border-white/10 bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl p-8 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 overflow-hidden"
         >
-          <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-white/20 rounded-tl-2xl" aria-hidden="true" />
-          <span className="absolute top-0 right-0 w-4 h-4 border-t border-r border-white/20 rounded-tr-2xl" aria-hidden="true" />
-          <span className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-white/20 rounded-bl-2xl" aria-hidden="true" />
-          <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-white/20 rounded-br-2xl" aria-hidden="true" />
+          <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-black/10 dark:border-white/20 rounded-tl-2xl" aria-hidden="true" />
+          <span className="absolute top-0 right-0 w-4 h-4 border-t border-r border-black/10 dark:border-white/20 rounded-tr-2xl" aria-hidden="true" />
+          <span className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-black/10 dark:border-white/20 rounded-bl-2xl" aria-hidden="true" />
+          <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-black/10 dark:border-white/20 rounded-br-2xl" aria-hidden="true" />
 
           <div className="space-y-2 max-w-lg">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-600 uppercase">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
               Stay updated
             </p>
-            <p className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
+            <p className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight leading-snug">
               Join the Atlas Newsletter
             </p>
-            <p className="text-sm text-zinc-500 font-light leading-relaxed">
+            <p className="text-sm text-zinc-600 dark:text-zinc-500 font-light leading-relaxed">
               Receive our latest articles, case studies, and engineering practices directly to your inbox. No spam, just pure signal.
             </p>
           </div>
@@ -201,15 +201,15 @@ export default function BlogPage() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="bg-zinc-900 border border-white/10 text-white text-sm rounded-xl px-5 py-3.5 focus:outline-none focus:border-white/30 transition-colors w-full sm:w-64"
+              className="bg-white dark:bg-zinc-900 border border-black/10 dark:border-white/10 text-black dark:text-white text-sm rounded-xl px-5 py-3.5 focus:outline-none focus:border-black/30 dark:focus:border-white/30 transition-colors w-full sm:w-64 shadow-sm dark:shadow-none"
               required
             />
             <button
               type="submit"
               className="shrink-0 inline-flex justify-center items-center gap-2 px-7 py-3.5 rounded-xl
-                         bg-white text-black text-sm font-semibold tracking-wide
-                         transition-all duration-300 hover:bg-zinc-200 hover:scale-105 active:scale-95
-                         shadow-[0_0_30px_rgba(255,255,255,0.08)]"
+                         bg-zinc-900 text-white dark:bg-white dark:text-black text-sm font-semibold tracking-wide
+                         transition-all duration-300 hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:scale-105 active:scale-95
+                         shadow-[0_0_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_30px_rgba(255,255,255,0.08)]"
             >
               Subscribe
             </button>

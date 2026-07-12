@@ -6,7 +6,7 @@ import * as THREE from "three";
 
 const SPACING = 0.45;
 
-export function DottedWave() {
+export function DottedWave({ isLight }: { isLight?: boolean }) {
   const pointsRef = useRef<THREE.Points>(null);
   const [gridSize, setGridSize] = useState(40); // Safe default for SSR/initial render (mobile-first)
 
@@ -81,9 +81,9 @@ export function DottedWave() {
       </bufferGeometry>
       <pointsMaterial
         size={0.06}
-        color="#ffffff"
+        color={isLight ? "#4a4a55" : "#ffffff"}
         transparent
-        opacity={0.7}
+        opacity={isLight ? 0.4 : 0.7}
         sizeAttenuation={true}
       />
     </points>

@@ -17,7 +17,7 @@ export default function CookiesPolicyPage() {
   useEffect(() => initTracking("/cookies"), []);
 
   return (
-    <main className="min-h-screen bg-[#030303] text-white">
+    <main className="min-h-screen">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 pt-32 pb-24 space-y-16">
         
         {/* Header */}
@@ -28,16 +28,16 @@ export default function CookiesPolicyPage() {
           custom={0}
           className="space-y-4"
         >
-          <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-600 uppercase">
+          <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase">
             Legal Compliance
           </p>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-zinc-900 dark:text-white">
             Cookie Policy
           </h1>
-          <p className="text-sm text-zinc-500 font-mono">
+          <p className="text-sm text-zinc-600 dark:text-zinc-500 font-mono">
             Last Updated: July 9, 2026
           </p>
-          <div className="h-px w-24 bg-white/10" />
+          <div className="h-px w-24 bg-black/10 dark:bg-white/10" />
         </motion.section>
 
         {/* Content Details */}
@@ -48,12 +48,12 @@ export default function CookiesPolicyPage() {
           custom={1}
           className="space-y-10 text-zinc-400 font-light leading-relaxed text-sm"
         >
-          <p className="text-base text-zinc-300">
+          <p className="text-base text-zinc-700 dark:text-zinc-300">
             This Cookie Policy explains how Atlas uses cookies and similar tracking technologies when you visit our website. It clarifies the distinction between first-party and third-party trackers, as well as the exact behaviors triggered when you accept or decline our tracking consent.
           </p>
 
           <div className="space-y-4">
-            <h2 className="text-lg font-semibold text-white font-mono uppercase tracking-wider">
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-white font-mono uppercase tracking-wider">
               1. What Are Cookies?
             </h2>
             <p>
@@ -62,7 +62,7 @@ export default function CookiesPolicyPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-lg font-semibold text-white font-mono uppercase tracking-wider">
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-white font-mono uppercase tracking-wider">
               2. First-Party vs. Third-Party Cookies
             </h2>
             <p>
@@ -70,37 +70,37 @@ export default function CookiesPolicyPage() {
             </p>
             <ul className="list-disc pl-5 space-y-3">
               <li>
-                <strong className="text-zinc-200">First-Party Trackers (System Essential):</strong> These are set directly by us. We use standard local storage keys (such as `cookie-consent`) to store your preferences (e.g. whether you accepted or declined tracking). These are required to respect your privacy selections and prevent the banner from reappearing on subsequent visits.
+                <strong className="text-black dark:text-zinc-200">First-Party Trackers (System Essential):</strong> These are set directly by us. We use standard local storage keys (such as `cookie-consent`) to store your preferences (e.g. whether you accepted or declined tracking). These are required to respect your privacy selections and prevent the banner from reappearing on subsequent visits.
               </li>
               <li>
-                <strong className="text-zinc-200">Third-Party & Analytics Cookies:</strong> We do not inject unverified third-party scripts. Instead, we use custom tracking utilities that log anonymous site traffic (user-agent, page path, timestamps) to our secure server API endpoint (`/api/track`). This helps us monitor performance metrics and system load.
+                <strong className="text-black dark:text-zinc-200">Third-Party & Analytics Cookies:</strong> We do not inject unverified third-party scripts. Instead, we use custom tracking utilities that log anonymous site traffic (user-agent, page path, timestamps) to our secure server API endpoint (`/api/track`). This helps us monitor performance metrics and system load.
               </li>
             </ul>
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-lg font-semibold text-white font-mono uppercase tracking-wider">
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-white font-mono uppercase tracking-wider">
               3. Consent Choices: Accept vs. Decline
             </h2>
             <p>
               You are prompted to make a choice regarding cookie consent on your initial visit. Here is exactly what happens for each option:
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="rounded-xl border border-white/[0.06] bg-zinc-950/40 backdrop-blur-xl p-5 space-y-2">
-                <p className="font-mono font-bold text-white uppercase text-xs tracking-wider flex items-center gap-1.5">
+              <div className="rounded-xl border border-black/5 dark:border-white/[0.06] bg-white/60 dark:bg-zinc-950/40 backdrop-blur-xl p-5 space-y-2">
+                <p className="font-mono font-bold text-zinc-900 dark:text-white uppercase text-xs tracking-wider flex items-center gap-1.5">
                   <span className="h-2 w-2 rounded-full bg-green-500" />
                   If You Choose "Accept"
                 </p>
-                <p className="text-xs text-zinc-400">
+                <p className="text-xs text-zinc-600 dark:text-zinc-400">
                   We write `cookie-consent=accepted` to your browser's local storage. This enables our traffic tracking module, allowing page-load events to trigger asynchronous POST payloads containing timestamps, page paths, and user-agents to `/api/track` to log visits.
                 </p>
               </div>
-              <div className="rounded-xl border border-white/[0.06] bg-zinc-950/40 backdrop-blur-xl p-5 space-y-2">
-                <p className="font-mono font-bold text-white uppercase text-xs tracking-wider flex items-center gap-1.5">
+              <div className="rounded-xl border border-black/5 dark:border-white/[0.06] bg-white/60 dark:bg-zinc-950/40 backdrop-blur-xl p-5 space-y-2">
+                <p className="font-mono font-bold text-zinc-900 dark:text-white uppercase text-xs tracking-wider flex items-center gap-1.5">
                   <span className="h-2 w-2 rounded-full bg-red-500" />
                   If You Choose "Decline"
                 </p>
-                <p className="text-xs text-zinc-400">
+                <p className="text-xs text-zinc-600 dark:text-zinc-400">
                   We write `cookie-consent=declined` to your browser's local storage to prevent the banner from reappearing. Absolutely no usage tracking data is captured, and no traffic log payloads are sent to our database.
                 </p>
               </div>
@@ -108,14 +108,14 @@ export default function CookiesPolicyPage() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-lg font-semibold text-white font-mono uppercase tracking-wider">
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-white font-mono uppercase tracking-wider">
               4. Managing & Revoking Consent
             </h2>
             <p>
               You can revoke or modify your consent selections at any time. To clear your preferences and force the consent banner to show up again, click the trigger button in the footer or clear your browser's site cookies and local storage cache manually.
             </p>
             <p>
-              For any questions regarding our tracking mechanics, reach out to us at <span className="text-white hover:underline font-mono">privacy@atlas-agency.com</span>.
+              For any questions regarding our tracking mechanics, reach out to us at <span className="text-black dark:text-white hover:underline font-mono">privacy@atlas-agency.com</span>.
             </p>
           </div>
         </motion.section>

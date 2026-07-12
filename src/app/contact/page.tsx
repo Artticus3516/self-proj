@@ -45,8 +45,8 @@ function TerminalField({
 }) {
   return (
     <div className="relative group space-y-1.5">
-      <label className="flex items-center gap-2 font-sans text-xs tracking-wide text-zinc-400 uppercase font-medium">
-        <span className="text-zinc-600">[{index}]</span>
+      <label className="flex items-center gap-2 font-sans text-xs tracking-wide text-zinc-600 dark:text-zinc-400 uppercase font-medium">
+        <span className="text-zinc-500 dark:text-zinc-600">[{index}]</span>
         {label}
       </label>
       <div className="relative">
@@ -63,7 +63,7 @@ export default function ContactPage() {
   const status = state.status;
 
   return (
-    <main className="min-h-screen bg-transparent text-white flex items-center justify-center px-4 py-20">
+    <main className="min-h-screen bg-transparent flex items-center justify-center px-4 py-20">
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
 
         {/* ── LEFT: Blueprint Form Panel ────────────────────────────────── */}
@@ -71,14 +71,14 @@ export default function ContactPage() {
           initial={{ opacity: 0, x: -24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative rounded-2xl overflow-hidden border border-white/10
-                     bg-zinc-950/40 backdrop-blur-xl
+          className="relative rounded-2xl overflow-hidden border border-black/5 dark:border-white/10
+                     bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl
                      bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)]
                      bg-[size:24px_24px]"
         >
           {/* Sheet header bar */}
-          <div className="flex items-center justify-between border-b border-white/[0.06] px-6 py-3">
-            <span className="font-mono text-[10px] tracking-[0.25em] text-zinc-600 uppercase">
+          <div className="flex items-center justify-between border-b border-black/5 dark:border-white/[0.06] px-6 py-3">
+            <span className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 dark:text-zinc-600 uppercase">
               INITIALIZE_CORE_ARCHITECTURE // REV_5.0
             </span>
             <div className="flex gap-1.5">
@@ -90,9 +90,9 @@ export default function ContactPage() {
 
           <form action={formAction} className="p-6 space-y-6">
             {/* Section heading */}
-            <div className="pb-2 border-b border-white/[0.05]">
-              <h2 className="text-base font-semibold text-white tracking-tight">Initialize Core Architecture.</h2>
-              <p className="mt-1 text-[11px] text-zinc-600 font-mono">Complete all parameters to open a project intake ticket.</p>
+            <div className="pb-2 border-b border-black/5 dark:border-white/[0.05]">
+              <h2 className="text-base font-semibold text-zinc-900 dark:text-white tracking-tight">Initialize Core Architecture.</h2>
+              <p className="mt-1 text-[11px] text-zinc-500 dark:text-zinc-600 font-mono">Complete all parameters to open a project intake ticket.</p>
             </div>
 
             {/* Row 1 — Company Name */}
@@ -101,9 +101,9 @@ export default function ContactPage() {
                 name="name"
                 required
                 placeholder="Acme Corp"
-                className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
-                           text-sm text-white font-mono placeholder:text-zinc-700
-                           outline-none focus:border-white focus:ring-1 focus:ring-white/20
+                className="w-full bg-black/5 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5
+                           text-sm text-black dark:text-white font-mono placeholder:text-zinc-500 dark:placeholder:text-zinc-700
+                           outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/20 dark:focus:ring-white/20
                            transition-all duration-200"
               />
             </TerminalField>
@@ -112,13 +112,13 @@ export default function ContactPage() {
             <TerminalField index="02" label="ARCHITECTURE_REQUIREMENT">
               <select
                 name="archReq"
-                className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
-                           text-sm text-white font-mono
-                           outline-none focus:border-white focus:ring-1 focus:ring-white/20
+                className="w-full bg-black/5 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5
+                           text-sm text-black dark:text-white font-mono
+                           outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/20 dark:focus:ring-white/20
                            transition-all duration-200 appearance-none cursor-pointer"
               >
                 {ARCH_REQUIREMENTS.map((t) => (
-                  <option key={t} value={t} className="bg-zinc-900">{t}</option>
+                  <option key={t} value={t} className="bg-white dark:bg-zinc-900">{t}</option>
                 ))}
               </select>
             </TerminalField>
@@ -127,13 +127,13 @@ export default function ContactPage() {
             <TerminalField index="03" label="ESTIMATED_SCALE">
               <select
                 name="scale"
-                className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
-                           text-sm text-white font-mono
-                           outline-none focus:border-white focus:ring-1 focus:ring-white/20
+                className="w-full bg-black/5 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5
+                           text-sm text-black dark:text-white font-mono
+                           outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/20 dark:focus:ring-white/20
                            transition-all duration-200 appearance-none cursor-pointer"
               >
                 {SCALE_OPTIONS.map((s) => (
-                  <option key={s} value={s} className="bg-zinc-900">{s}</option>
+                  <option key={s} value={s} className="bg-white dark:bg-zinc-900">{s}</option>
                 ))}
               </select>
             </TerminalField>
@@ -145,9 +145,9 @@ export default function ContactPage() {
                 required
                 type="email"
                 placeholder="cto@enterprise.com"
-                className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
-                           text-sm text-white font-mono placeholder:text-zinc-700
-                           outline-none focus:border-white focus:ring-1 focus:ring-white/20
+                className="w-full bg-black/5 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5
+                           text-sm text-black dark:text-white font-mono placeholder:text-zinc-500 dark:placeholder:text-zinc-700
+                           outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/20 dark:focus:ring-white/20
                            transition-all duration-200"
               />
             </TerminalField>
@@ -159,9 +159,9 @@ export default function ContactPage() {
                 required
                 rows={5}
                 placeholder="Describe your project scope and timeline..."
-                className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
-                           text-sm text-white font-mono placeholder:text-zinc-700
-                           outline-none focus:border-white focus:ring-1 focus:ring-white/20
+                className="w-full bg-black/5 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5
+                           text-sm text-black dark:text-white font-mono placeholder:text-zinc-500 dark:placeholder:text-zinc-700
+                           outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/20 dark:focus:ring-white/20
                            transition-all duration-200 resize-none"
               />
             </TerminalField>
@@ -171,7 +171,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isPending || status === "success"}
-                className="px-8 py-3 rounded-full bg-white text-black font-semibold text-sm transition-all duration-300 hover:bg-zinc-200 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] disabled:opacity-50 disabled:cursor-not-allowed text-center"
+                className="px-8 py-3 rounded-full bg-zinc-900 text-white dark:bg-white dark:text-black font-semibold text-sm transition-all duration-300 hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.1)] disabled:opacity-50 disabled:cursor-not-allowed text-center"
               >
                 {isPending 
                   ? "TRANSMITTING..." 
@@ -188,7 +188,7 @@ export default function ContactPage() {
           </form>
 
           {/* Bottom ruler */}
-          <div className="border-t border-white/[0.06] px-6 py-2 flex justify-between font-mono text-[9px] text-zinc-700">
+          <div className="border-t border-black/5 dark:border-white/[0.06] px-6 py-2 flex justify-between font-mono text-[9px] text-zinc-500 dark:text-zinc-700">
             <span>SECURE_CHANNEL :: TLS_1.3</span>
             <span>LEADS_DB :: ACTIVE</span>
           </div>
@@ -199,28 +199,28 @@ export default function ContactPage() {
           initial={{ opacity: 0, x: 24 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-          className="relative flex flex-col justify-between rounded-2xl border border-white/10
-                     bg-zinc-950/30 backdrop-blur-xl p-8
-                     shadow-[0_0_30px_rgba(255,255,255,0.03)]"
+          className="relative flex flex-col justify-between rounded-2xl border border-black/5 dark:border-white/10
+                     bg-white/60 dark:bg-zinc-950/30 backdrop-blur-xl p-8
+                     shadow-[0_0_30px_rgba(0,0,0,0.03)] dark:shadow-[0_0_30px_rgba(255,255,255,0.03)]"
         >
           {/* Subtle white perimeter accent line */}
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-t-2xl" />
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent rounded-t-2xl" />
 
           {/* Content */}
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 text-[10px] font-mono text-zinc-400 tracking-widest uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 dark:border-zinc-800 bg-black/5 dark:bg-zinc-900/50 text-[10px] font-mono text-zinc-600 dark:text-zinc-400 tracking-widest uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 dark:bg-zinc-400 animate-pulse" />
               Console Online
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight text-white">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight text-zinc-900 dark:text-white">
               Scale Without{" "}
-              <span className="bg-gradient-to-b from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-b from-zinc-900 via-zinc-600 to-zinc-400 dark:from-white dark:via-zinc-200 dark:to-zinc-500 bg-clip-text text-transparent">
                 Constraints.
               </span>
             </h1>
 
-            <p className="text-base leading-relaxed text-zinc-400 max-w-sm">
+            <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-sm">
               From provisioning high-availability IaaS clusters to engineering custom SaaS
               platforms, we architect resilient digital frameworks tailored to your
               operational velocity. Let&apos;s build your backbone.
@@ -235,10 +235,10 @@ export default function ContactPage() {
               ].map((s) => (
                 <div
                   key={s.label}
-                  className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-center"
+                  className="rounded-xl border border-black/5 dark:border-white/[0.06] bg-black/[0.02] dark:bg-white/[0.02] p-3 text-center"
                 >
-                  <p className="text-xl font-bold text-white font-mono">{s.val}</p>
-                  <p className="text-[10px] text-zinc-600 mt-0.5 tracking-wide uppercase">
+                  <p className="text-xl font-bold text-zinc-900 dark:text-white font-mono">{s.val}</p>
+                  <p className="text-[10px] text-zinc-500 dark:text-zinc-600 mt-0.5 tracking-wide uppercase">
                     {s.label}
                   </p>
                 </div>
@@ -247,8 +247,8 @@ export default function ContactPage() {
           </div>
 
           {/* Bottom console footer */}
-          <div className="mt-8 pt-6 border-t border-white/[0.06] space-y-3">
-            <p className="font-mono text-[10px] text-zinc-700 tracking-widest uppercase">
+          <div className="mt-8 pt-6 border-t border-black/5 dark:border-white/[0.06] space-y-3">
+            <p className="font-mono text-[10px] text-zinc-500 dark:text-zinc-700 tracking-widest uppercase">
               Direct channels
             </p>
             <div className="space-y-2">
@@ -257,10 +257,10 @@ export default function ContactPage() {
                 { label: "Signal", value: "+91 9625604705" },
               ].map((c) => (
                 <div key={c.label} className="flex justify-between text-sm">
-                  <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">
+                  <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-600 uppercase tracking-widest">
                     {c.label}
                   </span>
-                  <span className="text-zinc-300 font-light">{c.value}</span>
+                  <span className="text-zinc-700 dark:text-zinc-300 font-light">{c.value}</span>
                 </div>
               ))}
             </div>

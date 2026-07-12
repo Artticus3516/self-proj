@@ -5,7 +5,12 @@ import { PreLoader } from "@/components/PreLoader";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { BackgroundWave } from "@/components/BackgroundWave";
+import dynamic from "next/dynamic";
+import { ThemeProvider } from "@/components/ThemeProvider";
+
+const BackgroundWave = dynamic(() => import("@/components/BackgroundWave"), { 
+  ssr: false 
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,15 +62,23 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col relative bg-[#030303]">
-        <PreLoader />
-        <BackgroundWave />
-        <Navbar />
-        {children}
-        <Footer />
-        <CookieConsent />
+      <body suppressHydrationWarning className="min-h-full flex flex-col relative bg-[#faf9f6] text-zinc-950 dark:bg-[#030303] dark:text-white transition-colors duration-300">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <PreLoader />
+          <BackgroundWave />
+          <Navbar />
+          {children}
+          <Footer />
+          <CookieConsent />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen bg-[#030303] text-white flex flex-col items-center justify-center px-4">
+    <main className="min-h-screen flex flex-col items-center justify-center px-4">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -15,18 +15,18 @@ export default function NotFound() {
         <span className="font-mono text-xs tracking-[0.35em] text-zinc-500 uppercase">
           [ 404 ERROR ]
         </span>
-        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+        <h1 className="text-4xl font-extrabold tracking-tight text-zinc-900 dark:text-white sm:text-5xl">
           System Offline (Page Not Found).
         </h1>
-        <p className="text-sm text-zinc-500 font-light leading-relaxed">
+        <p className="text-sm text-zinc-600 dark:text-zinc-500 font-light leading-relaxed">
           The page you are looking for does not exist or has been moved to another coordinate.
         </p>
         <div className="pt-4">
           <Link
             href="/"
             className="inline-flex items-center gap-2 px-7 py-3 rounded-full
-                       bg-white text-black text-sm font-semibold tracking-wide
-                       transition-all duration-300 hover:bg-zinc-200 hover:scale-105 active:scale-95"
+                       bg-zinc-900 text-white dark:bg-white dark:text-black text-sm font-semibold tracking-wide
+                       transition-all duration-300 hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:scale-105 active:scale-95"
           >
             Return to Root
           </Link>

@@ -52,34 +52,34 @@ export function CookieConsent() {
           aria-modal="true"
           aria-label="Cookie consent"
         >
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-950/90 backdrop-blur-xl px-5 py-4 shadow-2xl shadow-black/60">
+          <div className="rounded-2xl border border-black/10 dark:border-zinc-800 bg-white/95 dark:bg-zinc-950/90 backdrop-blur-xl px-5 py-4 shadow-2xl shadow-black/20 dark:shadow-black/60">
             {/* Header */}
             <div className="flex items-start gap-3 mb-3">
               <span className="mt-0.5 text-lg" aria-hidden="true">🍪</span>
               <div>
-                <p className="text-sm font-semibold text-white">
+                <p className="text-sm font-semibold text-zinc-900 dark:text-white">
                   Your Privacy Choices (Cookie Consent)
                 </p>
-                <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+                <p className="mt-1 text-xs leading-relaxed text-zinc-600 dark:text-zinc-400">
                   We use cookies and similar technologies to analyse site traffic
                   and improve your experience. This is in compliance with India's{" "}
-                  <strong className="text-zinc-300">
+                  <strong className="text-zinc-900 dark:text-zinc-300">
                     Digital Personal Data Protection (DPDP) Act, 2023
                   </strong>{" "}
                   and global standards including{" "}
-                  <strong className="text-zinc-300">GDPR</strong>. No data is
+                  <strong className="text-zinc-900 dark:text-zinc-300">GDPR</strong>. No data is
                   recorded without your explicit consent.
                 </p>
               </div>
             </div>
 
             {/* Links */}
-            <div className="mb-4 flex gap-3 text-[11px] text-zinc-500">
-              <Link href="/privacy" className="hover:text-zinc-300 underline underline-offset-2 transition-colors">
+            <div className="mb-4 flex gap-3 text-[11px] text-zinc-600 dark:text-zinc-500">
+              <Link href="/privacy" className="hover:text-zinc-900 dark:hover:text-zinc-300 underline underline-offset-2 transition-colors">
                 Privacy Policy
               </Link>
               <span aria-hidden>·</span>
-              <Link href="/cookies" className="hover:text-zinc-300 underline underline-offset-2 transition-colors">
+              <Link href="/cookies" className="hover:text-zinc-900 dark:hover:text-zinc-300 underline underline-offset-2 transition-colors">
                 Cookie Policy
               </Link>
             </div>
@@ -88,13 +88,13 @@ export function CookieConsent() {
             <div className="flex gap-2">
               <button
                 onClick={handleReject}
-                className="flex-1 rounded-xl border border-zinc-700 bg-transparent px-4 py-2.5 text-xs font-medium text-zinc-300 transition-colors hover:bg-zinc-800 hover:text-white"
+                className="flex-1 rounded-xl border border-black/10 dark:border-zinc-700 bg-transparent px-4 py-2.5 text-xs font-medium text-zinc-600 dark:text-zinc-300 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:text-zinc-900 dark:hover:text-white"
               >
                 Reject All (Decline)
               </button>
               <button
                 onClick={handleAccept}
-                className="flex-1 rounded-xl bg-white px-4 py-2.5 text-xs font-semibold text-black transition-colors hover:bg-zinc-100"
+                className="flex-1 rounded-xl bg-zinc-900 dark:bg-white px-4 py-2.5 text-xs font-semibold text-white dark:text-black transition-colors hover:bg-zinc-800 dark:hover:bg-zinc-100"
               >
                 Accept All
               </button>

@@ -50,7 +50,7 @@ export default function AboutPage() {
   useEffect(() => initTracking("/about"), []);
 
   return (
-    <main className="min-h-screen bg-[#030303] text-white">
+    <main className="min-h-screen">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 pt-32 pb-24 space-y-28">
 
         {/* ── Editorial Hero ──────────────────────────────────────────── */}
@@ -61,21 +61,21 @@ export default function AboutPage() {
           custom={0}
           className="max-w-3xl"
         >
-          <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-600 uppercase mb-5">
+          <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-5">
             About the Agency
           </p>
-          <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight leading-[1.05] text-white">
+          <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight leading-[1.05] text-zinc-900 dark:text-white">
             We Engineer What
             <br />
-            <span className="text-zinc-500">Others Inherit.</span>
+            <span className="text-zinc-400 dark:text-zinc-500">Others Inherit.</span>
           </h1>
-          <p className="mt-7 text-lg leading-relaxed text-zinc-400 font-light max-w-2xl">
+          <p className="mt-7 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 font-light max-w-2xl">
             We are a digital infrastructure and software agency. We don't build
             websites — we architect the operational backbone of organisations
             that demand reliability, scale, and precision at every layer of
             their digital stack.
           </p>
-          <div className="mt-8 h-px w-24 bg-white/10" />
+          <div className="mt-8 h-px w-24 bg-black/10 dark:bg-white/10" />
         </motion.section>
 
         {/* ── Stats strip ─────────────────────────────────────────────── */}
@@ -84,7 +84,7 @@ export default function AboutPage() {
           animate="visible"
           variants={fadeUp}
           custom={1}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-px border border-white/[0.06] rounded-2xl overflow-hidden"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-px border border-black/5 dark:border-white/[0.06] rounded-2xl overflow-hidden"
         >
           {[
             { val: "2018",    label: "Founded" },
@@ -95,12 +95,12 @@ export default function AboutPage() {
             <div
               key={s.label}
               className="flex flex-col items-center justify-center gap-1
-                         bg-zinc-950/40 backdrop-blur-xl px-6 py-10"
+                         bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl px-6 py-10"
             >
-              <span className="text-2xl font-bold text-white font-mono tracking-tight">
+              <span className="text-2xl font-bold text-zinc-900 dark:text-white font-mono tracking-tight">
                 {s.val}
               </span>
-              <span className="text-[10px] font-mono tracking-[0.25em] text-zinc-600 uppercase text-center">
+              <span className="text-[10px] font-mono tracking-[0.25em] text-zinc-500 dark:text-zinc-600 uppercase text-center">
                 {s.label}
               </span>
             </div>
@@ -116,10 +116,10 @@ export default function AboutPage() {
             custom={0}
             className="mb-10"
           >
-            <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-600 uppercase mb-3">
+            <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
               Engineering Philosophy
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
               Principles We Build On.
             </h2>
           </motion.div>
@@ -132,18 +132,18 @@ export default function AboutPage() {
                 initial="hidden"
                 animate="visible"
                 variants={fadeUp}
-                className="group relative rounded-2xl border border-white/10
-                           bg-zinc-950/40 backdrop-blur-xl p-6 space-y-3
-                           transition-all duration-500 hover:border-white/20 hover:bg-zinc-900/50"
+                className="group relative rounded-2xl border border-black/5 dark:border-white/10
+                           bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl p-6 space-y-3
+                           transition-all duration-500 hover:border-black/10 dark:hover:border-white/20 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
               >
-                <div className="absolute inset-x-0 top-0 h-px bg-white/0 group-hover:bg-white/15 transition-all duration-500 rounded-t-2xl" />
-                <span className="font-mono text-[10px] tracking-[0.3em] text-zinc-600 uppercase">
+                <div className="absolute inset-x-0 top-0 h-px bg-black/0 dark:bg-white/0 group-hover:bg-black/10 dark:group-hover:bg-white/15 transition-all duration-500 rounded-t-2xl" />
+                <span className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
                   [{p.index}]
                 </span>
-                <h3 className="text-base font-semibold text-white tracking-tight">
+                <h3 className="text-base font-semibold text-zinc-900 dark:text-white tracking-tight">
                   {p.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-zinc-400 font-light">
+                <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-light">
                   {p.body}
                 </p>
               </motion.div>
@@ -160,10 +160,10 @@ export default function AboutPage() {
             custom={0}
             className="mb-10"
           >
-            <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-600 uppercase mb-3">
+            <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
               Core Values
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
               The Standard We Hold.
             </h2>
           </motion.div>
@@ -176,16 +176,16 @@ export default function AboutPage() {
                 initial="hidden"
                 animate="visible"
                 variants={fadeUp}
-                className="rounded-2xl border border-white/[0.07] bg-zinc-950/30 backdrop-blur-xl px-5 py-5
-                           hover:border-white/15 hover:bg-zinc-900/40 transition-all duration-400 group"
+                className="rounded-2xl border border-black/5 dark:border-white/[0.07] bg-white/60 dark:bg-zinc-950/30 backdrop-blur-xl px-5 py-5
+                           hover:border-black/10 dark:hover:border-white/15 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition-all duration-400 group"
               >
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="w-1 h-1 rounded-full bg-zinc-600 group-hover:bg-zinc-400 transition-colors duration-300" aria-hidden="true" />
-                  <span className="text-sm font-semibold text-white tracking-tight">
+                  <span className="w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-600 group-hover:bg-zinc-600 dark:group-hover:bg-zinc-400 transition-colors duration-300" aria-hidden="true" />
+                  <span className="text-sm font-semibold text-zinc-900 dark:text-white tracking-tight">
                     {v.label}
                   </span>
                 </div>
-                <p className="text-xs leading-relaxed text-zinc-500 font-light pl-3">
+                <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-500 font-light pl-3">
                   {v.description}
                 </p>
               </motion.div>
@@ -199,22 +199,22 @@ export default function AboutPage() {
           animate="visible"
           variants={fadeUp}
           custom={2}
-          className="relative rounded-2xl border border-white/10 bg-zinc-950/40
+          className="relative rounded-2xl border border-black/5 dark:border-white/10 bg-white/80 dark:bg-zinc-950/40
                      backdrop-blur-xl p-8 sm:p-12 flex flex-col sm:flex-row
                      items-start sm:items-center justify-between gap-6 overflow-hidden"
         >
-          <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-white/20 rounded-tl-2xl" />
-          <span className="absolute top-0 right-0 w-4 h-4 border-t border-r border-white/20 rounded-tr-2xl" />
-          <span className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-white/20 rounded-bl-2xl" />
-          <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-white/20 rounded-br-2xl" />
+          <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-black/10 dark:border-white/20 rounded-tl-2xl" />
+          <span className="absolute top-0 right-0 w-4 h-4 border-t border-r border-black/10 dark:border-white/20 rounded-tr-2xl" />
+          <span className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-black/10 dark:border-white/20 rounded-bl-2xl" />
+          <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-black/10 dark:border-white/20 rounded-br-2xl" />
           <div className="space-y-2 max-w-lg">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-600 uppercase">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
               Work with us
             </p>
-            <p className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+            <p className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
               Ready to architect something resilient?
             </p>
-            <p className="text-sm text-zinc-500 font-light leading-relaxed">
+            <p className="text-sm text-zinc-600 dark:text-zinc-500 font-light leading-relaxed">
               Share your infrastructure brief. We'll return a technical scope
               document and preliminary architecture diagram within 48 hours.
             </p>
@@ -222,9 +222,9 @@ export default function AboutPage() {
           <Link
             href="/contact"
             className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl
-                       bg-white text-black text-sm font-semibold tracking-wide
-                       transition-all duration-300 hover:bg-zinc-200 hover:scale-105 active:scale-95
-                       shadow-[0_0_30px_rgba(255,255,255,0.08)]"
+                       bg-zinc-900 text-white dark:bg-white dark:text-black text-sm font-semibold tracking-wide
+                       transition-all duration-300 hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:scale-105 active:scale-95
+                       shadow-[0_0_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_30px_rgba(255,255,255,0.08)]"
           >
             Open a Project
             <span aria-hidden="true">→</span>
