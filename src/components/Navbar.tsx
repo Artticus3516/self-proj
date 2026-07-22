@@ -1,20 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
+import {usePathname} from "next/navigation";
+import {useEffect, useState} from "react";
+import {AnimatePresence, motion, useAnimationControls} from "framer-motion";
 
 const NAV_LINKS = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About" },
-    { href: "/services", label: "Services" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
+    {href: "/", label: "Home"},
+    {href: "/about", label: "About"},
+    {href: "/services", label: "Services"},
+     { href: "/blog", label: "Blog" },
+    {href: "/contact", label: "Contact"},
 ];
 
 // ─── Stage 1 & 2: Perfect Center-Out Animation Logic ─────────────────────
-const barVariants:any  = {
+const barVariants: any = {
     // 1. Hovering high above the viewport, completely invisible
     initial: {
         y: -100,
@@ -38,8 +38,8 @@ const barVariants:any  = {
         backgroundColor: "rgb(255,255,255)",
         boxShadow: "0 0 20px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.2)",
         transition: {
-            y: { type: "spring", stiffness: 150, damping: 14 },
-            opacity: { duration: 0.15 },
+            y: {type: "spring", stiffness: 150, damping: 14},
+            opacity: {duration: 0.15},
         },
     },
     // 3. Smooth transition to full navbar state without touching structural CSS
@@ -52,8 +52,8 @@ const barVariants:any  = {
         backgroundColor: "rgba(10,10,10,0.45)",
         boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.08), 0 10px 40px rgba(0,0,0,0.3)",
         transition: {
-            width: { duration: 0.75, ease: [0.16, 1, 0.3, 1] }, // Cinematic ease-out stretch
-            height: { duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.05 },
+            width: {duration: 0.75, ease: [0.16, 1, 0.3, 1]}, // Cinematic ease-out stretch
+            height: {duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.05},
         },
     },
 };
@@ -63,16 +63,16 @@ const barVariants:any  = {
 const contentContainerVariants: any = {
     hidden: {},
     visible: {
-        transition: { staggerChildren: 0.07 },
+        transition: {staggerChildren: 0.07},
     },
 };
 
 const contentItemVariants: any = {
-    hidden: { opacity: 0, y: 7 },
+    hidden: {opacity: 0, y: 7},
     visible: {
         opacity: 1,
         y: 0,
-        transition: { duration: 0.32, ease: "easeOut" },
+        transition: {duration: 0.32, ease: "easeOut"},
     },
 };
 
@@ -130,7 +130,7 @@ export function Navbar() {
                     variants={barVariants as any}
                     initial="initial"
                     animate={barControls}
-                    style={{ originX: 0.5 }}
+                    style={{originX: 0.5}}
                     aria-hidden={undefined}
                 >
                     {/* ── Stage 3: all inner content fades up together ── */}
@@ -169,8 +169,9 @@ export function Navbar() {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                <span className="text-sm font-semibold tracking-tight text-white/90 group-hover:text-white transition-colors">
-                  Atlas
+                                <span
+                                    className="text-sm font-semibold tracking-tight text-white/90 group-hover:text-white transition-colors">
+                  Archon
                 </span>
                             </Link>
                         </motion.div>
@@ -255,10 +256,10 @@ export function Navbar() {
                     {open && (
                         <motion.nav
                             id="mobile-menu"
-                            initial={{ opacity: 0, y: -8 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -8 }}
-                            transition={{ duration: 0.2 }}
+                            initial={{opacity: 0, y: -8}}
+                            animate={{opacity: 1, y: 0}}
+                            exit={{opacity: 0, y: -8}}
+                            transition={{duration: 0.2}}
                             className="mt-2 rounded-2xl border border-white/[0.07] bg-black/80 backdrop-blur-xl p-3 space-y-1"
                             aria-label="Mobile navigation"
                         >

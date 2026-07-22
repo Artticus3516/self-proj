@@ -8,4 +8,5 @@ Your task is to orchestrate and complete the project defined in the original use
 The original request is logged at: C:\Users\aarav\GitHub\self-proj\.agents\ORIGINAL_REQUEST.md
 The workspace directory is: C:\Users\aarav\GitHub\self-proj
 
-Please plan and execute the project. Maintain your plan in plan.md and your progress in progress.md inside your working directory. Ensure you verify all criteria before reporting completion.
+Please plan and execute the project. Maintain your plan in plan.md and your progress in progress.md inside your working
+directory. Ensure you verify all criteria before reporting completion.

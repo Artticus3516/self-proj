@@ -1,19 +1,26 @@
 # Handoff Report: M2 DB Setup, Schema & Mock Client Analysis
 
 ## 1. Observation
+
 We observed the following files and configuration in the codebase:
-- **`package.json`**: Shows Next.js version is `16.2.10` and React is `19.2.4`. There are no external database or auth helper libraries (like `@supabase/supabase-js`) listed in `dependencies`.
+
+- **`package.json`**: Shows Next.js version is `16.2.10` and React is `19.2.4`. There are no external database or auth
+  helper libraries (like `@supabase/supabase-js`) listed in `dependencies`.
 - **`PROJECT.md`**: Specifies the database schema, API contracts, and the file layout:
-  - Table contracts:
-    - `services`: `id` (uuid/serial), `title` (text), `description` (text), `created_at` (timestamp)
-    - `blog_posts`: `id` (uuid/serial), `title` (text), `content` (text), `created_at` (timestamp)
-    - `leads`: `id` (uuid/serial), `name` (text), `email` (text), `message` (text), `created_at` (timestamp)
-    - `traffic_logs`: `id` (uuid/serial), `path` (text), `timestamp` (timestamp), `user_agent` (text), `consent_granted` (boolean)
-  - Code layout: `src/lib/` for shared utilities and database adapters, and `src/proxy.ts` for route protection proxy.
-- **`node_modules/next/dist/docs/01-app/01-getting-started/16-proxy.md`**: Confirms middleware convention changes in Next.js 16:
-  > "Starting with Next.js 16, Middleware is now called Proxy to better reflect its purpose. The functionality remains the same."
+    - Table contracts:
+        - `services`: `id` (uuid/serial), `title` (text), `description` (text), `created_at` (timestamp)
+        - `blog_posts`: `id` (uuid/serial), `title` (text), `content` (text), `created_at` (timestamp)
+        - `leads`: `id` (uuid/serial), `name` (text), `email` (text), `message` (text), `created_at` (timestamp)
+        - `traffic_logs`: `id` (uuid/serial), `path` (text), `timestamp` (timestamp), `user_agent` (text),
+          `consent_granted` (boolean)
+    - Code layout: `src/lib/` for shared utilities and database adapters, and `src/proxy.ts` for route protection proxy.
+- **`node_modules/next/dist/docs/01-app/01-getting-started/16-proxy.md`**: Confirms middleware convention changes in
+  Next.js 16:
+  > "Starting with Next.js 16, Middleware is now called Proxy to better reflect its purpose. The functionality remains
+  the same."
   > "Create a `proxy.ts` (or `.js`) file in the project root, or inside `src` if applicable..."
-- **`node_modules/next/dist/docs/01-app/02-guides/authentication.md`**: Confirms that standard Next.js 16 `cookies()` calls must be awaited:
+- **`node_modules/next/dist/docs/01-app/02-guides/authentication.md`**: Confirms that standard Next.js 16 `cookies()`
+  calls must be awaited:
   ```ts
   const cookieStore = await cookies()
   ```
@@ -21,29 +28,43 @@ We observed the following files and configuration in the codebase:
 ---
 
 ## 2. Logic Chain
-- **Step 1: Define Schemas**: The 4 database tables must be defined in TypeScript interface contracts in `src/lib/types/database.ts`. Defining complete types ensures full TypeScript support for queries and updates.
-- **Step 2: Isomorphic Offline Execution**: The database adapter must run client-side (browser) and server-side (Next.js route handlers/actions). 
-  - To support offline deterministic execution:
-    - Server-side calls should read/write to a local JSON file (`mock-db.json` in the project root).
-    - Client-side calls should persist state using `localStorage` to avoid resetting between navigations/reloads.
-    - Synchronous file I/O on the server-side avoids race conditions in multi-request development or testing environments.
-- **Step 3: Query Builder Simulation**: The mock client must support chainable methods (.select, .eq, .order, .limit, .single) and thenable resolution (`.then()`) to mirror the Supabase API natively without requiring `@supabase/supabase-js` to run in "demo" mode.
-- **Step 4: Admin Authentication Integration**: E2E tests check for secure cookie attributes (`HttpOnly`, `Secure`, `SameSite`). The mock auth system must set an authentic session cookie that is readable by Next.js 16 `proxy.ts` to secure the `/admin/*` routes.
+
+- **Step 1: Define Schemas**: The 4 database tables must be defined in TypeScript interface contracts in
+  `src/lib/types/database.ts`. Defining complete types ensures full TypeScript support for queries and updates.
+- **Step 2: Isomorphic Offline Execution**: The database adapter must run client-side (browser) and server-side (Next.js
+  route handlers/actions).
+    - To support offline deterministic execution:
+        - Server-side calls should read/write to a local JSON file (`mock-db.json` in the project root).
+        - Client-side calls should persist state using `localStorage` to avoid resetting between navigations/reloads.
+        - Synchronous file I/O on the server-side avoids race conditions in multi-request development or testing
+          environments.
+- **Step 3: Query Builder Simulation**: The mock client must support chainable methods (.select, .eq, .order, .limit,
+  .single) and thenable resolution (`.then()`) to mirror the Supabase API natively without requiring
+  `@supabase/supabase-js` to run in "demo" mode.
+- **Step 4: Admin Authentication Integration**: E2E tests check for secure cookie attributes (`HttpOnly`, `Secure`,
+  `SameSite`). The mock auth system must set an authentic session cookie that is readable by Next.js 16 `proxy.ts` to
+  secure the `/admin/*` routes.
 
 ---
 
 ## 3. Caveats
-- The local JSON file database uses synchronous operations. This blocks the main thread during database operations, which is appropriate for dev/testing but unsuitable for high-concurrency production deployments.
+
+- The local JSON file database uses synchronous operations. This blocks the main thread during database operations,
+  which is appropriate for dev/testing but unsuitable for high-concurrency production deployments.
 - The mock client is activated only when `NEXT_PUBLIC_INTEGRITY_MODE === 'demo'`.
-- Production credentials and real Supabase client initialization must be fallback routes if the integrity mode is not `demo`.
+- Production credentials and real Supabase client initialization must be fallback routes if the integrity mode is not
+  `demo`.
 
 ---
 
 ## 4. Conclusion
+
 We propose the following plan and fix strategy for M2:
 
 ### A. Environment Configuration
+
 Create a `.env.local.example` at the root:
+
 ```bash
 # Toggle "demo" to use the mock database and auth layer offline
 NEXT_PUBLIC_INTEGRITY_MODE=demo
@@ -56,7 +77,9 @@ ADMIN_PASSWORD=adminpassword123
 ```
 
 ### B. DB Schema Definition (`src/lib/types/database.ts`)
+
 Create database types matching the project specifications:
+
 ```typescript
 export interface Service {
   id: string;
@@ -117,7 +140,9 @@ export interface Database {
 ```
 
 ### C. Mock Supabase Client (`src/lib/supabaseMock.ts`)
+
 Implement the isomorphic mock client:
+
 ```typescript
 import { Database } from './types/database';
 
@@ -366,7 +391,9 @@ export function createMockClient() {
 ```
 
 ### D. Supabase Adapter Interface (`src/lib/supabase.ts`)
+
 Set up the wrapper to dynamically load the mock or real client:
+
 ```typescript
 import { createClient } from '@supabase/supabase-js'; // Requires npm install @supabase/supabase-js
 import { createMockClient } from './supabaseMock';
@@ -382,7 +409,9 @@ export const supabase = isDemo
 ```
 
 ### E. Session Cookies and Proxy Authentication Helper
+
 To bridge client auth state to server API protection, we can set standard HTTP Cookies during login/logout:
+
 ```typescript
 // Proposed helper functions in src/lib/authHelpers.ts
 import { cookies } from 'next/headers';
@@ -405,6 +434,7 @@ export async function clearAdminSessionCookie() {
 ```
 
 And in `src/proxy.ts` (Next.js 16 Proxy):
+
 ```typescript
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
@@ -429,6 +459,7 @@ export const config = {
 ---
 
 ## 5. Verification Method
+
 1. **Database Schema Integration & Mock Compilation**:
    Create a test script `tests/test-db-mock.ts` to verify the DB mock behavior:
    ```typescript
@@ -474,4 +505,5 @@ export const config = {
    ```bash
    npx ts-node tests/test-db-mock.ts
    ```
-   **Pass Criteria**: The script executes without typescript errors, creates `mock-db.json` locally, inserts, modifies, and deletes records successfully.
+   **Pass Criteria**: The script executes without typescript errors, creates `mock-db.json` locally, inserts, modifies,
+   and deletes records successfully.

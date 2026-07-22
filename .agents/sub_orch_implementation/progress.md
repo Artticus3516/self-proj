@@ -3,9 +3,11 @@
 Last visited: 2026-07-09T02:50:00+05:30
 
 ## Iteration Status
+
 Current iteration: 1 / 32
 
 ## Status
+
 - [x] Initialize implementation track
 - [ ] DB Setup & Schema (M2)
 - [ ] Core Pages & WebGL (M3)
