@@ -1,16 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { PreLoader } from "@/components/PreLoader";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import dynamic from "next/dynamic";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import BackgroundWave from "@/components/BackgroundWave";
+import { cn } from "@/lib/utils";
 
-const BackgroundWave = dynamic(() => import("@/components/BackgroundWave"), { 
-  ssr: false 
-});
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,9 +22,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Atlas — Premium UI Web Design & Interactive 3D Portfolios",
+  title: "Archon — Premium UI Web Design & Interactive 3D Portfolios",
   description:
-    "Atlas is a next-generation digital agency specializing in website development, custom SaaS engineering, and interactive 3D portfolios built to enterprise standards.",
+    "Archon is a next-generation digital agency specializing in website development, custom SaaS engineering, and interactive 3D portfolios built to enterprise standards.",
   keywords: [
     "website development",
     "digital agency",
@@ -42,15 +41,15 @@ export const metadata: Metadata = {
     "ux web design agency",
   ],
   alternates: {
-    canonical: "https://atlas-agency.com",
+    canonical: "https://Archon-agency.com",
   },
   openGraph: {
     type: "website",
-    title: "Atlas — Premium UI Web Design & Interactive 3D Portfolios",
+    title: "Archon — Premium UI Web Design & Interactive 3D Portfolios",
     description:
       "Resilient digital infrastructure, custom SaaS engineering, and interactive 3D portfolios designed for enterprise velocity.",
-    url: "https://atlas-agency.com",
-    siteName: "Atlas",
+    url: "https://Archon-agency.com",
+    siteName: "Archon",
   },
 };
 
@@ -63,14 +62,13 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
     >
-      <body suppressHydrationWarning className="min-h-full flex flex-col relative bg-[#faf9f6] text-zinc-950 dark:bg-[#030303] dark:text-white transition-colors duration-300">
+      <body suppressHydrationWarning className="min-h-full flex flex-col relative bg-background text-foreground transition-colors duration-300">
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
-          disableTransitionOnChange
         >
           <PreLoader />
           <BackgroundWave />

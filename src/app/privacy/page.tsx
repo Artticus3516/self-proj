@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
           className="space-y-10 text-zinc-400 font-light leading-relaxed text-sm"
         >
           <p className="text-base text-zinc-700 dark:text-zinc-300">
-            Atlas ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy details how we collect, use, and safeguard your personal information in alignment with global and regional compliance standards, including the **General Data Protection Regulation (GDPR)**, the **California Consumer Privacy Act (CCPA)**, and India's **Digital Personal Data Protection (DPDP) Act, 2023**.
+            Archon ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy details how we collect, use, and safeguard your personal information in alignment with global and regional compliance standards, including the **General Data Protection Regulation (GDPR)**, the **California Consumer Privacy Act (CCPA)**, and India's **Digital Personal Data Protection (DPDP) Act, 2023**.
           </p>
 
           <div className="space-y-4">
@@ -60,10 +60,10 @@ export default function PrivacyPolicyPage() {
               The data controller responsible for your personal information is:
             </p>
             <div className="rounded-xl border border-black/5 dark:border-white/[0.06] bg-white/60 dark:bg-zinc-950/40 backdrop-blur-xl p-4 font-mono text-xs text-zinc-600 dark:text-zinc-300 space-y-1">
-              <p className="font-bold text-black dark:text-white">Atlas Systems Private Limited</p>
+              <p className="font-bold text-black dark:text-white">Archon Systems Private Limited</p>
               <p>Corporate Office Layer: Tech Hub, Sector 5</p>
               <p>Bangalore, Karnataka, India</p>
-              <p>Email: <span className="text-zinc-900 dark:text-white hover:underline">privacy@atlas-agency.com</span></p>
+              <p>Email: <span className="text-zinc-900 dark:text-white hover:underline">privacy@Archon-agency.com</span></p>
             </div>
           </div>
 
@@ -132,7 +132,7 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
             <p>
-              To exercise any of these rights, please email us directly at <span className="text-black dark:text-white hover:underline font-mono">privacy@atlas-agency.com</span>. We will respond within 30 days.
+              To exercise any of these rights, please email us directly at <span className="text-black dark:text-white hover:underline font-mono">privacy@Archon-agency.com</span>. We will respond within 30 days.
             </p>
           </div>
         </motion.section>

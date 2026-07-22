@@ -36,7 +36,7 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-black/5 dark:border-white/[0.06] bg-transparent" role="contentinfo">
+    <footer className="border-t border-border bg-background-secondary dark:bg-transparent" role="contentinfo">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-14">
 
         {/* Top section: brand + link columns */}
@@ -61,7 +61,7 @@ export function Footer() {
                 />
               </svg>
               <span className="text-sm font-semibold tracking-tight text-zinc-900/80 dark:text-white/80 group-hover:text-zinc-900 dark:group-hover:text-white transition-colors">
-                Atlas
+                Archon
               </span>
             </Link>
             <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-600 font-light max-w-[180px]">
@@ -117,7 +117,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="font-mono text-[10px] text-zinc-500 dark:text-zinc-700 tracking-wide">
-            © {year} Atlas. All rights reserved.
+            © {year} Archon. All rights reserved.
           </p>
           <p className="font-mono text-[10px] text-zinc-600 dark:text-zinc-800 tracking-wide">
             Engineered for uptime. Built for scale.

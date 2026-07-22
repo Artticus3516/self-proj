@@ -5,24 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1affc39-5af7-4b8d-b597-264d57310f17" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.agents/ORIGINAL_REQUEST.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/ORIGINAL_REQUEST.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.agents/orchestrator/BRIEFING.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/orchestrator/BRIEFING.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/contact/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/cookies/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cookies/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/not-found.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/privacy/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/privacy/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/BackgroundWave.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BackgroundWave.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CookieConsent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CookieConsent.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PreLoader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PreLoader.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/hero/DottedWave.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/hero/DottedWave.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/basic.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/basic.spec.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

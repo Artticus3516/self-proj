@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
-import { ThemeToggle } from "./ThemeToggle";
+import Switch from "./Switch";
 
 const NAV_LINKS = [
     { href: "/", label: "Home" },
@@ -172,7 +172,7 @@ export function Navbar() {
                                     />
                                 </svg>
                 <span className="text-sm font-semibold tracking-tight text-zinc-800 dark:text-white/90 group-hover:text-black dark:group-hover:text-white transition-colors">
-                  Atlas
+                  Archon
                 </span>
                             </Link>
                         </motion.div>
@@ -214,7 +214,7 @@ export function Navbar() {
                             variants={contentItemVariants}
                             className="hidden sm:flex items-center gap-3"
                         >
-                            <ThemeToggle />
+                            <Switch />
                             <Link
                                 href="/contact"
                                 className="px-4 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-sm font-semibold text-white transition-colors shadow-[0_0_20px_rgba(139,92,246,0.25)]"
@@ -225,7 +225,7 @@ export function Navbar() {
 
                         {/* Mobile hamburger */}
                         <motion.div variants={contentItemVariants} className="sm:hidden flex items-center gap-2">
-                            <ThemeToggle />
+                            <Switch />
                             <button
                                 type="button"
                                 className="flex flex-col gap-1.5 p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"

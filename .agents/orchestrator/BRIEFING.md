@@ -38,7 +38,7 @@ Refactor the Next.js workspace to align with native framework capabilities (Serv
 - NEVER write, modify, or create source code files directly.
 - NEVER run build/test commands yourself — require workers to do so.
 - Do not alter any tracking keys, form names (`name="..."`), or ID/test-ID attributes verified by Playwright.
-- Freeze all `<head>`, `Metadata` configurations, OpenGraph tags, and HTML layout structures created for "Atlas".
+- Freeze all `<head>`, `Metadata` configurations, OpenGraph tags, and HTML layout structures created for "Archon".
 - Keep all Three.js / WebGL canvas components completely untouched.
 - Never reuse a subagent after it has delivered its handoff — always spawn fresh.
 

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Insights & Engineering Blog | Atlas",
+  title: "Insights & Engineering Blog | Archon",
   description:
-    "Expert insights on SaaS architecture, enterprise web design, digital transformation, and high-performance React development from the engineers at Atlas.",
+    "Expert insights on SaaS architecture, enterprise web design, digital transformation, and high-performance React development from the engineers at Archon.",
   keywords: [
     "saas architecture blog",
     "enterprise web design insights",
@@ -14,15 +14,15 @@ export const metadata: Metadata = {
     "web development best practices",
   ],
   alternates: {
-    canonical: "https://atlas-agency.com/blog",
+    canonical: "https://Archon-agency.com/blog",
   },
   openGraph: {
     type: "website",
-    title: "Insights & Engineering Blog | Atlas",
+    title: "Insights & Engineering Blog | Archon",
     description:
       "Expert insights on SaaS architecture, enterprise web design, and digital transformation.",
-    url: "https://atlas-agency.com/blog",
-    siteName: "Atlas",
+    url: "https://Archon-agency.com/blog",
+    siteName: "Archon",
   },
 };
 

@@ -49,7 +49,7 @@ export default function CookiesPolicyPage() {
           className="space-y-10 text-zinc-400 font-light leading-relaxed text-sm"
         >
           <p className="text-base text-zinc-700 dark:text-zinc-300">
-            This Cookie Policy explains how Atlas uses cookies and similar tracking technologies when you visit our website. It clarifies the distinction between first-party and third-party trackers, as well as the exact behaviors triggered when you accept or decline our tracking consent.
+            This Cookie Policy explains how Archon uses cookies and similar tracking technologies when you visit our website. It clarifies the distinction between first-party and third-party trackers, as well as the exact behaviors triggered when you accept or decline our tracking consent.
           </p>
 
           <div className="space-y-4">
@@ -115,7 +115,7 @@ export default function CookiesPolicyPage() {
               You can revoke or modify your consent selections at any time. To clear your preferences and force the consent banner to show up again, click the trigger button in the footer or clear your browser's site cookies and local storage cache manually.
             </p>
             <p>
-              For any questions regarding our tracking mechanics, reach out to us at <span className="text-black dark:text-white hover:underline font-mono">privacy@atlas-agency.com</span>.
+              For any questions regarding our tracking mechanics, reach out to us at <span className="text-black dark:text-white hover:underline font-mono">privacy@Archon-agency.com</span>.
             </p>
           </div>
         </motion.section>
