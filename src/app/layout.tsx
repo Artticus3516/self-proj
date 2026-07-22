@@ -18,9 +18,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "Atlas — Premium UI Web Design & Interactive 3D Portfolios",
+    title: "Archon — Premium UI Web Design & Interactive 3D Portfolios",
     description:
-        "Atlas is a next-generation digital agency specializing in website development, custom SaaS engineering, and interactive 3D portfolios built to enterprise standards.",
+        "Archon is a next-generation digital agency specializing in website development, custom SaaS engineering, and interactive 3D portfolios built to enterprise standards.",
     keywords: [
         "website development",
         "digital agency",
@@ -37,15 +37,15 @@ export const metadata: Metadata = {
         "ux web design agency",
     ],
     alternates: {
-        canonical: "https://atlas-agency.com",
+        canonical: "https://Archon-agency.com",
     },
     openGraph: {
         type: "website",
-        title: "Atlas — Premium UI Web Design & Interactive 3D Portfolios",
+        title: "Archon — Premium UI Web Design & Interactive 3D Portfolios",
         description:
             "Resilient digital infrastructure, custom SaaS engineering, and interactive 3D portfolios designed for enterprise velocity.",
-        url: "https://atlas-agency.com",
-        siteName: "Atlas",
+        url: "https://Archon-agency.com",
+        siteName: "Archon",
     },
 };
 

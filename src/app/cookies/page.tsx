@@ -49,7 +49,7 @@ export default function CookiesPolicyPage() {
                     className="space-y-10 text-zinc-400 font-light leading-relaxed text-sm"
                 >
                     <p className="text-base text-zinc-300">
-                        This Cookie Policy explains how Atlas uses cookies and similar tracking technologies when you
+                        This Cookie Policy explains how Archon uses cookies and similar tracking technologies when you
                         visit our website. It clarifies the distinction between first-party and third-party trackers, as
                         well as the exact behaviors triggered when you accept or decline our tracking consent.
                     </p>
@@ -137,7 +137,7 @@ export default function CookiesPolicyPage() {
                         </p>
                         <p>
                             For any questions regarding our tracking mechanics, reach out to us at <span
-                            className="text-white hover:underline font-mono">privacy@atlas-agency.com</span>.
+                            className="text-white hover:underline font-mono">artticus9@gmail.com</span>.
                         </p>
                     </div>
                 </motion.section>

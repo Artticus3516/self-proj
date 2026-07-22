@@ -3,9 +3,9 @@
 import Link from "next/link";
 import {motion} from "framer-motion";
 import {useEffect, useState} from "react";
-import {initTracking} from "@/lib/tracking";
-import {supabase} from "@/lib/supabase";
-import type {Database} from "@/lib/database.types";
+import {initTracking} from "/lib/tracking";
+import {supabase} from "/lib/supabase";
+import type {Database} from "/lib/database.types";
 
 type BlogPost = Database["public"]["Tables"]["blog_posts"]["Row"];
 
@@ -134,7 +134,7 @@ export default function BlogPage() {
                     </h1>
                     <p className="mt-5 text-base leading-relaxed text-zinc-500 font-light max-w-xl">
                         Deep dives into enterprise architecture, SaaS scaling, and premium
-                        web design. Thoughts from the engineers and designers at Atlas.
+                        web design. Thoughts from the engineers and designers at Archon.
                     </p>
                 </motion.div>
 
@@ -199,7 +199,7 @@ export default function BlogPage() {
                             Stay updated
                         </p>
                         <p className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
-                            Join the Atlas Newsletter
+                            Join the Archon Newsletter
                         </p>
                         <p className="text-sm text-zinc-500 font-light leading-relaxed">
                             Receive our latest articles, case studies, and engineering practices directly to your inbox.

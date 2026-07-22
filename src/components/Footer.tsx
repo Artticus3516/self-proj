@@ -26,7 +26,6 @@ const FOOTER_LINKS = [
         links: [
             {label: "Privacy Policy", href: "/privacy"},
             {label: "Cookie Policy", href: "/cookies"},
-            {label: "Terms of Use", href: "/terms"},
             {label: "Cookie Settings", href: "#cookie-settings"},
         ],
     },
@@ -62,7 +61,7 @@ export function Footer() {
                             </svg>
                             <span
                                 className="text-sm font-semibold tracking-tight text-white/80 group-hover:text-white transition-colors">
-                Atlas
+                Archon
               </span>
                         </Link>
                         <p className="text-xs leading-relaxed text-zinc-600 font-light max-w-[180px]">

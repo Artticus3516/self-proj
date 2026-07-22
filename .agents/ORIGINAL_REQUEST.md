@@ -106,7 +106,7 @@ Integrity mode: development
 ### R4. Non-Destructive Refactoring & Safety Injections
 
 - CRITICAL: Freeze all `<head>`, `Metadata` configurations, OpenGraph tags, and HTML layout structures created for "
-  Atlas". Do not modify them.
+  Archon". Do not modify them.
 - Do not alter any tracking keys, form names (`name="..."`), or ID/test-ID attributes verified by Playwright.
 - Keep all Three.js / WebGL canvas components completely untouched.
 - Do not run recursive loops. Execute this analysis and rewrite cleanly.
@@ -145,7 +145,7 @@ Integrity mode: development
 ### R2. Preservation Injections (DO NOT ALTER)
 
 - **SEO & METADATA**: Freeze all metadata configurations, layout headers, OpenGraph setups, and title strings rebranded
-  for "Atlas".
+  for "Archon".
 - **REGRESSION PROTECTION**: Do not alter any tracking keys, form HTML `name` tags, or element `id` attributes verified
   by our Playwright tests.
 - Keep all Three.js / WebGL canvas rendering blocks completely untouched.

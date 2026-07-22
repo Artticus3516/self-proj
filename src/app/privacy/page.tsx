@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
                     className="space-y-10 text-zinc-400 font-light leading-relaxed text-sm"
                 >
                     <p className="text-base text-zinc-300">
-                        Atlas ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy
+                        Archon ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy
                         details how we collect, use, and safeguard your personal information in alignment with global
                         and regional compliance standards, including the **General Data Protection Regulation (GDPR)**,
                         the **California Consumer Privacy Act (CCPA)**, and India's **Digital Personal Data Protection
@@ -65,10 +65,10 @@ export default function PrivacyPolicyPage() {
                         </p>
                         <div
                             className="rounded-xl border border-white/[0.06] bg-zinc-950/40 backdrop-blur-xl p-4 font-mono text-xs text-zinc-300 space-y-1">
-                            <p className="font-bold text-white">Atlas Systems Private Limited</p>
+                            <p className="font-bold text-white">Archon Systems Private Limited</p>
                             <p>Corporate Office Layer: Tech Hub, Sector 5</p>
                             <p>Bangalore, Karnataka, India</p>
-                            <p>Email: <span className="text-white hover:underline">privacy@atlas-agency.com</span></p>
+                            <p>Email: <span className="text-white hover:underline">artticus9@gmail.com</span></p>
                         </div>
                     </div>
 
@@ -155,7 +155,7 @@ export default function PrivacyPolicyPage() {
                         </ul>
                         <p>
                             To exercise any of these rights, please email us directly at <span
-                            className="text-white hover:underline font-mono">privacy@atlas-agency.com</span>. We will
+                            className="text-white hover:underline font-mono">artticus9@gmail.com</span>. We will
                             respond within 30 days.
                         </p>
                     </div>

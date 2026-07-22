@@ -30,12 +30,12 @@ create index articles_search_idx on articles using gin (search_vector);
 
 -- Fast full-text search
 select * from articles
-where search_vector @@ to_tsquery('english', 'postgresql & performance');
+where search_vector  to_tsquery('english', 'postgresql & performance');
 
 -- With ranking
 select *, ts_rank(search_vector, query) as rank
 from articles, to_tsquery('english', 'postgresql') query
-where search_vector @@ query
+where search_vector  query
 order by rank desc;
 ```
 

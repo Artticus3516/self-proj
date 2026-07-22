@@ -14,16 +14,16 @@ Different index types excel at different query patterns. The default B-tree isn'
 ```sql
 -- B-tree cannot optimize containment operators
 create index products_attrs_idx on products (attributes);
-select * from products where attributes @> '{"color": "red"}';
--- Full table scan - B-tree doesn't support @> operator
+select * from products where attributes > '{"color": "red"}';
+-- Full table scan - B-tree doesn't support > operator
 ```
 
 **Correct (GIN for JSONB):**
 
 ```sql
--- GIN supports @>, ?, ?&, ?| operators
+-- GIN supports >, ?, ?&, ?| operators
 create index products_attrs_idx on products using gin (attributes);
-select * from products where attributes @> '{"color": "red"}';
+select * from products where attributes > '{"color": "red"}';
 ```
 
 Index type guide:

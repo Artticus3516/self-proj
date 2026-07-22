@@ -84,13 +84,12 @@ export default function AboutPage() {
                     animate="visible"
                     variants={fadeUp}
                     custom={1}
-                    className="grid grid-cols-2 sm:grid-cols-4 gap-px border border-white/[0.06] rounded-2xl overflow-hidden"
+                    className="grid grid-cols-3 sm:grid-cols-3 gap-px border border-white/[0.06] rounded-2xl overflow-hidden"
                 >
                     {[
-                        {val: "2018", label: "Founded"},
-                        {val: "40+", label: "Enterprise Clients"},
-                        {val: "99.99%", label: "Avg. Uptime SLA"},
-                        {val: "< 48h", label: "Onboarding SLA"},
+                        {val: "2025", label: "Founded"},
+                        {val: "10+", label: "Enterprise Clients"},
+                        {val: "99.79%", label: "Avg. Uptime SLA"},
                     ].map((s) => (
                         <div
                             key={s.label}
