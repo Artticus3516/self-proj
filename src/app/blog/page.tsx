@@ -3,9 +3,9 @@
 import Link from "next/link";
 import {motion} from "framer-motion";
 import {useEffect, useState} from "react";
-import {initTracking} from "/lib/tracking";
-import {supabase} from "/lib/supabase";
-import type {Database} from "/lib/database.types";
+import {initTracking} from "@/lib/tracking";
+import {supabase} from "@/lib/supabase";
+import type {Database} from "@/lib/database.types";
 
 type BlogPost = Database["public"]["Tables"]["blog_posts"]["Row"];
 

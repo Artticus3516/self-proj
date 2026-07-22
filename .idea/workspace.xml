@@ -4,28 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1affc39-5af7-4b8d-b597-264d57310f17" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.agents/ORIGINAL_REQUEST.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/ORIGINAL_REQUEST.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.agents/orchestrator/BRIEFING.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/orchestrator/BRIEFING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/_template.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/_template.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/advanced-full-text-search.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/advanced-full-text-search.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/advanced-jsonb-indexing.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/advanced-jsonb-indexing.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/query-covering-indexes.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/query-covering-indexes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/query-index-types.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/query-index-types.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/query-partial-indexes.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/query-partial-indexes.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.agents/skills/supabase/SKILL.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/skills/supabase/SKILL.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/cookies/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cookies/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/privacy/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/privacy/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/basic.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/basic.spec.ts" afterDir="false" />
-    </list>
+    <list default="true" id="c1affc39-5af7-4b8d-b597-264d57310f17" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
