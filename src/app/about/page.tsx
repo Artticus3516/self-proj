@@ -69,12 +69,18 @@ export default function AboutPage() {
             <br />
             <span className="text-zinc-400 dark:text-zinc-500">Others Inherit.</span>
           </h1>
+            <motion.div
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 0.2,ease: "easeOut" }}
+                className={"relative backdrop-blur-lg border border-black/5 dark:border-white/10 rounded-2xl p-4 mt-6 dark:bg-zinc-950/40"}>
           <p className="mt-7 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 font-light max-w-2xl">
             We are a digital infrastructure and software agency. We don't build
             websites — we architect the operational backbone of organisations
             that demand reliability, scale, and precision at every layer of
             their digital stack.
           </p>
+          </motion.div>
           <div className="mt-8 h-px w-24 bg-black/10 dark:bg-white/10" />
         </motion.section>
 
