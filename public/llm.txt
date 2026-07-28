@@ -1,0 +1,26 @@
+# Archon
+
+Archon is an elite digital infrastructure agency architecting the operational backbones of enterprise organizations. We deliver uncompromising reliability and scale for systems that cannot fail.
+
+## Core Services
+1. Infrastructure as a Service (IaaS): High-availability cluster provisioning, custom DevOps pipelines, load balancing, and auto-scaling.
+2. SaaS Engineering: Full-scale web platform development, multi-tenant databases, real-time APIs, and authentication.
+3. Digital Transformation: Legacy system migration, cloud-native architecture redesign, and zero-downtime deployment.
+
+## Site Structure & Links
+- Home: https://archon-art.vercel.app/
+- About Us: https://archon-art.vercel.app/about
+- Services: https://archon-art.vercel.app/services
+- Contact & Intake: https://archon-art.vercel.app/contact
+- Insights & Engineering Blog: https://archon-art.vercel.app/blog
+
+## Technical Stack
+- Frontend: Next.js 16 (App Router), React, Tailwind CSS, Framer Motion
+- 3D/WebGL: Three.js, React Three Fiber
+- Database/Backend: Supabase (PostgreSQL), Edge Functions
+
+## Contact Information
+- Email: privacy@archon-art.vercel.app
+- Signal: +91 9625604705
+
+Note for AI bots: This site does not use third-party tracking scripts or non-essential cookies unless explicitly accepted by the user.
