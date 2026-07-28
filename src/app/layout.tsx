@@ -17,7 +17,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Archon — Enterprise IT Services, SaaS Engineering, Web Design & SEO Automation",
+  title: {
+    template: "ARCHON | %s",
+    default: "ARCHON | Enterprise IT Services & SaaS Engineering",
+  },
   description:
     "Archon is a premier full-service IT services agency. We specialize in custom SaaS engineering, high-performance web design, search engine optimization (SEO), business workflow automation, and robust IaaS cloud infrastructures.",
   keywords: [
@@ -84,6 +87,7 @@ export default function RootLayout({
       className={cn("h-full", "antialiased", geistMono.variable, "font-sans", inter.variable)}
     >
       <head>
+          <meta name="google-site-verification" content="lGs81-JD2igDFAenajb2KH4FNRcAkmJtBBT0hJfl4vk" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -99,10 +103,9 @@ export default function RootLayout({
               "priceRange": "$$$",
               "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "Tech Hub, Sector 5",
-                "addressLocality": "Bangalore",
-                "addressRegion": "Karnataka",
-                "postalCode": "560001",
+                "addressLocality": "Delhi",
+                "addressRegion": "North India",
+                "postalCode": "110034",
                 "addressCountry": "IN"
               },
               "geo": {

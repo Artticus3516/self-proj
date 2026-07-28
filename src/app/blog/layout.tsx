@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Insights & Engineering Blog | Archon",
+  title: "Blog",
   description:
     "Expert insights on SaaS architecture, enterprise web design, digital transformation, and high-performance React development from the engineers at Archon.",
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Insights & Engineering Blog | Archon",
+    title: "Blog",
     description:
       "Expert insights on SaaS architecture, enterprise web design, and digital transformation.",
     url: "https://archon-art.vercel.app/blog",
