@@ -3,11 +3,13 @@
 import Link from "next/link";
 import { useEffect } from "react";
 import { initTracking } from "@/lib/tracking";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export default function Home() {
   useEffect(() => initTracking("/"), []);
 
   return (
+      <SpeedInsights />
     <main className="relative h-screen w-full overflow-hidden text-foreground flex flex-col items-center justify-center bg-transparent">
       {/* Hero Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center gap-6">

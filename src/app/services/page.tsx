@@ -178,9 +178,9 @@ export default function ServicesPage() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="mb-16 max-w-2xl"
         >
-          <h2 className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-4">
+          <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-4">
             Digital Infrastructure Agency — Service Catalogue
-          </h2>
+          </p>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.08] text-zinc-900 dark:text-white">
             Built for Systems<br />That Cannot Fail.
           </h1>
@@ -239,12 +239,12 @@ export default function ServicesPage() {
           <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-black/10 dark:border-white/20 rounded-br-2xl" />
 
           <div className="space-y-2 max-w-lg">
-            <h2 className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
               Ready to deploy?
-            </h2>
-            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight leading-snug">
+            </p>
+            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight leading-snug">
               Start with a scoped architecture brief.
-            </h3>
+            </h2>
             <p className="text-sm text-zinc-600 dark:text-zinc-500 font-light leading-relaxed">
               Our engineers review your requirements and return a technical scope
               document within 48 hours — at no cost.
@@ -272,12 +272,12 @@ export default function ServicesPage() {
           className="mt-32 max-w-3xl"
         >
           <div className="mb-8">
-            <h2 className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
               Common Questions
-            </h2>
-            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
+            </p>
+            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
               Frequently Asked Questions
-            </h3>
+            </h2>
           </div>
           
           <div className="flex flex-col gap-4">

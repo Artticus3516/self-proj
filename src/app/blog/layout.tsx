@@ -14,14 +14,14 @@ export const metadata: Metadata = {
     "web development best practices",
   ],
   alternates: {
-    canonical: "https://Archon-agency.com/blog",
+    canonical: "https://archon-art.vercel.app/blog",
   },
   openGraph: {
     type: "website",
     title: "Insights & Engineering Blog | Archon",
     description:
       "Expert insights on SaaS architecture, enterprise web design, and digital transformation.",
-    url: "https://Archon-agency.com/blog",
+    url: "https://archon-art.vercel.app/blog",
     siteName: "Archon",
   },
 };
@@ -39,13 +39,13 @@ export default function BlogLayout({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://Archon-agency.com",
+        item: "https://archon-art.vercel.app",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://Archon-agency.com/blog",
+        item: "https://archon-art.vercel.app/blog",
       },
     ],
   };
@@ -53,18 +53,18 @@ export default function BlogLayout({
   const blogJsonLd = {
     "@context": "https://schema.org",
     "@type": ["Blog", "CollectionPage"],
-    "@id": "https://Archon-agency.com/blog#blog",
-    url: "https://Archon-agency.com/blog",
+    "@id": "https://archon-art.vercel.app/blog#blog",
+    url: "https://archon-art.vercel.app/blog",
     name: "Archon Engineering & Insights Blog",
     description:
       "Expert insights on SaaS architecture, enterprise web design, digital transformation, and high-performance React development from the engineers at Archon.",
     publisher: {
       "@type": "Organization",
       name: "Archon IT Services",
-      url: "https://Archon-agency.com",
+      url: "https://archon-art.vercel.app",
       logo: {
         "@type": "ImageObject",
-        url: "https://Archon-agency.com/logo.png",
+        url: "https://archon-art.vercel.app/logo.png",
       },
     },
   };

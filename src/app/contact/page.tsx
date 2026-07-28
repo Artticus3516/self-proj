@@ -65,6 +65,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-transparent flex items-center justify-center px-4 py-20">
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+        <h1 className="sr-only">Contact Archon — Enterprise IT Services & Architecture</h1>
 
         {/* ── LEFT: Blueprint Form Panel ────────────────────────────────── */}
         <motion.div
@@ -213,12 +214,12 @@ export default function ContactPage() {
               Console Online
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight text-zinc-900 dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight text-zinc-900 dark:text-white">
               Scale Without{" "}
               <span className="bg-gradient-to-b from-zinc-900 via-zinc-600 to-zinc-400 dark:from-white dark:via-zinc-200 dark:to-zinc-500 bg-clip-text text-transparent">
                 Constraints.
               </span>
-            </h1>
+            </h2>
 
             <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-sm">
               From provisioning high-availability IaaS clusters to engineering custom SaaS

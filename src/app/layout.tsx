@@ -1,20 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { PreLoader } from "@/components/PreLoader";
 import { CookieConsent } from "@/components/CookieConsent";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import BackgroundWave from "@/components/BackgroundWave";
 import { cn } from "@/lib/utils";
+import BackgroundWaveWrapper from "@/components/BackgroundWaveWrapper";
 
 const inter = Inter({subsets:['latin'],variable:'--font-sans'});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -44,7 +39,7 @@ export const metadata: Metadata = {
     "IT systems automation",
   ],
   alternates: {
-    canonical: "https://Archon-agency.com",
+    canonical: "https://archon-art.vercel.app",
   },
   robots: {
     index: true,
@@ -64,7 +59,7 @@ export const metadata: Metadata = {
     title: "Archon — Enterprise IT Services, SaaS Engineering, Web Design & SEO Automation",
     description:
       "Unlock digital velocity with Archon. From enterprise SaaS engineering and cutting-edge web design to technical SEO and automated cloud infrastructure.",
-    url: "https://Archon-agency.com",
+    url: "https://archon-art.vercel.app",
     siteName: "Archon",
     locale: "en_US",
   },
@@ -86,7 +81,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
+      className={cn("h-full", "antialiased", geistMono.variable, "font-sans", inter.variable)}
     >
       <head>
         <script
@@ -96,9 +91,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": ["ProfessionalService", "Organization"],
               "name": "Archon IT Services",
-              "image": "https://Archon-agency.com/logo.png",
-              "@id": "https://Archon-agency.com/#organization",
-              "url": "https://Archon-agency.com",
+              "image": "https://archon-art.vercel.app/logo.png",
+              "@id": "https://archon-art.vercel.app/#organization",
+              "url": "https://archon-art.vercel.app",
               "telephone": "+91 9625604705",
               "email": "artticus9@gmail.com",
               "priceRange": "$$$",
@@ -196,12 +191,12 @@ export default function RootLayout({
               "@type": "WebSite",
               "name": "Archon",
               "alternateName": "Archon IT Services",
-              "url": "https://Archon-agency.com",
+              "url": "https://archon-art.vercel.app",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": {
                   "@type": "EntryPoint",
-                  "urlTemplate": "https://Archon-agency.com/blog?q={search_term_string}"
+                  "urlTemplate": "https://archon-art.vercel.app/blog?q={search_term_string}"
                 },
                 "query-input": "required name=search_term_string"
               }
@@ -216,7 +211,7 @@ export default function RootLayout({
           enableSystem
         >
           <PreLoader />
-          <BackgroundWave />
+          <BackgroundWaveWrapper />
           <Navbar />
           {children}
           <Footer />

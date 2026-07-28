@@ -93,9 +93,9 @@ export default function AboutPage() {
           custom={0}
           className="max-w-3xl"
         >
-          <h2 className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-5">
+          <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-5">
             About the Agency
-          </h2>
+          </p>
           <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight leading-[1.05] text-zinc-900 dark:text-white">
             We Engineer What
             <br />
@@ -154,12 +154,12 @@ export default function AboutPage() {
             custom={0}
             className="mb-10"
           >
-            <h3 className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
+            <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
               Engineering Philosophy
-            </h3>
-            <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
+            </p>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
               Principles We Build On.
-            </h3>
+            </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -178,9 +178,9 @@ export default function AboutPage() {
                 <span className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
                   [{p.index}]
                 </span>
-                <h2 className="text-base font-semibold text-zinc-900 dark:text-white tracking-tight">
+                <h3 className="text-base font-semibold text-zinc-900 dark:text-white tracking-tight">
                   {p.title}
-                </h2>
+                </h3>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-light">
                   {p.body}
                 </p>
@@ -198,9 +198,9 @@ export default function AboutPage() {
             custom={0}
             className="mb-10"
           >
-            <h3 className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
+            <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
               Core Values
-            </h3>
+            </p>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
               The Standard We Hold.
             </h2>
@@ -219,9 +219,9 @@ export default function AboutPage() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-600 group-hover:bg-zinc-600 dark:group-hover:bg-zinc-400 transition-colors duration-300" aria-hidden="true" />
-                  <h2 className="text-sm font-semibold text-zinc-900 dark:text-white tracking-tight">
+                  <h3 className="text-sm font-semibold text-zinc-900 dark:text-white tracking-tight">
                     {v.label}
-                  </h2>
+                  </h3>
                 </div>
                 <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-500 font-light pl-3">
                   {v.description}
@@ -246,12 +246,12 @@ export default function AboutPage() {
           <span className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-black/10 dark:border-white/20 rounded-bl-2xl" />
           <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-black/10 dark:border-white/20 rounded-br-2xl" />
           <div className="space-y-2 max-w-lg">
-            <h3 className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
               Work with us
-            </h3>
-            <p className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
-              Ready to architect something resilient?
             </p>
+            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
+              Ready to architect something resilient?
+            </h2>
             <p className="text-sm text-zinc-600 dark:text-zinc-500 font-light leading-relaxed">
               Share your infrastructure brief. We'll return a technical scope
               document and preliminary architecture diagram within 48 hours.
@@ -279,9 +279,9 @@ export default function AboutPage() {
             custom={0}
             className="mb-10 max-w-3xl"
           >
-            <h3 className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
+            <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
               Common Questions
-            </h3>
+            </p>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
               Frequently Asked Questions
             </h2>

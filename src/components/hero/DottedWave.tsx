@@ -6,22 +6,88 @@ import * as THREE from "three";
 
 const SPACING = 0.45;
 
+const vertexShader = `
+  uniform float uTime;
+  uniform float uSize;
+  
+  void main() {
+    vec3 pos = position;
+    
+    // Wave calculations matching the original CPU math
+    float waveX = sin(pos.x * 0.4 + uTime * 0.8) * 0.5;
+    float waveZ = cos(pos.z * 0.3 + uTime * 0.5) * 0.5;
+    float waveCombined = sin(pos.x * 0.2 + pos.z * 0.2 + uTime) * 1.2;
+    
+    pos.y = waveX + waveZ + waveCombined;
+    
+    vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
+    gl_Position = projectionMatrix * mvPosition;
+    
+    // Standard size attenuation formula
+    gl_PointSize = uSize * (300.0 / -mvPosition.z);
+  }
+`;
+
+const fragmentShader = `
+  uniform vec3 uColor;
+  uniform float uOpacity;
+  
+  void main() {
+    // Make points circular and smooth
+    float dist = length(gl_PointCoord - vec2(0.5));
+    if (dist > 0.5) discard;
+    
+    // Smooth edges for soft glow circles
+    float alpha = smoothstep(0.5, 0.4, dist) * uOpacity;
+    gl_FragColor = vec4(uColor, alpha);
+  }
+`;
+
 export function DottedWave({ isLight }: { isLight?: boolean }) {
   const pointsRef = useRef<THREE.Points>(null);
   const [gridSize, setGridSize] = useState(40); // Safe default for SSR/initial render (mobile-first)
 
-  // Detect screen size on client side
+  const material = useMemo(() => {
+    return new THREE.ShaderMaterial({
+      vertexShader,
+      fragmentShader,
+      uniforms: {
+        uTime: { value: 0 },
+        uColor: { value: new THREE.Color(isLight ? "#161614" : "#ffffff") },
+        uOpacity: { value: isLight ? 0.8 : 0.7 },
+        uSize: { value: 16.0 },
+      },
+      transparent: true,
+      depthWrite: false,
+    });
+  }, []);
+
+  // Update uniforms when theme changes
+  useEffect(() => {
+    material.uniforms.uColor.value.set(isLight ? "#161614" : "#ffffff");
+    material.uniforms.uOpacity.value = isLight ? 0.8 : 0.7;
+  }, [isLight, material]);
+
+  // Detect screen size on client side and adjust grid size/particle visual size
   useEffect(() => {
     const handleResize = () => {
-      // If desktop, use 80, otherwise use 45 (reduces particle count to ~30% of desktop)
-      const size = window.innerWidth >= 768 ? 80 : 45;
+      const isDesktop = window.innerWidth >= 768;
+      const size = isDesktop ? 80 : 45;
       setGridSize(size);
+      material.uniforms.uSize.value = isDesktop ? 16.0 : 12.0;
     };
 
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [material]);
+
+  // Clean up WebGL resource on unmount
+  useEffect(() => {
+    return () => {
+      material.dispose();
+    };
+  }, [material]);
 
   // Generate initial positions based on dynamic gridSize
   const positions = useMemo(() => {
@@ -35,7 +101,7 @@ export function DottedWave({ isLight }: { isLight?: boolean }) {
         const pz = (z - gridSize / 2) * SPACING;
         
         pos[i * 3] = px;
-        pos[i * 3 + 1] = 0; // Y will be updated in useFrame
+        pos[i * 3 + 1] = 0; // Y is updated completely on the GPU
         pos[i * 3 + 2] = pz;
         i++;
       }
@@ -43,29 +109,9 @@ export function DottedWave({ isLight }: { isLight?: boolean }) {
     return pos;
   }, [gridSize]);
 
+  // Update time uniform in frame loop
   useFrame((state) => {
-    const time = state.clock.getElapsedTime();
-    const currentPositions = pointsRef.current?.geometry.attributes.position.array as Float32Array | undefined;
-    
-    if (!currentPositions || currentPositions.length !== gridSize * gridSize * 3) return;
-
-    let i = 0;
-    for (let x = 0; x < gridSize; x++) {
-      for (let z = 0; z < gridSize; z++) {
-        const px = (x - gridSize / 2) * SPACING;
-        const pz = (z - gridSize / 2) * SPACING;
-        
-        // Complex wave function to mimic reference image
-        const waveX = Math.sin(px * 0.4 + time * 0.8) * 0.5;
-        const waveZ = Math.cos(pz * 0.3 + time * 0.5) * 0.5;
-        const waveCombined = Math.sin(px * 0.2 + pz * 0.2 + time) * 1.2;
-        
-        currentPositions[i * 3 + 1] = waveX + waveZ + waveCombined; // Update Y
-        i++;
-      }
-    }
-    
-    pointsRef.current!.geometry.attributes.position.needsUpdate = true;
+    material.uniforms.uTime.value = state.clock.getElapsedTime();
   });
 
   return (
@@ -79,13 +125,7 @@ export function DottedWave({ isLight }: { isLight?: boolean }) {
           args={[positions, 3]}
         />
       </bufferGeometry>
-      <pointsMaterial
-        size={0.06}
-        color={isLight ? "#161614" : "#ffffff"}
-        transparent
-        opacity={isLight ? 0.8 : 0.7}
-        sizeAttenuation={true}
-      />
+      <primitive object={material} attach="material" />
     </points>
   );
 }

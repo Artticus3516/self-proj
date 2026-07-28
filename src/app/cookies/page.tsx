@@ -115,7 +115,7 @@ export default function CookiesPolicyPage() {
               You can revoke or modify your consent selections at any time. To clear your preferences and force the consent banner to show up again, click the trigger button in the footer or clear your browser's site cookies and local storage cache manually.
             </p>
             <p>
-              For any questions regarding our tracking mechanics, reach out to us at <span className="text-black dark:text-white hover:underline font-mono">privacy@Archon-agency.com</span>.
+              For any questions regarding our tracking mechanics, reach out to us at <span className="text-black dark:text-white hover:underline font-mono">privacy@archon-art.vercel.app</span>.
             </p>
           </div>
         </motion.section>

@@ -63,7 +63,7 @@ export default function PrivacyPolicyPage() {
               <p className="font-bold text-black dark:text-white">Archon Systems Private Limited</p>
               <p>Corporate Office Layer: Tech Hub, Sector 5</p>
               <p>Bangalore, Karnataka, India</p>
-              <p>Email: <span className="text-zinc-900 dark:text-white hover:underline">privacy@Archon-agency.com</span></p>
+              <p>Email: <span className="text-zinc-900 dark:text-white hover:underline">privacy@archon-art.vercel.app</span></p>
             </div>
           </div>
 
@@ -132,7 +132,7 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
             <p>
-              To exercise any of these rights, please email us directly at <span className="text-black dark:text-white hover:underline font-mono">privacy@Archon-agency.com</span>. We will respond within 30 days.
+              To exercise any of these rights, please email us directly at <span className="text-black dark:text-white hover:underline font-mono">privacy@archon-art.vercel.app</span>. We will respond within 30 days.
             </p>
           </div>
         </motion.section>
