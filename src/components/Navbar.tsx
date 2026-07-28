@@ -1,20 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import {usePathname} from "next/navigation";
-import {useEffect, useState} from "react";
-import {AnimatePresence, motion, useAnimationControls} from "framer-motion";
+import { usePathname } from "next/navigation";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence, useAnimationControls } from "framer-motion";
+import Switch from "./Switch";
 
 const NAV_LINKS = [
-    {href: "/", label: "Home"},
-    {href: "/about", label: "About"},
-    {href: "/services", label: "Services"},
-     // { href: "/blog", label: "Blog" },
-    {href: "/contact", label: "Contact"},
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
+    { href: "/services", label: "Services" },
+    // { href: "/blog", label: "Blog" },
+    { href: "/contact", label: "Contact" },
 ];
 
 // ─── Stage 1 & 2: Perfect Center-Out Animation Logic ─────────────────────
-const barVariants: any = {
+const barVariants:any  = {
     // 1. Hovering high above the viewport, completely invisible
     initial: {
         y: -100,
@@ -38,8 +39,8 @@ const barVariants: any = {
         backgroundColor: "rgb(255,255,255)",
         boxShadow: "0 0 20px rgba(255,255,255,0.6), 0 0 40px rgba(255,255,255,0.2)",
         transition: {
-            y: {type: "spring", stiffness: 150, damping: 14},
-            opacity: {duration: 0.15},
+            y: { type: "spring", stiffness: 150, damping: 14 },
+            opacity: { duration: 0.15 },
         },
     },
     // 3. Smooth transition to full navbar state without touching structural CSS
@@ -49,11 +50,11 @@ const barVariants: any = {
         width: "100%", // Wipes out smoothly to full structural container width
         height: "52px",
         borderRadius: "14px",
-        backgroundColor: "rgba(10,10,10,0.45)",
-        boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.08), 0 10px 40px rgba(0,0,0,0.3)",
+        backgroundColor: "rgba(10,10,10,0.0)", // Will be overridden by Tailwind class for light/dark
+        boxShadow: "inset 0 0 0 1px rgba(128,128,128,0.08), 0 10px 40px rgba(0,0,0,0.1)",
         transition: {
-            width: {duration: 0.75, ease: [0.16, 1, 0.3, 1]}, // Cinematic ease-out stretch
-            height: {duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.05},
+            width: { duration: 0.75, ease: [0.16, 1, 0.3, 1] }, // Cinematic ease-out stretch
+            height: { duration: 0.45, ease: [0.16, 1, 0.3, 1], delay: 0.05 },
         },
     },
 };
@@ -63,16 +64,16 @@ const barVariants: any = {
 const contentContainerVariants: any = {
     hidden: {},
     visible: {
-        transition: {staggerChildren: 0.07},
+        transition: { staggerChildren: 0.07 },
     },
 };
 
 const contentItemVariants: any = {
-    hidden: {opacity: 0, y: 7},
+    hidden: { opacity: 0, y: 7 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: {duration: 0.32, ease: "easeOut"},
+        transition: { duration: 0.32, ease: "easeOut" },
     },
 };
 
@@ -126,11 +127,11 @@ export function Navbar() {
 
                 {/* ── Morphing container: dot → glassmorphic bar ── */}
                 <motion.div
-                    className="mt-3 flex items-center justify-between px-5 overflow-hidden backdrop-blur-xl"
+                    className="mt-3 flex items-center justify-between px-5 overflow-hidden bg-white/70 dark:bg-zinc-950/45 border border-black/5 dark:border-white/[0.08] backdrop-blur-xl shadow-lg"
                     variants={barVariants as any}
                     initial="initial"
                     animate={barControls}
-                    style={{originX: 0.5}}
+                    style={{ originX: 0.5 }}
                     aria-hidden={undefined}
                 >
                     {/* ── Stage 3: all inner content fades up together ── */}
@@ -153,24 +154,24 @@ export function Navbar() {
                                     viewBox="0 0 40 40"
                                     fill="none"
                                     aria-hidden="true"
+                                    className="text-black dark:text-white"
                                 >
                                     <path
                                         d="M20 2L38 20L20 38L2 20L20 2Z"
-                                        stroke="white"
+                                        stroke="currentColor"
                                         strokeWidth="1.5"
                                         strokeLinejoin="round"
                                     />
                                     <path
                                         d="M20 10L30 20L20 30L10 20L20 10Z"
-                                        fill="white"
+                                        fill="currentColor"
                                         fillOpacity="0.15"
-                                        stroke="white"
+                                        stroke="currentColor"
                                         strokeWidth="1"
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                                <span
-                                    className="text-sm font-semibold tracking-tight text-white/90 group-hover:text-white transition-colors">
+                <span className="text-sm font-semibold tracking-tight text-zinc-800 dark:text-white/90 group-hover:text-black dark:group-hover:text-white transition-colors">
                   Archon
                 </span>
                             </Link>
@@ -186,14 +187,14 @@ export function Navbar() {
                                             href={link.href}
                                             className={`relative px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                                                 isActive
-                                                    ? "text-white"
-                                                    : "text-zinc-400 hover:text-white hover:bg-white/5"
+                                                    ? "text-black dark:text-white"
+                                                    : "text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
                                             }`}
                                         >
                                             {isActive && (
                                                 <motion.span
                                                     layoutId="nav-pill"
-                                                    className="absolute inset-0 rounded-lg bg-white/10"
+                                                    className="absolute inset-0 rounded-lg bg-black/5 dark:bg-white/10"
                                                     transition={{
                                                         type: "spring",
                                                         bounce: 0.2,
@@ -213,6 +214,7 @@ export function Navbar() {
                             variants={contentItemVariants}
                             className="hidden sm:flex items-center gap-3"
                         >
+                            <Switch />
                             <Link
                                 href="/contact"
                                 className="px-4 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-sm font-semibold text-white transition-colors shadow-[0_0_20px_rgba(139,92,246,0.25)]"
@@ -222,27 +224,28 @@ export function Navbar() {
                         </motion.div>
 
                         {/* Mobile hamburger */}
-                        <motion.div variants={contentItemVariants} className="sm:hidden">
+                        <motion.div variants={contentItemVariants} className="sm:hidden flex items-center gap-2">
+                            <Switch />
                             <button
                                 type="button"
-                                className="flex flex-col gap-1.5 p-2 rounded-lg hover:bg-white/5 transition-colors"
+                                className="flex flex-col gap-1.5 p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                                 aria-expanded={open}
                                 aria-controls="mobile-menu"
                                 aria-label={open ? "Close menu" : "Open menu"}
                                 onClick={() => setOpen((v) => !v)}
                             >
                 <span
-                    className={`block w-5 h-px bg-white/70 transition-all duration-300 origin-center ${
+                    className={`block w-5 h-px bg-black/70 dark:bg-white/70 transition-all duration-300 origin-center ${
                         open ? "rotate-45 translate-y-[8px]" : ""
                     }`}
                 />
                                 <span
-                                    className={`block w-5 h-px bg-white/70 transition-all duration-300 ${
+                                    className={`block w-5 h-px bg-black/70 dark:bg-white/70 transition-all duration-300 ${
                                         open ? "opacity-0" : ""
                                     }`}
                                 />
                                 <span
-                                    className={`block w-5 h-px bg-white/70 transition-all duration-300 origin-center ${
+                                    className={`block w-5 h-px bg-black/70 dark:bg-white/70 transition-all duration-300 origin-center ${
                                         open ? "-rotate-45 -translate-y-[8px]" : ""
                                     }`}
                                 />
@@ -256,11 +259,11 @@ export function Navbar() {
                     {open && (
                         <motion.nav
                             id="mobile-menu"
-                            initial={{opacity: 0, y: -8}}
-                            animate={{opacity: 1, y: 0}}
-                            exit={{opacity: 0, y: -8}}
-                            transition={{duration: 0.2}}
-                            className="mt-2 rounded-2xl border border-white/[0.07] bg-black/80 backdrop-blur-xl p-3 space-y-1"
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -8 }}
+                            transition={{ duration: 0.2 }}
+                            className="mt-2 rounded-2xl border border-black/5 dark:border-white/[0.07] bg-white/90 dark:bg-black/80 backdrop-blur-xl p-3 space-y-1 shadow-lg"
                             aria-label="Mobile navigation"
                         >
                             {NAV_LINKS.map((link) => (
@@ -270,8 +273,8 @@ export function Navbar() {
                                     onClick={() => setOpen(false)}
                                     className={`block rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
                                         pathname === link.href
-                                            ? "bg-white/10 text-white"
-                                            : "text-zinc-400 hover:bg-white/5 hover:text-white"
+                                            ? "bg-black/5 dark:bg-white/10 text-black dark:text-white"
+                                            : "text-zinc-600 dark:text-zinc-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white"
                                     }`}
                                 >
                                     {link.label}

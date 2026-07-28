@@ -1,280 +1,296 @@
 "use client";
 
-import {motion} from "framer-motion";
-import {useActionState} from "react";
-import {submitContactAction} from "./actions";
+import { motion } from "framer-motion";
+import { useActionState } from "react";
+import { submitContactAction } from "./actions";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 type FormState = { name: string; email: string; company: string; message: string };
 type Status = "idle" | "submitting" | "success" | "error";
 
 const ARCH_REQUIREMENTS = [
-    "Custom SaaS Build",
-    "Cloud Infrastructure (IaaS)",
-    "DevOps Automation",
-    "Full-Scale Digital Transformation",
+  "Custom SaaS Build",
+  "Cloud Infrastructure (IaaS)",
+  "DevOps Automation",
+  "Full-Scale Digital Transformation",
 ];
 
 const SCALE_OPTIONS = [
-    "MVP / Startup",
-    "Mid-Market Enterprise",
-    "High-Availability Cluster",
+  "MVP / Startup",
+  "Mid-Market Enterprise",
+  "High-Availability Cluster",
 ];
 
 // ─── Corner Tick decoration (mechanical crosshair corners) ────────────────────
 function CornerTicks() {
-    return (
-        <>
-            <span className="absolute top-0 left-0 w-3 h-3 border-t border-l border-zinc-700"/>
-            <span className="absolute top-0 right-0 w-3 h-3 border-t border-r border-zinc-700"/>
-            <span className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-zinc-700"/>
-            <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-zinc-700"/>
-        </>
-    );
+  return (
+    <>
+      <span className="absolute top-0 left-0 w-3 h-3 border-t border-l border-zinc-700" />
+      <span className="absolute top-0 right-0 w-3 h-3 border-t border-r border-zinc-700" />
+      <span className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-zinc-700" />
+      <span className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-zinc-700" />
+    </>
+  );
 }
 
 // ─── Terminal Field ───────────────────────────────────────────────────────────
 function TerminalField({
-                           index,
-                           label,
-                           children,
-                       }: {
-    index: string;
-    label: string;
-    children: React.ReactNode;
+  index,
+  label,
+  children,
+}: {
+  index: string;
+  label: string;
+  children: React.ReactNode;
 }) {
-    return (
-        <div className="relative group space-y-1.5">
-            <label
-                className="flex items-center gap-2 font-sans text-xs tracking-wide text-zinc-400 uppercase font-medium">
-                <span className="text-zinc-600">[{index}]</span>
-                {label}
-            </label>
-            <div className="relative">
-                <CornerTicks/>
-                {children}
-            </div>
-        </div>
-    );
+  return (
+    <div className="relative group space-y-1.5">
+      <label className="flex items-center gap-2 font-sans text-xs tracking-wide text-zinc-600 dark:text-zinc-400 uppercase font-medium">
+        <span className="text-zinc-500 dark:text-zinc-600">[{index}]</span>
+        {label}
+      </label>
+      <div className="relative">
+        <CornerTicks />
+        {children}
+      </div>
+    </div>
+  );
 }
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
 export default function ContactPage() {
-    const [state, formAction, isPending] = useActionState(submitContactAction, {status: "idle"});
-    const status = state.status;
+  const [state, formAction, isPending] = useActionState(submitContactAction, { status: "idle" });
+  const status = state.status;
 
-    return (
-        <main className="min-h-screen bg-transparent text-white flex items-center justify-center px-4 py-20">
-            <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
+  return (
+    <main className="min-h-screen bg-transparent flex items-center justify-center px-4 py-20">
+      <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
 
-                {/* ── LEFT: Blueprint Form Panel ────────────────────────────────── */}
-                <motion.div
-                    initial={{opacity: 0, x: -24}}
-                    animate={{opacity: 1, x: 0}}
-                    transition={{duration: 0.6, ease: "easeOut"}}
-                    className="relative rounded-2xl overflow-hidden border border-white/10
-                     bg-zinc-950/40 backdrop-blur-xl
+        {/* ── LEFT: Blueprint Form Panel ────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, x: -24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="relative rounded-2xl overflow-hidden border border-black/5 dark:border-white/10
+                     bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl
                      bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)]
                      bg-[size:24px_24px]"
-                >
-                    {/* Sheet header bar */}
-                    <div className="flex items-center justify-between border-b border-white/[0.06] px-6 py-3">
-            <span className="font-mono text-[10px] tracking-[0.25em] text-zinc-600 uppercase">
+        >
+          {/* Sheet header bar */}
+          <div className="flex items-center justify-between border-b border-black/5 dark:border-white/[0.06] px-6 py-3">
+            <span className="font-mono text-[10px] tracking-[0.25em] text-zinc-500 dark:text-zinc-600 uppercase">
               INITIALIZE_CORE_ARCHITECTURE // REV_5.0
             </span>
-                        <div className="flex gap-1.5">
-                            {["bg-red-500/40", "bg-yellow-500/40", "bg-emerald-500/40"].map((c, i) => (
-                                <span key={i} className={`w-2 h-2 rounded-full ${c}`}/>
-                            ))}
-                        </div>
-                    </div>
+            <div className="flex gap-1.5">
+              {["bg-red-500/40", "bg-yellow-500/40", "bg-emerald-500/40"].map((c, i) => (
+                <span key={i} className={`w-2 h-2 rounded-full ${c}`} />
+              ))}
+            </div>
+          </div>
 
-                    <form action={formAction} className="p-6 space-y-6">
-                        {/* Section heading */}
-                        <div className="pb-2 border-b border-white/[0.05]">
-                            <h2 className="text-base font-semibold text-white tracking-tight">Initialize Core
-                                Architecture.</h2>
-                            <p className="mt-1 text-[11px] text-zinc-600 font-mono">Complete all parameters to open a
-                                project intake ticket.</p>
-                        </div>
+          <form action={formAction} className="p-6 space-y-6">
+            {/* Section heading */}
+            <div className="pb-2 border-b border-black/5 dark:border-white/[0.05]">
+              <h2 className="text-base font-semibold text-zinc-900 dark:text-white tracking-tight">Initialize Core Architecture.</h2>
+              <p className="mt-1 text-[11px] text-zinc-500 dark:text-zinc-600 font-mono">Complete all parameters to open a project intake ticket.</p>
+            </div>
 
-                        {/* Row 1 — Company Name */}
-                        <TerminalField index="01" label="COMPANY_NAME">
-                            <input
-                                name="name"
-                                required
-                                placeholder="Acme Corp"
-                                className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
-                           text-sm text-white font-mono placeholder:text-zinc-700
-                           outline-none focus:border-white focus:ring-1 focus:ring-white/20
+            {/* Row 1 — Company Name */}
+            <TerminalField index="01" label="COMPANY_NAME">
+              <input
+                name="name"
+                required
+                placeholder="Acme Corp"
+                className="w-full bg-black/5 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5
+                           text-sm text-black dark:text-white font-mono placeholder:text-zinc-500 dark:placeholder:text-zinc-700
+                           outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/20 dark:focus:ring-white/20
                            transition-all duration-200"
-                            />
-                        </TerminalField>
+              />
+            </TerminalField>
 
-                        {/* Row 2 — Architecture Requirement */}
-                        <TerminalField index="02" label="ARCHITECTURE_REQUIREMENT">
-                            <select
-                                name="archReq"
-                                className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
-                           text-sm text-white font-mono
-                           outline-none focus:border-white focus:ring-1 focus:ring-white/20
+            {/* Row 2 — Architecture Requirement */}
+            <TerminalField index="02" label="ARCHITECTURE_REQUIREMENT">
+              <select
+                name="archReq"
+                className="w-full bg-black/5 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5
+                           text-sm text-black dark:text-white font-mono
+                           outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/20 dark:focus:ring-white/20
                            transition-all duration-200 appearance-none cursor-pointer"
-                            >
-                                {ARCH_REQUIREMENTS.map((t) => (
-                                    <option key={t} value={t} className="bg-zinc-900">{t}</option>
-                                ))}
-                            </select>
-                        </TerminalField>
+              >
+                {ARCH_REQUIREMENTS.map((t) => (
+                  <option key={t} value={t} className="bg-white dark:bg-zinc-900">{t}</option>
+                ))}
+              </select>
+            </TerminalField>
 
-                        {/* Row 3 — Estimated Scale */}
-                        <TerminalField index="03" label="ESTIMATED_SCALE">
-                            <select
-                                name="scale"
-                                className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
-                           text-sm text-white font-mono
-                           outline-none focus:border-white focus:ring-1 focus:ring-white/20
+            {/* Row 3 — Estimated Scale */}
+            <TerminalField index="03" label="ESTIMATED_SCALE">
+              <select
+                name="scale"
+                className="w-full bg-black/5 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5
+                           text-sm text-black dark:text-white font-mono
+                           outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/20 dark:focus:ring-white/20
                            transition-all duration-200 appearance-none cursor-pointer"
-                            >
-                                {SCALE_OPTIONS.map((s) => (
-                                    <option key={s} value={s} className="bg-zinc-900">{s}</option>
-                                ))}
-                            </select>
-                        </TerminalField>
+              >
+                {SCALE_OPTIONS.map((s) => (
+                  <option key={s} value={s} className="bg-white dark:bg-zinc-900">{s}</option>
+                ))}
+              </select>
+            </TerminalField>
 
-                        {/* Row 4 — Email */}
-                        <TerminalField index="04" label="EMAIL_ADDRESS">
-                            <input
-                                name="email"
-                                required
-                                type="email"
-                                placeholder="cto@enterprise.com"
-                                className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
-                           text-sm text-white font-mono placeholder:text-zinc-700
-                           outline-none focus:border-white focus:ring-1 focus:ring-white/20
+            {/* Row 4 — Email */}
+            <TerminalField index="04" label="EMAIL_ADDRESS">
+              <input
+                name="email"
+                required
+                type="email"
+                placeholder="cto@enterprise.com"
+                className="w-full bg-black/5 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5
+                           text-sm text-black dark:text-white font-mono placeholder:text-zinc-500 dark:placeholder:text-zinc-700
+                           outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/20 dark:focus:ring-white/20
                            transition-all duration-200"
-                            />
-                        </TerminalField>
+              />
+            </TerminalField>
 
-                        {/* Row 5 — Message */}
-                        <TerminalField index="05" label="BRIEF_DESCRIPTION">
+            {/* Row 5 — Message */}
+            <TerminalField index="05" label="BRIEF_DESCRIPTION">
               <textarea
-                  name="message"
-                  required
-                  rows={5}
-                  placeholder="Describe your project scope and timeline..."
-                  className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-2.5
-                           text-sm text-white font-mono placeholder:text-zinc-700
-                           outline-none focus:border-white focus:ring-1 focus:ring-white/20
+                name="message"
+                required
+                rows={5}
+                placeholder="Describe your project scope and timeline..."
+                className="w-full bg-black/5 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-lg px-4 py-2.5
+                           text-sm text-black dark:text-white font-mono placeholder:text-zinc-500 dark:placeholder:text-zinc-700
+                           outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black/20 dark:focus:ring-white/20
                            transition-all duration-200 resize-none"
               />
-                        </TerminalField>
+            </TerminalField>
 
-                        {/* Submit */}
-                        <div className="flex items-center gap-4">
-                            <button
-                                type="submit"
-                                disabled={isPending || status === "success"}
-                                className="px-8 py-3 rounded-full bg-white text-black font-semibold text-sm transition-all duration-300 hover:bg-zinc-200 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(255,255,255,0.1)] disabled:opacity-50 disabled:cursor-not-allowed text-center"
-                            >
-                                {isPending
-                                    ? "TRANSMITTING..."
-                                    : status === "success"
-                                        ? "ORDER RECEIVED ✓"
-                                        : "SUBMIT_ORDER //"}
-                            </button>
-                            {status === "error" && (
-                                <p className="font-mono text-xs text-red-400">
-                                    ERR: Transmission failed. Retry.
-                                </p>
-                            )}
-                        </div>
-                    </form>
+            {/* Submit */}
+            <div className="flex items-center gap-4">
+              <button
+                type="submit"
+                disabled={isPending || status === "success"}
+                className="px-8 py-3 rounded-full bg-zinc-900 text-white dark:bg-white dark:text-black font-semibold text-sm transition-all duration-300 hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:shadow-[0_0_20px_rgba(255,255,255,0.1)] disabled:opacity-50 disabled:cursor-not-allowed text-center"
+              >
+                {isPending 
+                  ? "TRANSMITTING..." 
+                  : status === "success"
+                  ? "ORDER RECEIVED ✓"
+                  : "SUBMIT_ORDER //"}
+              </button>
+              {status === "error" && (
+                <p className="font-mono text-xs text-red-400">
+                  ERR: Transmission failed. Retry.
+                </p>
+              )}
+            </div>
+          </form>
 
-                    {/* Bottom ruler */}
-                    <div
-                        className="border-t border-white/[0.06] px-6 py-2 flex justify-between font-mono text-[9px] text-zinc-700">
-                        <span>SECURE_CHANNEL :: TLS_1.3</span>
-                        <span>LEADS_DB :: ACTIVE</span>
-                    </div>
-                </motion.div>
+          {/* Bottom ruler */}
+          <div className="border-t border-black/5 dark:border-white/[0.06] px-6 py-2 flex justify-between font-mono text-[9px] text-zinc-500 dark:text-zinc-700">
+            <span>SECURE_CHANNEL :: TLS_1.3</span>
+            <span>LEADS_DB :: ACTIVE</span>
+          </div>
+        </motion.div>
 
-                {/* ── RIGHT: Holographic Viewport Panel ─────────────────────────── */}
-                <motion.div
-                    initial={{opacity: 0, x: 24}}
-                    animate={{opacity: 1, x: 0}}
-                    transition={{duration: 0.6, delay: 0.1, ease: "easeOut"}}
-                    className="relative flex flex-col justify-between rounded-2xl border border-white/10
-                     bg-zinc-950/30 backdrop-blur-xl p-8
-                     shadow-[0_0_30px_rgba(255,255,255,0.03)]"
-                >
-                    {/* Subtle white perimeter accent line */}
-                    <div
-                        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent rounded-t-2xl"/>
+        {/* ── RIGHT: Holographic Viewport Panel ─────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, x: 24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className="relative flex flex-col justify-between rounded-2xl border border-black/5 dark:border-white/10
+                     bg-white/60 dark:bg-zinc-950/30 backdrop-blur-xl p-8
+                     shadow-[0_0_30px_rgba(0,0,0,0.03)] dark:shadow-[0_0_30px_rgba(255,255,255,0.03)]"
+        >
+          {/* Subtle white perimeter accent line */}
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent rounded-t-2xl" />
 
-                    {/* Content */}
-                    <div className="space-y-6">
-                        <div
-                            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-800 bg-zinc-900/50 text-[10px] font-mono text-zinc-400 tracking-widest uppercase">
-                            <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 animate-pulse"/>
-                            Console Online
-                        </div>
+          {/* Content */}
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 dark:border-zinc-800 bg-black/5 dark:bg-zinc-900/50 text-[10px] font-mono text-zinc-600 dark:text-zinc-400 tracking-widest uppercase">
+              <span className="w-1.5 h-1.5 rounded-full bg-zinc-600 dark:bg-zinc-400 animate-pulse" />
+              Console Online
+            </div>
 
-                        <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight text-white">
-                            Scale Without{" "}
-                            <span
-                                className="bg-gradient-to-b from-white via-zinc-200 to-zinc-500 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight text-zinc-900 dark:text-white">
+              Scale Without{" "}
+              <span className="bg-gradient-to-b from-zinc-900 via-zinc-600 to-zinc-400 dark:from-white dark:via-zinc-200 dark:to-zinc-500 bg-clip-text text-transparent">
                 Constraints.
               </span>
-                        </h1>
+            </h1>
 
-                        <p className="text-base leading-relaxed text-zinc-400 max-w-sm">
-                            From provisioning high-availability IaaS clusters to engineering custom SaaS
-                            platforms, we architect resilient digital frameworks tailored to your
-                            operational velocity. Let&apos;s build your backbone.
-                        </p>
+            <p className="text-base leading-relaxed text-zinc-600 dark:text-zinc-400 max-w-sm">
+              From provisioning high-availability IaaS clusters to engineering custom SaaS
+              platforms, we architect resilient digital frameworks tailored to your
+              operational velocity. Let&apos;s build your backbone.
+            </p>
 
-                        {/* Mechanical stat grid */}
-                        <div className="grid grid-cols-3 gap-3 pt-2">
-                            {[
-                                {val: "99.99%", label: "Uptime SLA"},
-                                {val: "< 48h", label: "Onboarding"},
-                                {val: "10x", label: "Scale Factor"},
-                            ].map((s) => (
-                                <div
-                                    key={s.label}
-                                    className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-center"
-                                >
-                                    <p className="text-xl font-bold text-white font-mono">{s.val}</p>
-                                    <p className="text-[10px] text-zinc-600 mt-0.5 tracking-wide uppercase">
-                                        {s.label}
-                                    </p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+            {/* Mechanical stat grid */}
+            <div className="grid grid-cols-3 gap-3 pt-2">
+              {[
+                { val: "99.99%", label: "Uptime SLA" },
+                { val: "< 48h", label: "Onboarding" },
+                { val: "10x", label: "Scale Factor" },
+              ].map((s) => (
+                <div
+                  key={s.label}
+                  className="rounded-xl border border-black/5 dark:border-white/[0.06] bg-black/[0.02] dark:bg-white/[0.02] p-3 text-center"
+                >
+                  <p className="text-xl font-bold text-zinc-900 dark:text-white font-mono">{s.val}</p>
+                  <p className="text-[10px] text-zinc-500 dark:text-zinc-600 mt-0.5 tracking-wide uppercase">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-                    {/* Bottom console footer */}
-                    <div className="mt-8 pt-6 border-t border-white/[0.06] space-y-3">
-                        <p className="font-mono text-[10px] text-zinc-700 tracking-widest uppercase">
-                            Direct channels
-                        </p>
-                        <div className="space-y-2">
-                            {[
-                                {label: "Email", value: "artticus9@gmail.com"},
-                                {label: "Signal", value: "+91 9625604705"},
-                            ].map((c) => (
-                                <div key={c.label} className="flex justify-between text-sm">
-                  <span className="font-mono text-[10px] text-zinc-600 uppercase tracking-widest">
+            {/* How to Start a Project */}
+            <div className="pt-6 space-y-4">
+              <h3 className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
+                How to Start a Project
+              </h3>
+              <div className="space-y-3">
+                {[
+                  { step: "01", text: "Submit your architecture brief" },
+                  { step: "02", text: "Receive a scoped technical document within 48 hours" },
+                  { step: "03", text: "Begin your project with a dedicated engineering pod" },
+                ].map((s) => (
+                  <div key={s.step} className="flex items-start gap-3">
+                    <span className="font-mono text-[10px] tracking-widest text-zinc-400 dark:text-zinc-500 mt-0.5 select-none">
+                      [{s.step}]
+                    </span>
+                    <p className="text-sm text-zinc-700 dark:text-zinc-300 font-mono">
+                      {s.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom console footer */}
+          <div className="mt-8 pt-6 border-t border-black/5 dark:border-white/[0.06] space-y-3">
+            <p className="font-mono text-[10px] text-zinc-500 dark:text-zinc-700 tracking-widest uppercase">
+              Direct channels
+            </p>
+            <div className="space-y-2">
+              {[
+                { label: "Email", value: "artticus9@gmail.com" },
+                { label: "Signal", value: "+91 9625604705" },
+              ].map((c) => (
+                <div key={c.label} className="flex justify-between text-sm">
+                  <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-600 uppercase tracking-widest">
                     {c.label}
                   </span>
-                                    <span className="text-zinc-300 font-light">{c.value}</span>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </motion.div>
-
+                  <span className="text-zinc-700 dark:text-zinc-300 font-light">{c.value}</span>
+                </div>
+              ))}
             </div>
-        </main>
-    );
+          </div>
+        </motion.div>
+
+      </div>
+    </main>
+  );
 }

@@ -1,22 +1,32 @@
 "use client";
 
-import dynamic from "next/dynamic";
-import {DottedWave} from "./hero/DottedWave";
+import { Canvas } from "@react-three/fiber";
+import { DottedWave } from "./hero/DottedWave";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
-// Dynamically import Canvas to prevent SSR hydration errors with WebGL
-const Canvas = dynamic(
-    () => import("@react-three/fiber").then((mod) => mod.Canvas),
-    {ssr: false}
-);
+export default function BackgroundWave() {
+  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
-export function BackgroundWave() {
-    return (
-        <div className="fixed inset-0 -z-10 pointer-events-none bg-[#030303]">
-            <Canvas dpr={[1, 2]} camera={{position: [0, 6, 12], fov: 60}}>
-                <color attach="background" args={["#030303"]}/>
-                <ambientLight intensity={0.5}/>
-                <DottedWave/>
-            </Canvas>
-        </div>
-    );
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const isLight = resolvedTheme === "light";
+  const bgColor = isLight ? "#faf9f6" : "#030303";
+
+  return (
+    <div 
+      className="fixed inset-0 -z-10 pointer-events-none transition-colors duration-700 bg-[#faf9f6] dark:bg-[#030303]"
+    >
+      {mounted && (
+        <Canvas dpr={[1, 2]} camera={{ position: [0, 6, 12], fov: 60 }}>
+          <color attach="background" args={[bgColor]} />
+          <ambientLight intensity={0.5} />
+          <DottedWave isLight={isLight} />
+        </Canvas>
+      )}
+    </div>
+  );
 }
