@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { initTracking } from "@/lib/tracking";
 
 // ─── Service data ─────────────────────────────────────────────────────────────
@@ -110,9 +110,9 @@ function ServiceCard({
 
       {/* Capabilities list */}
       <div className="px-6 pb-6">
-        <p className="font-mono text-[9px] tracking-[0.3em] text-zinc-500 dark:text-zinc-700 uppercase mb-3">
+        <h3 className="font-mono text-[9px] tracking-[0.3em] text-zinc-500 dark:text-zinc-700 uppercase mb-3">
           Core capabilities
-        </p>
+        </h3>
         <ul className="space-y-2">
           {service.capabilities.map((cap) => (
             <li key={cap} className="flex items-start gap-2.5">
@@ -127,6 +127,38 @@ function ServiceCard({
           ))}
         </ul>
       </div>
+    </motion.div>
+  );
+}
+
+// ─── FAQ Item ──────────────────────────────────────────────────────────────────
+function FAQItem({ question, answer, index }: { question: string; answer: string; index: number }) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      variants={fadeUp}
+      custom={index}
+      className="border border-black/5 dark:border-white/10 rounded-2xl bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:border-black/10 dark:hover:border-white/20"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex w-full items-center justify-between p-6 text-left focus:outline-none"
+      >
+        <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">{question}</h3>
+        <span className="text-zinc-400 dark:text-zinc-600 ml-4 font-mono select-none text-lg leading-none">
+          {isOpen ? "−" : "+"}
+        </span>
+      </button>
+      {isOpen && (
+        <div className="px-6 pb-6">
+          <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-light">
+            {answer}
+          </p>
+        </div>
+      )}
     </motion.div>
   );
 }
@@ -146,9 +178,9 @@ export default function ServicesPage() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="mb-16 max-w-2xl"
         >
-          <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-4">
+          <h2 className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-4">
             Digital Infrastructure Agency — Service Catalogue
-          </p>
+          </h2>
           <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.08] text-zinc-900 dark:text-white">
             Built for Systems<br />That Cannot Fail.
           </h1>
@@ -207,12 +239,12 @@ export default function ServicesPage() {
           <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-black/10 dark:border-white/20 rounded-br-2xl" />
 
           <div className="space-y-2 max-w-lg">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
+            <h2 className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
               Ready to deploy?
-            </p>
-            <p className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight leading-snug">
+            </h2>
+            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight leading-snug">
               Start with a scoped architecture brief.
-            </p>
+            </h3>
             <p className="text-sm text-zinc-600 dark:text-zinc-500 font-light leading-relaxed">
               Our engineers review your requirements and return a technical scope
               document within 48 hours — at no cost.
@@ -229,6 +261,57 @@ export default function ServicesPage() {
             Initialize Architecture Project
             <span aria-hidden="true" className="text-base">→</span>
           </Link>
+        </motion.div>
+
+        {/* ── FAQ Section ──────────────────────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.55, ease: "easeOut" }}
+          className="mt-32 max-w-3xl"
+        >
+          <div className="mb-8">
+            <h2 className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
+              Common Questions
+            </h2>
+            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
+              Frequently Asked Questions
+            </h3>
+          </div>
+          
+          <div className="flex flex-col gap-4">
+            <FAQItem 
+              index={1} 
+              question="What is Infrastructure as a Service (IaaS)?" 
+              answer="IaaS provides foundational computing resources over the cloud. We design high-availability clusters and architectures so you don't have to manage physical servers." 
+            />
+            <FAQItem 
+              index={2} 
+              question="How does custom SaaS engineering work?" 
+              answer="We handle end-to-end engineering of production-grade software platforms, building everything from multi-tenant database schemas to real-time APIs for your business." 
+            />
+            <FAQItem 
+              index={3} 
+              question="What does digital transformation include?" 
+              answer="It includes migrating and modernizing monolithic enterprise architectures into high-velocity cloud-native frameworks with zero downtime and no data loss." 
+            />
+            <FAQItem 
+              index={4} 
+              question="How long does a typical enterprise project take?" 
+              answer="Our project onboarding and initial technical scoping takes less than 48 hours. Full project timelines depend on the architecture's complexity and scale requirements." 
+            />
+            <FAQItem 
+              index={5} 
+              question="Do you provide ongoing maintenance and support?" 
+              answer="Yes, our engagements are built on long-term partnership. We treat your infrastructure as our own, providing continuous audits, updates, and maintenance." 
+            />
+            <FAQItem 
+              index={6} 
+              question="What security standards does Archon follow?" 
+              answer="Security is hardened from the start. We follow enterprise-grade standards including SOC 2 compliance, performing continuous security audits and compliance checks." 
+            />
+          </div>
         </motion.div>
 
       </div>

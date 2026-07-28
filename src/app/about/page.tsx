@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { initTracking } from "@/lib/tracking";
 
 const fadeUp = {
@@ -46,6 +46,38 @@ const VALUES = [
   { label: "Partnership", description: "Long engagements. Deep alignment. Shared outcomes." },
 ];
 
+// ─── FAQ Item ──────────────────────────────────────────────────────────────────
+function FAQItem({ question, answer, index }: { question: string; answer: string; index: number }) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      variants={fadeUp}
+      custom={index}
+      className="border border-black/5 dark:border-white/10 rounded-2xl bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:border-black/10 dark:hover:border-white/20"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex w-full items-center justify-between p-6 text-left focus:outline-none"
+      >
+        <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">{question}</h3>
+        <span className="text-zinc-400 dark:text-zinc-600 ml-4 font-mono select-none text-lg leading-none">
+          {isOpen ? "−" : "+"}
+        </span>
+      </button>
+      {isOpen && (
+        <div className="px-6 pb-6">
+          <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-light">
+            {answer}
+          </p>
+        </div>
+      )}
+    </motion.div>
+  );
+}
+
 export default function AboutPage() {
   useEffect(() => initTracking("/about"), []);
 
@@ -61,9 +93,9 @@ export default function AboutPage() {
           custom={0}
           className="max-w-3xl"
         >
-          <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-5">
+          <h2 className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-5">
             About the Agency
-          </p>
+          </h2>
           <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight leading-[1.05] text-zinc-900 dark:text-white">
             We Engineer What
             <br />
@@ -74,8 +106,8 @@ export default function AboutPage() {
                 animate="visible"
                 transition={{ duration: 0.2,ease: "easeOut" }}
                 className={"relative backdrop-blur-lg border border-black/5 dark:border-white/10 rounded-2xl p-4 mt-6 dark:bg-zinc-950/40"}>
-          <p className="mt-7 text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 font-light max-w-2xl">
-            We are a digital infrastructure and software agency. We don't build
+          <p className="m text-lg leading-relaxed text-zinc-600 dark:text-zinc-400 font-light max-w-2xl">
+              We are a digital infrastructure and software agency. We don't build
             websites — we architect the operational backbone of organisations
             that demand reliability, scale, and precision at every layer of
             their digital stack.
@@ -93,8 +125,8 @@ export default function AboutPage() {
           className="grid grid-cols-2 sm:grid-cols-4 gap-px border border-black/5 dark:border-white/[0.06] rounded-2xl overflow-hidden"
         >
           {[
-            { val: "2018",    label: "Founded" },
-            { val: "40+",     label: "Enterprise Clients" },
+            { val: "2025",    label: "Founded" },
+            { val: "10+",     label: "Enterprise Clients" },
             { val: "99.99%",  label: "Avg. Uptime SLA" },
             { val: "< 48h",   label: "Onboarding SLA" },
           ].map((s) => (
@@ -122,12 +154,12 @@ export default function AboutPage() {
             custom={0}
             className="mb-10"
           >
-            <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
+            <h3 className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
               Engineering Philosophy
-            </p>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
+            </h3>
+            <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
               Principles We Build On.
-            </h2>
+            </h3>
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -146,9 +178,9 @@ export default function AboutPage() {
                 <span className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
                   [{p.index}]
                 </span>
-                <h3 className="text-base font-semibold text-zinc-900 dark:text-white tracking-tight">
+                <h2 className="text-base font-semibold text-zinc-900 dark:text-white tracking-tight">
                   {p.title}
-                </h3>
+                </h2>
                 <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-light">
                   {p.body}
                 </p>
@@ -166,9 +198,9 @@ export default function AboutPage() {
             custom={0}
             className="mb-10"
           >
-            <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
+            <h3 className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
               Core Values
-            </p>
+            </h3>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
               The Standard We Hold.
             </h2>
@@ -187,9 +219,9 @@ export default function AboutPage() {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-600 group-hover:bg-zinc-600 dark:group-hover:bg-zinc-400 transition-colors duration-300" aria-hidden="true" />
-                  <span className="text-sm font-semibold text-zinc-900 dark:text-white tracking-tight">
+                  <h2 className="text-sm font-semibold text-zinc-900 dark:text-white tracking-tight">
                     {v.label}
-                  </span>
+                  </h2>
                 </div>
                 <p className="text-xs leading-relaxed text-zinc-500 dark:text-zinc-500 font-light pl-3">
                   {v.description}
@@ -214,9 +246,9 @@ export default function AboutPage() {
           <span className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-black/10 dark:border-white/20 rounded-bl-2xl" />
           <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-black/10 dark:border-white/20 rounded-br-2xl" />
           <div className="space-y-2 max-w-lg">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
+            <h3 className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
               Work with us
-            </p>
+            </h3>
             <p className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
               Ready to architect something resilient?
             </p>
@@ -236,6 +268,48 @@ export default function AboutPage() {
             <span aria-hidden="true">→</span>
           </Link>
         </motion.section>
+
+        {/* ── FAQ Section ──────────────────────────────────────────────── */}
+        <section>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={fadeUp}
+            custom={0}
+            className="mb-10 max-w-3xl"
+          >
+            <h3 className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
+              Common Questions
+            </h3>
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-zinc-900 dark:text-white">
+              Frequently Asked Questions
+            </h2>
+          </motion.div>
+
+          <div className="flex flex-col gap-4 max-w-3xl">
+            <FAQItem 
+              index={1} 
+              question="Who is Archon?"
+              answer="Archon is a digital infrastructure and software agency. We specialize in engineering high-reliability foundational systems for enterprise clients." 
+            />
+            <FAQItem 
+              index={2} 
+              question="Where is Archon located?" 
+              answer="We operate globally with a remote-first engineering team, providing high-availability infrastructure design to organizations around the world." 
+            />
+            <FAQItem 
+              index={3} 
+              question="What industries does Archon serve?" 
+              answer="We work with high-stakes enterprise environments across various sectors, particularly those that require resilient, scalable architectures that cannot fail." 
+            />
+            <FAQItem
+              index={4}
+              question="What makes Archon different from other IT agencies?"
+              answer="We prioritize systems first, building scalable foundations before writing application code. We offer precision over speed and maintain strict transparency in our architecture decisions."
+            />
+          </div>
+        </section>
 
       </div>
     </main>

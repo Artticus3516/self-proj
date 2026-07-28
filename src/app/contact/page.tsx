@@ -244,6 +244,29 @@ export default function ContactPage() {
                 </div>
               ))}
             </div>
+
+            {/* How to Start a Project */}
+            <div className="pt-6 space-y-4">
+              <h3 className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
+                How to Start a Project
+              </h3>
+              <div className="space-y-3">
+                {[
+                  { step: "01", text: "Submit your architecture brief" },
+                  { step: "02", text: "Receive a scoped technical document within 48 hours" },
+                  { step: "03", text: "Begin your project with a dedicated engineering pod" },
+                ].map((s) => (
+                  <div key={s.step} className="flex items-start gap-3">
+                    <span className="font-mono text-[10px] tracking-widest text-zinc-400 dark:text-zinc-500 mt-0.5 select-none">
+                      [{s.step}]
+                    </span>
+                    <p className="text-sm text-zinc-700 dark:text-zinc-300 font-mono">
+                      {s.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Bottom console footer */}
