@@ -1,26 +1,46 @@
-import type {NextRequest} from "next/server";
-import {NextResponse} from "next/server";
+import { type NextRequest, NextResponse } from 'next/server'
+import { updateSession } from '@/lib/supabase/middleware'
+import { Ratelimit } from '@upstash/ratelimit'
+import { Redis } from '@upstash/redis'
 
-export function proxy(request: NextRequest) {
-    const path = request.nextUrl.pathname;
+// Create a new ratelimiter, that allows 5 requests per 10 seconds
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(5, '10 s'),
+  analytics: true,
+})
 
-    // Protect admin routes except login page and its resources
-    if (
-        (path === "/admin" || path.startsWith("/admin/") || path.startsWith("/api/admin/")) &&
-        path !== "/admin/login"
-    ) {
-        const sessionCookie = request.cookies.get("admin_session")?.value;
-        if (sessionCookie !== "mock-session-token-xyz-9876") {
-            if (path.startsWith("/api/")) {
-                return NextResponse.json({error: "Unauthorized"}, {status: 401});
-            }
-            return NextResponse.redirect(new URL("/admin/login", request.url));
-        }
+export async function proxy(request: NextRequest) {
+  // Apply rate limiting on auth routes
+  if (request.nextUrl.pathname.startsWith('/admin/login')) {
+    const ip = request.headers.get('x-forwarded-for') ?? '127.0.0.1'
+    const { success, pending, limit, reset, remaining } = await ratelimit.limit(ip)
+    
+    if (!success) {
+      return new NextResponse('Too Many Requests', {
+        status: 429,
+        headers: {
+          'X-RateLimit-Limit': limit.toString(),
+          'X-RateLimit-Remaining': remaining.toString(),
+          'X-RateLimit-Reset': reset.toString(),
+        },
+      })
     }
+  }
 
-    return NextResponse.next();
+  // update user's auth session
+  return await updateSession(request)
 }
 
 export const config = {
-    matcher: ["/admin/:path*", "/api/admin/:path*"],
-};
+  matcher: [
+    /*
+     * Match all request paths except for the ones starting with:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * Feel free to modify this pattern to include more paths.
+     */
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+  ],
+}

@@ -1,5 +1,5 @@
-"use client";
+import { redirect } from 'next/navigation'
 
-import TrafficDashboardPage from "./traffic/page";
-
-export default TrafficDashboardPage;
+export default function AdminPage() {
+  redirect('/admin/dashboard')
+}

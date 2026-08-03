@@ -1,5 +1,5 @@
 import {expect, Page, test} from '@playwright/test';
-import {supabase} from '../src/lib/supabase';
+import {supabase} from '@/lib/supabase/supabase';
 
 // ----------------------------------------------------
 // FEATURE 1: Core Pages & WebGL Hero
@@ -231,7 +231,7 @@ test.describe('F2: Database CRUD & Admin Dashboard - Tier 2', () => {
         const successMsg = page.locator('.success-message, [data-testid="success-message"], :text-matches("thank you|success|received|submitted", "i")');
         await expect(successMsg).toBeVisible();
 
-        // Login to admin and verify lead shows up in Leads view
+        // page.tsx to admin and verify lead shows up in Leads view
         await adminLogin(page);
         await page.goto('/admin/leads');
 

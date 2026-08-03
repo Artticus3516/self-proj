@@ -1,5 +1,5 @@
 "use server";
-import {supabase} from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/server";
 
 export async function submitContactAction(prevState: any, formData: FormData) {
     const email = formData.get("email") as string;
@@ -8,6 +8,7 @@ export async function submitContactAction(prevState: any, formData: FormData) {
     const archReq = formData.get("archReq") as string;
     const scale = formData.get("scale") as string;
 
+    const supabase = await createClient();
     const {error, data} = await supabase.from("leads").insert({
         name: company || "(no company)",
         email: email,

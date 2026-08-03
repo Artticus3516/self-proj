@@ -4,7 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1affc39-5af7-4b8d-b597-264d57310f17" name="Changes" comment="" />
+    <list default="true" id="c1affc39-5af7-4b8d-b597-264d57310f17" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/login/actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/supabase/client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/supabase/middleware.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/supabase/server.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/supabase/supabase.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.agents/skills/shadcn/registry.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/skills/shadcn/registry.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/security-privileges.md" beforeDir="false" afterPath="$PROJECT_DIR$/.agents/skills/supabase-postgres-best-practices/references/security-privileges.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components.json" beforeDir="false" afterPath="$PROJECT_DIR$/components.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/blog/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/blog/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/leads/actions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/leads/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/leads/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/login/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/login/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/login/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/services/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/services/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/traffic/actions.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/traffic/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/admin/traffic/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/admin/blog/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/admin/leads/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/admin/services/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/auth/login/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/auth/logout/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/api/track/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/contact/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/supabase-mock.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/supabase.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/tracking.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/tracking.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/proxy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/proxy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/supabase/migrations/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-db-mock.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-db-mock.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/tier2.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/tests/tier2.spec.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +97,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\aarav\GitHub\self-proj\src\lib\supabase" />
+    </key>
+  </component>
   <component name="RunManager" selected="JavaScript Debug.Next.js: debug client-side">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
       <method v="2" />
@@ -90,6 +137,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/auth/confirm/route.ts</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

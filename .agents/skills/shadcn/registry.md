@@ -105,7 +105,7 @@ Common item fields:
 {
   "name": "login-form",
   "type": "registry:block",
-  "title": "Login Form",
+  "title": "Admin Page",
   "description": "A login form with email and password fields.",
   "dependencies": ["zod"],
   "registryDependencies": ["button", "input", "label"],

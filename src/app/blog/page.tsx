@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { initTracking } from "@/lib/tracking";
-import { supabase } from "@/lib/supabase";
+import { createClient } from "@/lib/supabase/client";
 import type { Database } from "@/lib/database.types";
 
 type BlogPost = Database["public"]["Tables"]["blog_posts"]["Row"];
@@ -98,6 +98,7 @@ export default function BlogPage() {
     initTracking("/blog");
     async function fetchPosts() {
       try {
+        const supabase = createClient();
         const { data, error } = await supabase
           .from("blog_posts")
           .select("*")

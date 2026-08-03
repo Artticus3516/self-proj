@@ -38,7 +38,7 @@ grant select, insert, update on public.orders to app_writer;
 grant usage on sequence orders_id_seq to app_writer;
 -- No DELETE permission
 
--- Login role inherits from these
+-- page.tsx role inherits from these
 create role app_user login password 'xxx';
 grant app_writer to app_user;
 ```
