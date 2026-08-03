@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 const FOOTER_LINKS = [
   {
@@ -33,7 +34,8 @@ const FOOTER_LINKS = [
 ];
 
 export function Footer() {
-  const year = new Date().getFullYear();
+  const [year, setYear] = useState(2024);
+  useEffect(() => setYear(new Date().getFullYear()), []);
 
   return (
     <footer className="border-t border-border bg-background-secondary dark:bg-transparent" role="contentinfo">

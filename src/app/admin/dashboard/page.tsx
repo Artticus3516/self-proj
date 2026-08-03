@@ -1,7 +1,8 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 import { BlogPostForm } from './blog-form'
-
+// Opt-out of Cache Components for this dynamic admin route
+export const instant = false;
 export default async function AdminDashboard() {
   const supabase = await createClient()
 

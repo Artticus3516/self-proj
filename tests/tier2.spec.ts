@@ -1,5 +1,6 @@
 import {expect, Page, test} from '@playwright/test';
-import {supabase} from '@/lib/supabase/supabase';
+import { createClient } from "@supabase/supabase-js";
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL || "http://localhost", process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "mock");
 
 // ----------------------------------------------------
 // FEATURE 1: Core Pages & WebGL Hero
@@ -379,8 +380,8 @@ test.describe('F3: Traffic Tracking & Cookie Consent - Tier 2', () => {
         const {data: finalLogs} = await supabase.from('traffic_logs').select('*');
         const finalCount = finalLogs?.length || 0;
 
-        const consentFalseLogs = finalLogs?.filter((log) => log.consent_granted === false) || [];
-        const initialConsentFalseLogs = initialLogs?.filter((log) => log.consent_granted === false) || [];
+        const consentFalseLogs = finalLogs?.filter((log: any) => log.consent_granted === false) || [];
+        const initialConsentFalseLogs = initialLogs?.filter((log: any) => log.consent_granted === false) || [];
 
         expect(consentFalseLogs.length).toBe(initialConsentFalseLogs.length);
         expect(finalCount).toBe(initialCount);
