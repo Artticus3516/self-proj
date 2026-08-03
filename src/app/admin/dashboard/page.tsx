@@ -1,5 +1,6 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
+import Link from 'next/link'
 import { BlogPostForm } from './blog-form'
 // Opt-out of Cache Components for this dynamic admin route
 export const instant = false;
@@ -24,11 +25,19 @@ export default async function AdminDashboard() {
   if (roleError || roleData?.role !== 'admin') {
     return (
       <div className="flex min-h-screen items-center justify-center bg-gray-50 p-4">
-        <div className="rounded-md bg-red-50 p-4 w-full max-w-md">
-          <h3 className="text-sm font-medium text-red-800">Access Denied</h3>
+        <div className="rounded-md bg-red-50 p-6 w-full max-w-md shadow-sm border border-red-100">
+          <h3 className="text-lg font-medium text-red-800">Access Denied</h3>
           <p className="mt-2 text-sm text-red-700">
             You do not have the required admin permissions to view this page.
           </p>
+          <div className="mt-6">
+            <Link 
+              href="/admin/login" 
+              className="inline-flex items-center justify-center rounded-md bg-red-800 px-4 py-2 text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition-colors"
+            >
+              Return to Login
+            </Link>
+          </div>
         </div>
       </div>
     )
