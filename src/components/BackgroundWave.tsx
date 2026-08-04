@@ -14,11 +14,11 @@ export default function BackgroundWave() {
   }, []);
 
   const isLight = resolvedTheme === "light";
-  const bgColor = isLight ? "#faf9f6" : "#030303";
+  const bgColor = isLight ? "oklch(0.995 0.001 240)" : "oklch(0.13 0.005 240)";
 
   return (
     <div 
-      className="fixed inset-0 -z-10 pointer-events-none transition-colors duration-700 bg-[#faf9f6] dark:bg-[#030303]"
+      className="fixed inset-0 -z-10 pointer-events-none transition-colors duration-700 bg-background"
     >
       {mounted && (
         <Canvas dpr={[1, 2]} camera={{ position: [0, 6, 12], fov: 60 }}>

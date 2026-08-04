@@ -7,11 +7,11 @@ export default function LoginPage() {
   const [state, action, isPending] = useActionState(login, {})
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 px-4">
-      <div className="w-full max-w-md space-y-8 rounded-xl bg-white p-8 shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="w-full max-w-md space-y-8 rounded-xl bg-card p-8 shadow-lg border border-border text-card-foreground">
         <div className="text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-gray-900">Admin Login</h2>
-          <p className="mt-2 text-sm text-gray-600">Sign in to access the Archon portal</p>
+          <h2 className="text-3xl font-bold tracking-tight text-foreground">Admin Login</h2>
+          <p className="mt-2 text-sm text-muted-foreground">Sign in to access the Archon portal</p>
         </div>
 
         <form action={action} className="mt-8 space-y-6">
@@ -25,7 +25,7 @@ export default function LoginPage() {
                 name="email"
                 type="email"
                 required
-                className="relative block w-full rounded-md border-0 py-2.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="relative block w-full rounded-lg border border-input bg-input/20 py-2.5 px-3 text-foreground placeholder:text-muted-foreground focus:z-10 focus:border-primary focus:ring-1 focus:ring-ring sm:text-sm"
                 placeholder="Email address"
               />
             </div>
@@ -38,21 +38,21 @@ export default function LoginPage() {
                 name="password"
                 type="password"
                 required
-                className="relative block w-full rounded-md border-0 py-2.5 px-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:z-10 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="relative block w-full rounded-lg border border-input bg-input/20 py-2.5 px-3 text-foreground placeholder:text-muted-foreground focus:z-10 focus:border-primary focus:ring-1 focus:ring-ring sm:text-sm"
                 placeholder="Password"
               />
             </div>
           </div>
 
           {state.error && (
-            <div className="text-sm text-red-500 font-medium">{state.error}</div>
+            <div className="text-sm text-destructive font-medium">{state.error}</div>
           )}
 
           <div>
             <button
               type="submit"
               disabled={isPending}
-              className="group relative flex w-full justify-center rounded-md bg-indigo-600 py-2.5 px-3 text-sm font-semibold text-white hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:opacity-50 transition-colors"
+              className="group relative flex w-full justify-center rounded-lg bg-primary py-2.5 px-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring disabled:opacity-50 transition-colors shadow-md"
             >
               {isPending ? 'Signing in...' : 'Sign in'}
             </button>

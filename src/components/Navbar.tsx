@@ -127,7 +127,7 @@ export function Navbar() {
 
                 {/* ── Morphing container: dot → glassmorphic bar ── */}
                 <motion.div
-                    className="mt-3 flex items-center justify-between px-5 overflow-hidden bg-white/70 dark:bg-zinc-950/45 border border-black/5 dark:border-white/[0.08] backdrop-blur-xl shadow-lg"
+                    className="mt-3 flex items-center justify-between px-5 overflow-hidden bg-card/80 border border-border backdrop-blur-xl shadow-lg text-foreground"
                     variants={barVariants as any}
                     initial="initial"
                     animate={barControls}
@@ -154,7 +154,7 @@ export function Navbar() {
                                     viewBox="0 0 40 40"
                                     fill="none"
                                     aria-hidden="true"
-                                    className="text-black dark:text-white"
+                                    className="text-foreground"
                                 >
                                     <path
                                         d="M20 2L38 20L20 38L2 20L20 2Z"
@@ -171,9 +171,9 @@ export function Navbar() {
                                         strokeLinejoin="round"
                                     />
                                 </svg>
-                <span className="text-sm font-semibold tracking-tight text-zinc-800 dark:text-white/90 group-hover:text-black dark:group-hover:text-white transition-colors">
-                  Archon
-                </span>
+                                <span className="text-sm font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
+                                  Archon
+                                </span>
                             </Link>
                         </motion.div>
 
@@ -187,14 +187,14 @@ export function Navbar() {
                                             href={link.href}
                                             className={`relative px-4 py-1.5 rounded-lg text-sm font-medium transition-colors ${
                                                 isActive
-                                                    ? "text-black dark:text-white"
-                                                    : "text-zinc-500 dark:text-zinc-400 hover:text-black dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/5"
+                                                    ? "text-foreground font-semibold"
+                                                    : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                                             }`}
                                         >
                                             {isActive && (
                                                 <motion.span
                                                     layoutId="nav-pill"
-                                                    className="absolute inset-0 rounded-lg bg-black/5 dark:bg-white/10"
+                                                    className="absolute inset-0 rounded-lg bg-muted"
                                                     transition={{
                                                         type: "spring",
                                                         bounce: 0.2,
@@ -217,7 +217,7 @@ export function Navbar() {
                             <Switch />
                             <Link
                                 href="/contact"
-                                className="px-4 py-1.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-sm font-semibold text-white transition-colors shadow-[0_0_20px_rgba(139,92,246,0.25)]"
+                                className="px-4 py-1.5 rounded-lg bg-primary hover:bg-primary-hover text-sm font-semibold text-primary-foreground transition-colors shadow-sm"
                             >
                                 Start a Project
                             </Link>
@@ -228,24 +228,24 @@ export function Navbar() {
                             <Switch />
                             <button
                                 type="button"
-                                className="flex flex-col gap-1.5 p-2 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+                                className="flex flex-col gap-1.5 p-2 rounded-lg hover:bg-muted transition-colors"
                                 aria-expanded={open}
                                 aria-controls="mobile-menu"
                                 aria-label={open ? "Close menu" : "Open menu"}
                                 onClick={() => setOpen((v) => !v)}
                             >
-                <span
-                    className={`block w-5 h-px bg-black/70 dark:bg-white/70 transition-all duration-300 origin-center ${
-                        open ? "rotate-45 translate-y-[8px]" : ""
-                    }`}
-                />
                                 <span
-                                    className={`block w-5 h-px bg-black/70 dark:bg-white/70 transition-all duration-300 ${
+                                    className={`block w-5 h-px bg-foreground transition-all duration-300 origin-center ${
+                                        open ? "rotate-45 translate-y-[8px]" : ""
+                                    }`}
+                                />
+                                <span
+                                    className={`block w-5 h-px bg-foreground transition-all duration-300 ${
                                         open ? "opacity-0" : ""
                                     }`}
                                 />
                                 <span
-                                    className={`block w-5 h-px bg-black/70 dark:bg-white/70 transition-all duration-300 origin-center ${
+                                    className={`block w-5 h-px bg-foreground transition-all duration-300 origin-center ${
                                         open ? "-rotate-45 -translate-y-[8px]" : ""
                                     }`}
                                 />
@@ -254,7 +254,7 @@ export function Navbar() {
                     </motion.div>
                 </motion.div>
 
-                {/* Mobile dropdown — unchanged styling */}
+                {/* Mobile dropdown */}
                 <AnimatePresence>
                     {open && (
                         <motion.nav
@@ -263,7 +263,7 @@ export function Navbar() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -8 }}
                             transition={{ duration: 0.2 }}
-                            className="mt-2 rounded-2xl border border-black/5 dark:border-white/[0.07] bg-white/90 dark:bg-black/80 backdrop-blur-xl p-3 space-y-1 shadow-lg"
+                            className="mt-2 rounded-2xl border border-border bg-popover/95 backdrop-blur-xl p-3 space-y-1 shadow-lg text-popover-foreground"
                             aria-label="Mobile navigation"
                         >
                             {NAV_LINKS.map((link) => (
@@ -273,18 +273,18 @@ export function Navbar() {
                                     onClick={() => setOpen(false)}
                                     className={`block rounded-xl px-4 py-3 text-sm font-medium transition-colors ${
                                         pathname === link.href
-                                            ? "bg-black/5 dark:bg-white/10 text-black dark:text-white"
-                                            : "text-zinc-600 dark:text-zinc-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-black dark:hover:text-white"
+                                            ? "bg-muted text-foreground font-semibold"
+                                            : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
                                     }`}
                                 >
                                     {link.label}
                                 </Link>
                             ))}
-                            <div className="pt-1 border-t border-white/[0.06]">
+                            <div className="pt-1 border-t border-border">
                                 <Link
                                     href="/contact"
                                     onClick={() => setOpen(false)}
-                                    className="block rounded-xl px-4 py-3 text-sm font-semibold text-white bg-violet-600 hover:bg-violet-500 text-center transition-colors"
+                                    className="block rounded-xl px-4 py-3 text-sm font-semibold text-primary-foreground bg-primary hover:bg-primary-hover text-center transition-colors shadow-sm"
                                 >
                                     Start a Project
                                 </Link>

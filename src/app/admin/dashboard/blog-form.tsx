@@ -7,12 +7,12 @@ export function BlogPostForm() {
   const [state, action, isPending] = useActionState(createBlogPost, {})
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-      <h3 className="text-lg font-medium text-gray-900 mb-4">Create New Blog Post</h3>
+    <div className="bg-card text-card-foreground p-6 rounded-xl shadow-sm border border-border">
+      <h3 className="text-lg font-medium text-foreground mb-4">Create New Blog Post</h3>
       
       <form action={action} className="space-y-4">
         <div>
-          <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="title" className="block text-sm font-medium text-foreground">
             Title
           </label>
           <input
@@ -20,12 +20,12 @@ export function BlogPostForm() {
             id="title"
             name="title"
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ring-1 ring-inset ring-gray-300 px-3 py-2"
+            className="mt-1 block w-full rounded-lg border border-input bg-input/20 text-foreground placeholder:text-muted-foreground shadow-sm focus:border-primary focus:ring-1 focus:ring-ring sm:text-sm px-3 py-2 outline-none"
           />
         </div>
 
         <div>
-          <label htmlFor="content" className="block text-sm font-medium text-gray-700">
+          <label htmlFor="content" className="block text-sm font-medium text-foreground">
             Content
           </label>
           <textarea
@@ -33,17 +33,17 @@ export function BlogPostForm() {
             name="content"
             rows={4}
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm ring-1 ring-inset ring-gray-300 px-3 py-2"
+            className="mt-1 block w-full rounded-lg border border-input bg-input/20 text-foreground placeholder:text-muted-foreground shadow-sm focus:border-primary focus:ring-1 focus:ring-ring sm:text-sm px-3 py-2 outline-none resize-none"
           />
         </div>
 
-        {state.error && <p className="text-sm text-red-600">{state.error}</p>}
-        {state.success && <p className="text-sm text-green-600">{state.message}</p>}
+        {state.error && <p className="text-sm text-destructive">{state.error}</p>}
+        {state.success && <p className="text-sm text-emerald-500">{state.message}</p>}
 
         <button
           type="submit"
           disabled={isPending}
-          className="inline-flex justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-50"
+          className="inline-flex justify-center rounded-lg border border-transparent bg-primary hover:bg-primary-hover py-2 px-4 text-sm font-medium text-primary-foreground shadow-md disabled:opacity-50 transition-colors"
         >
           {isPending ? 'Publishing...' : 'Publish Post'}
         </button>

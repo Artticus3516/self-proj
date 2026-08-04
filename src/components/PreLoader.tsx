@@ -36,7 +36,7 @@ export function PreLoader() {
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-white dark:bg-[#030303] transition-opacity duration-500 ease-in-out ${
+      className={`fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-background text-foreground transition-opacity duration-500 ease-in-out ${
         fading ? "opacity-0 pointer-events-none" : "opacity-100"
       }`}
       aria-label="Loading"
@@ -49,19 +49,19 @@ export function PreLoader() {
           viewBox="0 0 40 40"
           fill="none"
           aria-hidden="true"
-          className="text-zinc-900 dark:text-white"
+          className="text-foreground"
         >
           <path d="M20 2L38 20L20 38L2 20L20 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
           <path d="M20 10L30 20L20 30L10 20L20 10Z" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1" strokeLinejoin="round" />
         </svg>
-        <span className="text-xs tracking-[0.35em] text-zinc-500 dark:text-zinc-400 uppercase font-light">
+        <span className="text-xs tracking-[0.35em] text-muted-foreground uppercase font-light">
           Loading
         </span>
       </div>
 
-      <div className="h-px w-48 overflow-hidden rounded-full bg-black/10 dark:bg-zinc-800">
+      <div className="h-px w-48 overflow-hidden rounded-full bg-border">
         <div
-          className="h-full bg-zinc-900 dark:bg-white rounded-full transition-all ease-in-out"
+          className="h-full bg-primary rounded-full transition-all ease-in-out"
           style={{ width: `${progress}%`, transitionDuration: "800ms" }}
         />
       </div>

@@ -1,7 +1,7 @@
-    "use client";
+"use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { initTracking } from "@/lib/tracking";
 
@@ -50,7 +50,38 @@ const SERVICES = [
     ],
   },
 ];
-
+const FAQS: { id: number; question: string; answer: string }[] = [
+  {
+    id: 1,
+    question: "What is Infrastructure as a Service (IaaS)?",
+    answer: "IaaS provides foundational computing resources over the cloud. We design high-availability clusters and architectures so you don't have to manage physical servers.",
+  },
+  {
+    id: 2,
+    question: "How does custom SaaS engineering work?",
+    answer: "We handle end-to-end engineering of production-grade software platforms, building everything from multi-tenant database schemas to real-time APIs for your business.",
+  },
+  {
+    id: 3,
+    question: "What security standards does Archon follow?",
+    answer: "Security is hardened from the start. We follow enterprise-grade standards including SOC 2 compliance, performing continuous security audits and compliance checks.",
+  },
+  {
+    id: 4,
+    question: "What does digital transformation include?",
+    answer: "It includes migrating and modernizing monolithic enterprise architectures into high-velocity cloud-native frameworks with zero downtime and no data loss.",
+  },
+  {
+    id: 5,
+    question: "How long does a typical enterprise project take?",
+    answer: "Our project onboarding and initial technical scoping takes less than 48 hours. Full project timelines depend on the architecture's complexity and scale requirements.",
+  },
+  {
+    id: 6,
+    question: "Do you provide ongoing maintenance and support?",
+    answer: "Yes, our engagements are built on long-term partnership. We treat your infrastructure as our own, providing continuous audits, updates, and maintenance.",
+  },
+];
 // ─── Fade-up animation variant ────────────────────────────────────────────────
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -75,26 +106,26 @@ function ServiceCard({
       initial="hidden"
       animate="visible"
       variants={fadeUp}
-      className="group relative flex flex-col rounded-2xl border border-black/5 dark:border-white/10
-                 bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl overflow-hidden
-                 transition-all duration-500 hover:border-black/10 dark:hover:border-white/20 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
+      className="group relative flex flex-col rounded-2xl border border-border
+                 bg-card/80 backdrop-blur-xl overflow-hidden
+                 transition-all duration-500 hover:border-primary/40 hover:bg-card"
     >
       {/* Top accent line — slides in on hover */}
-      <div className="absolute inset-x-0 top-0 h-px bg-black/0 dark:bg-white/0 group-hover:bg-black/10 dark:group-hover:bg-white/20 transition-all duration-500" />
+      <div className="absolute inset-x-0 top-0 h-px bg-transparent group-hover:bg-primary/30 transition-all duration-500" />
 
       {/* Card header */}
-      <div className="flex items-start justify-between p-6 pb-4 border-b border-black/5 dark:border-white/[0.06]">
+      <div className="flex items-start justify-between p-6 pb-4 border-b border-border">
         <div className="space-y-1">
-          <span className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
+          <span className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
             [{service.index}] — {service.label}
           </span>
-          <h2 className="text-lg font-semibold text-zinc-900 dark:text-white tracking-tight leading-snug">
+          <h2 className="text-lg font-semibold text-foreground tracking-tight leading-snug">
             {service.title}
           </h2>
         </div>
         {/* Mechanical corner chevron */}
         <span
-          className="mt-1 text-zinc-400 dark:text-zinc-700 group-hover:text-zinc-900 dark:group-hover:text-zinc-400 transition-colors duration-300 text-lg leading-none select-none"
+          className="mt-1 text-muted-foreground group-hover:text-primary transition-colors duration-300 text-lg leading-none select-none"
           aria-hidden="true"
         >
           ↗
@@ -103,24 +134,24 @@ function ServiceCard({
 
       {/* Summary */}
       <div className="px-6 py-5 flex-1">
-        <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-light">
+        <p className="text-sm leading-relaxed text-muted-foreground font-light">
           {service.summary}
         </p>
       </div>
 
       {/* Capabilities list */}
       <div className="px-6 pb-6">
-        <h3 className="font-mono text-[9px] tracking-[0.3em] text-zinc-500 dark:text-zinc-700 uppercase mb-3">
+        <h3 className="font-mono text-[9px] tracking-[0.3em] text-muted-foreground uppercase mb-3">
           Core capabilities
         </h3>
         <ul className="space-y-2">
           {service.capabilities.map((cap) => (
             <li key={cap} className="flex items-start gap-2.5">
               <span
-                className="mt-[5px] w-1 h-1 rounded-full bg-zinc-400 dark:bg-zinc-600 shrink-0 group-hover:bg-zinc-600 dark:group-hover:bg-zinc-400 transition-colors duration-300"
+                className="mt-[5px] w-1 h-1 rounded-full bg-muted-foreground shrink-0 group-hover:bg-primary transition-colors duration-300"
                 aria-hidden="true"
               />
-              <span className="text-xs text-zinc-600 dark:text-zinc-500 leading-relaxed group-hover:text-zinc-900 dark:group-hover:text-zinc-400 transition-colors duration-300">
+              <span className="text-xs text-muted-foreground leading-relaxed group-hover:text-foreground transition-colors duration-300">
                 {cap}
               </span>
             </li>
@@ -141,24 +172,40 @@ function FAQItem({ question, answer, index }: { question: string; answer: string
       viewport={{ once: true, margin: "-50px" }}
       variants={fadeUp}
       custom={index}
-      className="border border-black/5 dark:border-white/10 rounded-2xl bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:border-black/10 dark:hover:border-white/20"
+      className="border border-border rounded-2xl bg-card/80 backdrop-blur-xl overflow-hidden transition-all duration-300 hover:border-primary/40"
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between p-6 text-left focus:outline-none"
+        className="flex w-full items-center justify-between p-6 text-left focus:outline-none cursor-pointer"
+        aria-expanded={isOpen}
       >
-        <h3 className="text-sm font-semibold text-zinc-900 dark:text-white">{question}</h3>
-        <span className="text-zinc-400 dark:text-zinc-600 ml-4 font-mono select-none text-lg leading-none">
+        <h3 className="text-sm font-semibold text-foreground">{question}</h3>
+        <motion.span 
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+          className="text-muted-foreground ml-4 font-mono select-none text-lg leading-none shrink-0"
+        >
           {isOpen ? "−" : "+"}
-        </span>
+        </motion.span>
       </button>
-      {isOpen && (
-        <div className="px-6 pb-6">
-          <p className="text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 font-light">
-            {answer}
-          </p>
-        </div>
-      )}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            key="content"
+            initial={{ opacity: 0, height: 0, scale: 0.98 }}
+            animate={{ opacity: 1, height: "auto", scale: 1 }}
+            exit={{ opacity: 0, height: 0, scale: 0.98 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-6 pt-1">
+              <p className="text-sm leading-relaxed text-muted-foreground font-light">
+                {answer}
+              </p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.div>
   );
 }
@@ -178,13 +225,13 @@ export default function ServicesPage() {
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="mb-16 max-w-2xl"
         >
-          <p className="font-mono text-[10px] tracking-[0.35em] text-zinc-500 dark:text-zinc-600 uppercase mb-4">
+          <p className="font-mono text-[10px] tracking-[0.35em] text-muted-foreground uppercase mb-4">
             Digital Infrastructure Agency — Service Catalogue
           </p>
-          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.08] text-zinc-900 dark:text-white">
+          <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.08] text-foreground">
             Built for Systems<br />That Cannot Fail.
           </h1>
-          <p className="mt-5 text-base leading-relaxed text-zinc-600 dark:text-zinc-500 font-light max-w-xl">
+          <p className="mt-5 text-base leading-relaxed text-muted-foreground font-light max-w-xl">
             We design, engineer, and operate the digital backbone of
             enterprise-grade organisations. Three core disciplines. One
             uncompromising standard.
@@ -203,7 +250,7 @@ export default function ServicesPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.4, ease: "easeOut" }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-px border border-black/5 dark:border-white/[0.06] rounded-2xl overflow-hidden mb-16"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-px border border-border rounded-2xl overflow-hidden mb-16"
         >
           {[
             { val: "99.99%", label: "Uptime SLA" },
@@ -213,12 +260,12 @@ export default function ServicesPage() {
           ].map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center justify-center gap-1 bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl px-6 py-8"
+              className="flex flex-col items-center justify-center gap-1 bg-card/80 backdrop-blur-xl px-6 py-8"
             >
-              <span className="text-2xl font-bold text-zinc-900 dark:text-white font-mono tracking-tight">
+              <span className="text-2xl font-bold text-foreground font-mono tracking-tight">
                 {stat.val}
               </span>
-              <span className="text-[10px] font-mono tracking-[0.25em] text-zinc-500 dark:text-zinc-600 uppercase text-center">
+              <span className="text-[10px] font-mono tracking-[0.25em] text-muted-foreground uppercase text-center">
                 {stat.label}
               </span>
             </div>
@@ -230,22 +277,22 @@ export default function ServicesPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, delay: 0.5, ease: "easeOut" }}
-          className="relative rounded-2xl border border-black/5 dark:border-white/10 bg-white/80 dark:bg-zinc-950/40 backdrop-blur-xl p-8 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 overflow-hidden"
+          className="relative rounded-2xl border border-border bg-card/80 backdrop-blur-xl p-8 sm:p-12 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 overflow-hidden"
         >
           {/* Subtle corner ticks */}
-          <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-black/10 dark:border-white/20 rounded-tl-2xl" />
-          <span className="absolute top-0 right-0 w-4 h-4 border-t border-r border-black/10 dark:border-white/20 rounded-tr-2xl" />
-          <span className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-black/10 dark:border-white/20 rounded-bl-2xl" />
-          <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-black/10 dark:border-white/20 rounded-br-2xl" />
+          <span className="absolute top-0 left-0 w-4 h-4 border-t border-l border-border rounded-tl-2xl" />
+          <span className="absolute top-0 right-0 w-4 h-4 border-t border-r border-border rounded-tr-2xl" />
+          <span className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-border rounded-bl-2xl" />
+          <span className="absolute bottom-0 right-0 w-4 h-4 border-b border-r border-border rounded-br-2xl" />
 
           <div className="space-y-2 max-w-lg">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase">
               Ready to deploy?
             </p>
-            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight leading-snug">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight leading-snug">
               Start with a scoped architecture brief.
             </h2>
-            <p className="text-sm text-zinc-600 dark:text-zinc-500 font-light leading-relaxed">
+            <p className="text-sm text-muted-foreground font-light leading-relaxed">
               Our engineers review your requirements and return a technical scope
               document within 48 hours — at no cost.
             </p>
@@ -254,9 +301,9 @@ export default function ServicesPage() {
           <Link
             href="/contact"
             className="shrink-0 inline-flex items-center gap-2 px-7 py-3.5 rounded-xl
-                       bg-zinc-900 text-white dark:bg-white dark:text-black text-sm font-semibold tracking-wide
-                       transition-all duration-300 hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:scale-105 active:scale-95
-                       shadow-[0_0_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_30px_rgba(255,255,255,0.08)]"
+                       bg-primary text-primary-foreground text-sm font-semibold tracking-wide
+                       transition-all duration-300 hover:bg-primary-hover hover:scale-105 active:scale-95
+                       shadow-md"
           >
             Initialize Architecture Project
             <span aria-hidden="true" className="text-base">→</span>
@@ -267,50 +314,28 @@ export default function ServicesPage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
+          viewport={{ once: false, margin: "-50px" }}
           transition={{ duration: 0.55, ease: "easeOut" }}
           className="mt-32 max-w-3xl"
         >
           <div className="mb-8">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-500 dark:text-zinc-600 uppercase mb-3">
+            <p className="font-mono text-[10px] tracking-[0.3em] text-muted-foreground uppercase mb-3">
               Common Questions
             </p>
-            <h2 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
               Frequently Asked Questions
             </h2>
           </div>
           
           <div className="flex flex-col gap-4">
-            <FAQItem 
-              index={1} 
-              question="What is Infrastructure as a Service (IaaS)?" 
-              answer="IaaS provides foundational computing resources over the cloud. We design high-availability clusters and architectures so you don't have to manage physical servers." 
-            />
-            <FAQItem 
-              index={2} 
-              question="How does custom SaaS engineering work?" 
-              answer="We handle end-to-end engineering of production-grade software platforms, building everything from multi-tenant database schemas to real-time APIs for your business." 
-            />
-            <FAQItem 
-              index={3} 
-              question="What does digital transformation include?" 
-              answer="It includes migrating and modernizing monolithic enterprise architectures into high-velocity cloud-native frameworks with zero downtime and no data loss." 
-            />
-            <FAQItem 
-              index={4} 
-              question="How long does a typical enterprise project take?" 
-              answer="Our project onboarding and initial technical scoping takes less than 48 hours. Full project timelines depend on the architecture's complexity and scale requirements." 
-            />
-            <FAQItem 
-              index={5} 
-              question="Do you provide ongoing maintenance and support?" 
-              answer="Yes, our engagements are built on long-term partnership. We treat your infrastructure as our own, providing continuous audits, updates, and maintenance." 
-            />
-            <FAQItem 
-              index={6} 
-              question="What security standards does Archon follow?" 
-              answer="Security is hardened from the start. We follow enterprise-grade standards including SOC 2 compliance, performing continuous security audits and compliance checks." 
-            />
+            {FAQS.map((faq) => (
+              <FAQItem 
+                key={faq.id} 
+                index={faq.id} 
+                question={faq.question} 
+                answer={faq.answer} 
+              />
+            ))}
           </div>
         </motion.div>
 
