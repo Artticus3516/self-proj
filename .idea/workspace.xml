@@ -8,34 +8,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1affc39-5af7-4b8d-b597-264d57310f17" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26-07-2026_18_16_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26-07-2026_18_16__Changes_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/next-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/next-env.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/about/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/dashboard/blog-form.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/dashboard/blog-form.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/admin/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/login/actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/login/actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/admin/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/admin/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/blog/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/blog/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/contact/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/contact/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/cookies/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cookies/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/login/actions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/not-found.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/not-found.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/privacy/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/privacy/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/BackgroundWave.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BackgroundWave.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CookieConsent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CookieConsent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/PreLoader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PreLoader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ThemeToggle.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/card.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/supabase/middleware.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/supabase/middleware.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/supabase/server.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lib/supabase/server.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +104,7 @@
       <option name="presentableId" value="Default" />
       <updated>1783540711359</updated>
       <workItem from="1783540712719" duration="8690000" />
-      <workItem from="1785848861859" duration="11848000" />
+      <workItem from="1785848861859" duration="14425000" />
     </task>
     <servers />
   </component>
@@ -146,9 +120,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/app/admin/dashboard/page.tsx</url>
-          <line>24</line>
+          <line>25</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/admin/dashboard/blog-form.tsx</url>
+          <line>14</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

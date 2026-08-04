@@ -20,6 +20,7 @@ export default async function AdminDashboard() {
       .from('user_roles')
       .select('role')
       .eq('user_id', user.id).single()
+    console.log(user.id)
     console.log(roleData)
     console.log(roleError)
     if (roleError || roleData?.role !== 'admin') {
