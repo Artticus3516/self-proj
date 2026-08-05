@@ -80,6 +80,7 @@ export function DottedWave({ isLight }: { isLight?: boolean }) {
         />
       </bufferGeometry>
       <pointsMaterial
+        key={isLight ? "light-mat" : "dark-mat"}
         size={0.06}
         color={isLight ? "#000000" : "#ffffff"}
         transparent

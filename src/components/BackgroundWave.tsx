@@ -6,15 +6,17 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 export default function BackgroundWave() {
-  const { resolvedTheme } = useTheme();
+  const { resolvedTheme, theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  const isLight = resolvedTheme === "light";
-  const bgColor = isLight ? "oklch(0.995 0.001 240)" : "oklch(0.13 0.005 240)";
+  const activeTheme = resolvedTheme || theme || "dark";
+  const isLight = activeTheme === "light";
+  // Three.js Color constructor requires valid hex strings (#faf9f6 / #09090b)
+  const bgColor = isLight ? "#faf9f6" : "#09090b";
 
   return (
     <div 

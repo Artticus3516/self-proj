@@ -290,7 +290,7 @@ export default function AboutPage() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
+            viewport={{ once: false, margin: "-50px" }}
             variants={fadeUp}
             custom={0}
             className="mb-10 max-w-3xl"
