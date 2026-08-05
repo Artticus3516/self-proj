@@ -18,7 +18,7 @@ export default function PrivacyPolicyPage() {
 
   return (
     <main className="min-h-screen">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 pt-32 pb-24 space-y-16">
+      <div className="mx-auto max-w-4xl px-4  sm:px-6 pt-32 pb-24 space-y-16">
         
         {/* Header */}
         <motion.section
@@ -46,7 +46,7 @@ export default function PrivacyPolicyPage() {
           animate="visible"
           variants={fadeUp}
           custom={1}
-          className="space-y-10 text-muted-foreground font-light leading-relaxed text-sm"
+          className="space-y-10 backdrop-blur-xl p-4 border border-border rounded-xl px-12 text-muted-foreground font-light leading-relaxed text-sm"
         >
           <p className="text-base text-foreground font-normal">
             Archon ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy details how we collect, use, and safeguard your personal information in alignment with global and regional compliance standards, including the **General Data Protection Regulation (GDPR)**, the **California Consumer Privacy Act (CCPA)**, and India's **Digital Personal Data Protection (DPDP) Act, 2023**.

@@ -13,9 +13,18 @@ export function CookieConsent() {
     // Only show banner if consent hasn't been given yet
     const existing = localStorage.getItem(CONSENT_KEY);
     if (!existing) {
-      // Small delay so it doesn't clash with the preloader
-      const t = setTimeout(() => setVisible(true), 1800);
-      return () => clearTimeout(t);
+      const showBanner = () => setVisible(true);
+
+      // Listen for preloader completion to display immediately after preloader finishes
+      window.addEventListener("preloader-complete", showBanner);
+
+      // Fallback timer in case preloader completed before listener attached
+      const t = setTimeout(showBanner, 800);
+
+      return () => {
+        window.removeEventListener("preloader-complete", showBanner);
+        clearTimeout(t);
+      };
     }
   }, []);
 

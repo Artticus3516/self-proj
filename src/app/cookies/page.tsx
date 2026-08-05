@@ -46,7 +46,7 @@ export default function CookiesPolicyPage() {
           animate="visible"
           variants={fadeUp}
           custom={1}
-          className="space-y-10 text-muted-foreground font-light leading-relaxed text-sm"
+          className="space-y-10 backdrop-blur-xl p-4 border border-border rounded-xl px-12 text-muted-foreground font-light leading-relaxed text-sm"
         >
           <p className="text-base text-foreground font-normal">
             This Cookie Policy explains how Archon uses cookies and similar tracking technologies when you visit our website. It clarifies the distinction between first-party and third-party trackers, as well as the exact behaviors triggered when you accept or decline our tracking consent.
