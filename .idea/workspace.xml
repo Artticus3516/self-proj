@@ -11,7 +11,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/cookies/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/cookies/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/privacy/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/privacy/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CookieConsent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CookieConsent.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +105,7 @@
       <option name="presentableId" value="Default" />
       <updated>1783540711359</updated>
       <workItem from="1783540712719" duration="8690000" />
-      <workItem from="1785848861859" duration="16052000" />
+      <workItem from="1785848861859" duration="16170000" />
     </task>
     <servers />
   </component>
