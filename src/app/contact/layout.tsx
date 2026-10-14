@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Get in touch with Archon's engineering team. We scope enterprise SaaS builds, cloud infrastructure projects, and digital transformations. Free architecture brief returned within 48 hours.",
+    "Get in touch with Figit 's engineering team. We scope enterprise SaaS builds, cloud infrastructure projects, and digital transformations. Free architecture brief returned within 48 hours.",
   keywords: [
     "contact IT agency",
     "enterprise project consultation",
@@ -15,15 +15,15 @@ export const metadata: Metadata = {
     "free architecture brief",
   ],
   alternates: {
-    canonical: "https://archon-art.vercel.app/contact",
+    canonical: "https://Figit -art.vercel.app/contact",
   },
   openGraph: {
     type: "website",
     title: "Contact",
     description:
       "Submit your architecture brief and receive a scoped technical document within 48 hours — at no cost.",
-    url: "https://archon-art.vercel.app/contact",
-    siteName: "Archon",
+    url: "https://Figit -art.vercel.app/contact",
+    siteName: "Figit ",
     locale: "en_US",
   },
   twitter: {
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Contact",
     description:
       "Submit your architecture brief and receive a scoped technical document within 48 hours — at no cost.",
-    creator: "@ArchonAgency",
+    creator: "@Figit Agency",
   },
 };
 
@@ -44,26 +44,26 @@ const contactSchemaJsonLd = [
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://archon-art.vercel.app",
+        item: "https://Figit -art.vercel.app",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Contact",
-        item: "https://archon-art.vercel.app/contact",
+        item: "https://Figit -art.vercel.app/contact",
       },
     ],
   },
   {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    name: "Contact Archon IT Services",
+    name: "Contact Figit  IT Services",
     description:
-      "Start your enterprise IT project with Archon. Submit your architecture brief and receive a scoped technical document within 48 hours.",
-    url: "https://archon-art.vercel.app/contact",
+      "Start your enterprise IT project with Figit . Submit your architecture brief and receive a scoped technical document within 48 hours.",
+    url: "https://Figit -art.vercel.app/contact",
     mainEntity: {
       "@type": "Organization",
-      name: "Archon IT Services",
+      name: "Figit  IT Services",
       email: "artticus9@gmail.com",
       telephone: "+91 9625604705",
       contactPoint: {
@@ -79,9 +79,9 @@ const contactSchemaJsonLd = [
   {
     "@context": "https://schema.org",
     "@type": "HowTo",
-    name: "How to Start a Project with Archon",
+    name: "How to Start a Project with Figit ",
     description:
-      "Follow these three steps to begin your enterprise IT project with Archon's engineering team.",
+      "Follow these three steps to begin your enterprise IT project with Figit 's engineering team.",
     step: [
       {
         "@type": "HowToStep",

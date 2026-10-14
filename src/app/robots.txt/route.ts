@@ -31,8 +31,8 @@ Allow: /
 Disallow: /admin
 Disallow: /api/
 
-Sitemap: https://archon-art.vercel.app/sitemap.xml
-Host: https://archon-art.vercel.app`;
+Sitemap: https://Figit -art.vercel.app/sitemap.xml
+Host: https://Figit -art.vercel.app`;
 
   return new NextResponse(robots, {
     headers: {

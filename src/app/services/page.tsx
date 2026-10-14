@@ -63,7 +63,7 @@ const FAQS: { id: number; question: string; answer: string }[] = [
   },
   {
     id: 3,
-    question: "What security standards does Archon follow?",
+    question: "What security standards does Figit  follow?",
     answer: "Security is hardened from the start. We follow enterprise-grade standards including SOC 2 compliance, performing continuous security audits and compliance checks.",
   },
   {

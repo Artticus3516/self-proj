@@ -11,7 +11,7 @@ export default function LoginPage() {
       <div className="w-full max-w-md space-y-8 rounded-xl bg-card p-8 shadow-lg border border-border text-card-foreground">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground">Admin Login</h2>
-          <p className="mt-2 text-sm text-muted-foreground">Sign in to access the Archon portal</p>
+          <p className="mt-2 text-sm text-muted-foreground">Sign in to access the Figit  portal</p>
         </div>
 
         <form action={action} className="mt-8 space-y-6">

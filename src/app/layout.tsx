@@ -20,11 +20,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "ARCHON | %s",
-    default: "ARCHON | Enterprise IT Services & SaaS Engineering",
+    template: "Figit  | %s",
+    default: "Figit  | Enterprise IT Services & SaaS Engineering",
   },
   description:
-    "Archon is a premier full-service IT services agency. We specialize in custom SaaS engineering, high-performance web design, search engine optimization (SEO), business workflow automation, and robust IaaS cloud infrastructures.",
+    "Figit  is a premier full-service IT services agency. We specialize in custom SaaS engineering, high-performance web design, search engine optimization (SEO), business workflow automation, and robust IaaS cloud infrastructures.",
   keywords: [
     "IT services agency",
     "SaaS development",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     "IT systems automation",
   ],
   alternates: {
-    canonical: "https://archon-art.vercel.app",
+    canonical: "https://Figit -art.vercel.app",
   },
   robots: {
     index: true,
@@ -61,19 +61,19 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    title: "Archon — Enterprise IT Services, SaaS Engineering, Web Design & SEO Automation",
+    title: "Figit  — Enterprise IT Services, SaaS Engineering, Web Design & SEO Automation",
     description:
-      "Unlock digital velocity with Archon. From enterprise SaaS engineering and cutting-edge web design to technical SEO and automated cloud infrastructure.",
-    url: "https://archon-art.vercel.app",
-    siteName: "Archon",
+      "Unlock digital velocity with Figit . From enterprise SaaS engineering and cutting-edge web design to technical SEO and automated cloud infrastructure.",
+    url: "https://Figit -art.vercel.app",
+    siteName: "Figit ",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Archon — Enterprise IT Services, SaaS Engineering, Web Design & SEO Automation",
+    title: "Figit  — Enterprise IT Services, SaaS Engineering, Web Design & SEO Automation",
     description:
-      "Unlock digital velocity with Archon. From enterprise SaaS engineering and cutting-edge web design to technical SEO and automated cloud infrastructure.",
-    creator: "@ArchonAgency",
+      "Unlock digital velocity with Figit . From enterprise SaaS engineering and cutting-edge web design to technical SEO and automated cloud infrastructure.",
+    creator: "@Figit Agency",
   },
 };
 
@@ -96,10 +96,10 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": ["ProfessionalService", "Organization"],
-              "name": "Archon IT Services",
-              "image": "https://archon-art.vercel.app/logo.png",
-              "@id": "https://archon-art.vercel.app/#organization",
-              "url": "https://archon-art.vercel.app",
+              "name": "Figit  IT Services",
+              "image": "https://Figit -art.vercel.app/logo.png",
+              "@id": "https://Figit -art.vercel.app/#organization",
+              "url": "https://Figit -art.vercel.app",
               "telephone": "+91 9625604705",
               "email": "artticus9@gmail.com",
               "priceRange": "$$$",
@@ -116,11 +116,11 @@ export default function RootLayout({
                 "longitude": 77.5946
               },
               "sameAs": [
-                "https://twitter.com/ArchonAgency",
-                "https://github.com/ArchonAgency",
-                "https://linkedin.com/company/ArchonAgency"
+                "https://twitter.com/Figit Agency",
+                "https://github.com/Figit Agency",
+                "https://linkedin.com/company/Figit Agency"
               ],
-              "description": "Archon is a premium full-service IT agency specializing in scalable SaaS engineering, high-performance web design, search engine optimization (SEO), business automation, and robust IaaS cloud solutions.",
+              "description": "Figit  is a premium full-service IT agency specializing in scalable SaaS engineering, high-performance web design, search engine optimization (SEO), business automation, and robust IaaS cloud solutions.",
               "foundingDate": "2018",
               "numberOfEmployees": {
                 "@type": "QuantitativeValue",
@@ -194,14 +194,14 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              "name": "Archon",
-              "alternateName": "Archon IT Services",
-              "url": "https://archon-art.vercel.app",
+              "name": "Figit ",
+              "alternateName": "Figit  IT Services",
+              "url": "https://Figit -art.vercel.app",
               "potentialAction": {
                 "@type": "SearchAction",
                 "target": {
                   "@type": "EntryPoint",
-                  "urlTemplate": "https://archon-art.vercel.app/blog?q={search_term_string}"
+                  "urlTemplate": "https://Figit -art.vercel.app/blog?q={search_term_string}"
                 },
                 "query-input": "required name=search_term_string"
               }

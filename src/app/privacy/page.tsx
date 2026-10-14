@@ -49,7 +49,7 @@ export default function PrivacyPolicyPage() {
           className="space-y-10 backdrop-blur-xl py-10 border border-border rounded-xl px-12 text-muted-foreground font-light leading-relaxed text-sm"
         >
           <p className="text-base text-foreground font-normal">
-            Archon ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy details how we collect, use, and safeguard your personal information in alignment with global and regional compliance standards, including the **General Data Protection Regulation (GDPR)**, the **California Consumer Privacy Act (CCPA)**, and India's **Digital Personal Data Protection (DPDP) Act, 2023**.
+            Figit  ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy details how we collect, use, and safeguard your personal information in alignment with global and regional compliance standards, including the **General Data Protection Regulation (GDPR)**, the **California Consumer Privacy Act (CCPA)**, and India's **Digital Personal Data Protection (DPDP) Act, 2023**.
           </p>
 
           <div className="space-y-4">
@@ -60,10 +60,10 @@ export default function PrivacyPolicyPage() {
               The data controller responsible for your personal information is:
             </p>
             <div className="rounded-xl border border-border bg-card/60 backdrop-blur-xl p-4 font-mono text-xs text-muted-foreground space-y-1">
-              <p className="font-bold text-foreground">Archon Systems Private Limited</p>
+              <p className="font-bold text-foreground">Figit  Systems Private Limited</p>
               <p>Corporate Office Layer: Tech Hub, Sector 5</p>
               <p>Bangalore, Karnataka, India</p>
-              <p>Email: <span className="text-foreground hover:underline">privacy@archon-art.vercel.app</span></p>
+              <p>Email: <span className="text-foreground hover:underline">privacy@Figit -art.vercel.app</span></p>
             </div>
           </div>
 
@@ -132,7 +132,7 @@ export default function PrivacyPolicyPage() {
               </li>
             </ul>
             <p>
-              To exercise any of these rights, please email us directly at <span className="text-foreground hover:underline font-mono">privacy@archon-art.vercel.app</span>. We will respond within 30 days.
+              To exercise any of these rights, please email us directly at <span className="text-foreground hover:underline font-mono">privacy@Figit -art.vercel.app</span>. We will respond within 30 days.
             </p>
           </div>
         </motion.section>

@@ -13,7 +13,7 @@ export function BlogArticleSchema({
   description,
   datePublished,
   dateModified,
-  authorName = "Archon Engineering Team",
+  authorName = "Figit  Engineering Team",
   url,
   image,
 }: BlogArticleSchemaProps) {
@@ -32,15 +32,15 @@ export function BlogArticleSchema({
     author: {
       "@type": "Organization",
       name: authorName,
-      url: "https://archon-art.vercel.app",
+      url: "https://Figit -art.vercel.app",
     },
     publisher: {
       "@type": "Organization",
-      name: "Archon IT Services",
-      url: "https://archon-art.vercel.app",
+      name: "Figit  IT Services",
+      url: "https://Figit -art.vercel.app",
       logo: {
         "@type": "ImageObject",
-        url: "https://archon-art.vercel.app/logo.png",
+        url: "https://Figit -art.vercel.app/logo.png",
       },
     },
     ...(image ? { image: [image] } : {}),

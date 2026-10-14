@@ -16,7 +16,7 @@ export default function Home() {
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center gap-6">
         
         <h1 className="text-6xl md:text-8xl font-extrabold tracking-tighter bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground-secondary to-muted-foreground drop-shadow-sm select-none pt-28 md:pt-36">
-          Archon
+          Figit 
         </h1>
         
         <p className="text-foreground-secondary text-lg md:text-xl max-w-2xl leading-relaxed font-light tracking-wide">
@@ -41,7 +41,7 @@ export default function Home() {
         {/* Value Proposition */}
         <div className="mt-16 pt-12 border-t border-border w-full flex flex-col items-center gap-8 animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both">
           <p className="text-sm md:text-base text-muted-foreground font-light max-w-xl leading-relaxed">
-            Archon is an elite digital infrastructure agency architecting the operational backbones of enterprise organizations. We deliver uncompromising reliability and scale for systems that cannot fail.
+            Figit  is an elite digital infrastructure agency architecting the operational backbones of enterprise organizations. We deliver uncompromising reliability and scale for systems that cannot fail.
           </p>
           
           <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-sm font-mono tracking-wider">

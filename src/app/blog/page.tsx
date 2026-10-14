@@ -130,7 +130,7 @@ export default function BlogPage() {
           </h1>
           <p className="mt-5 text-base leading-relaxed text-muted-foreground font-light max-w-xl">
             Deep dives into enterprise architecture, SaaS scaling, and premium
-            web design. Thoughts from the engineers and designers at Archon.
+            web design. Thoughts from the engineers and designers at Figit .
           </p>
         </motion.div>
 
@@ -191,7 +191,7 @@ export default function BlogPage() {
               Stay updated
             </p>
             <p className="text-xl sm:text-2xl font-bold text-foreground tracking-tight leading-snug">
-              Join the Archon Newsletter
+              Join the Figit  Newsletter
             </p>
             <p className="text-sm text-muted-foreground font-light leading-relaxed">
               Receive our latest articles, case studies, and engineering practices directly to your inbox. No spam, just pure signal.

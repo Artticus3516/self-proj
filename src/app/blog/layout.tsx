@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Expert insights on SaaS architecture, enterprise web design, digital transformation, and high-performance React development from the engineers at Archon.",
+    "Expert insights on SaaS architecture, enterprise web design, digital transformation, and high-performance React development from the engineers at Figit .",
   keywords: [
     "saas architecture blog",
     "enterprise web design insights",
@@ -16,15 +16,15 @@ export const metadata: Metadata = {
     "web development best practices",
   ],
   alternates: {
-    canonical: "https://archon-art.vercel.app/blog",
+    canonical: "https://Figit -art.vercel.app/blog",
   },
   openGraph: {
     type: "website",
     title: "Blog",
     description:
       "Expert insights on SaaS architecture, enterprise web design, and digital transformation.",
-    url: "https://archon-art.vercel.app/blog",
-    siteName: "Archon",
+    url: "https://Figit -art.vercel.app/blog",
+    siteName: "Figit ",
   },
 };
 
@@ -41,13 +41,13 @@ export default function BlogLayout({
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://archon-art.vercel.app",
+        item: "https://Figit -art.vercel.app",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Blog",
-        item: "https://archon-art.vercel.app/blog",
+        item: "https://Figit -art.vercel.app/blog",
       },
     ],
   };
@@ -55,18 +55,18 @@ export default function BlogLayout({
   const blogJsonLd = {
     "@context": "https://schema.org",
     "@type": ["Blog", "CollectionPage"],
-    "@id": "https://archon-art.vercel.app/blog#blog",
-    url: "https://archon-art.vercel.app/blog",
-    name: "Archon Engineering & Insights Blog",
+    "@id": "https://Figit -art.vercel.app/blog#blog",
+    url: "https://Figit -art.vercel.app/blog",
+    name: "Figit  Engineering & Insights Blog",
     description:
-      "Expert insights on SaaS architecture, enterprise web design, digital transformation, and high-performance React development from the engineers at Archon.",
+      "Expert insights on SaaS architecture, enterprise web design, digital transformation, and high-performance React development from the engineers at Figit .",
     publisher: {
       "@type": "Organization",
-      name: "Archon IT Services",
-      url: "https://archon-art.vercel.app",
+      name: "Figit  IT Services",
+      url: "https://Figit -art.vercel.app",
       logo: {
         "@type": "ImageObject",
-        url: "https://archon-art.vercel.app/logo.png",
+        url: "https://Figit -art.vercel.app/logo.png",
       },
     },
   };

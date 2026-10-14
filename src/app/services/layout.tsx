@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Explore Archon's enterprise IT services: custom SaaS development, Infrastructure as a Service (IaaS), cloud migration, DevOps automation, and digital transformation consulting. 99.99% uptime SLA.",
+    "Explore Figit 's enterprise IT services: custom SaaS development, Infrastructure as a Service (IaaS), cloud migration, DevOps automation, and digital transformation consulting. 99.99% uptime SLA.",
   keywords: [
     "SaaS engineering services",
     "IaaS cloud infrastructure",
@@ -19,15 +19,15 @@ export const metadata: Metadata = {
     "microservices containerization",
   ],
   alternates: {
-    canonical: "https://archon-art.vercel.app/services",
+    canonical: "https://Figit -art.vercel.app/services",
   },
   openGraph: {
     type: "website",
     title: "Services",
     description:
       "Custom SaaS development, Infrastructure as a Service, and digital transformation consulting for enterprise organisations. Built for systems that cannot fail.",
-    url: "https://archon-art.vercel.app/services",
-    siteName: "Archon",
+    url: "https://Figit -art.vercel.app/services",
+    siteName: "Figit ",
     locale: "en_US",
   },
   twitter: {
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Services",
     description:
       "Custom SaaS development, Infrastructure as a Service, and digital transformation consulting for enterprise organisations.",
-    creator: "@ArchonAgency",
+    creator: "@Figit Agency",
   },
 };
 
@@ -48,13 +48,13 @@ const serviceSchemaJsonLd = [
         "@type": "ListItem",
         position: 1,
         name: "Home",
-        item: "https://archon-art.vercel.app",
+        item: "https://Figit -art.vercel.app",
       },
       {
         "@type": "ListItem",
         position: 2,
         name: "Services",
-        item: "https://archon-art.vercel.app/services",
+        item: "https://Figit -art.vercel.app/services",
       },
     ],
   },
@@ -63,8 +63,8 @@ const serviceSchemaJsonLd = [
     "@type": "Service",
     provider: {
       "@type": "Organization",
-      name: "Archon IT Services",
-      url: "https://archon-art.vercel.app",
+      name: "Figit  IT Services",
+      url: "https://Figit -art.vercel.app",
     },
     serviceType: "Infrastructure as a Service (IaaS)",
     name: "Infrastructure as a Service",
@@ -77,8 +77,8 @@ const serviceSchemaJsonLd = [
     "@type": "Service",
     provider: {
       "@type": "Organization",
-      name: "Archon IT Services",
-      url: "https://archon-art.vercel.app",
+      name: "Figit  IT Services",
+      url: "https://Figit -art.vercel.app",
     },
     serviceType: "SaaS Engineering",
     name: "SaaS Engineering & Development",
@@ -91,8 +91,8 @@ const serviceSchemaJsonLd = [
     "@type": "Service",
     provider: {
       "@type": "Organization",
-      name: "Archon IT Services",
-      url: "https://archon-art.vercel.app",
+      name: "Figit  IT Services",
+      url: "https://Figit -art.vercel.app",
     },
     serviceType: "Digital Transformation",
     name: "Digital Transformation Consulting",
@@ -109,7 +109,7 @@ const serviceSchemaJsonLd = [
         name: "What is Infrastructure as a Service (IaaS)?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Infrastructure as a Service (IaaS) is a cloud computing model where virtualised computing resources — servers, storage, and networking — are provisioned and managed remotely. Archon designs high-availability IaaS clusters with custom DevOps pipelines, auto-scaling systems, and SOC 2 compliant security hardening.",
+          text: "Infrastructure as a Service (IaaS) is a cloud computing model where virtualised computing resources — servers, storage, and networking — are provisioned and managed remotely. Figit  designs high-availability IaaS clusters with custom DevOps pipelines, auto-scaling systems, and SOC 2 compliant security hardening.",
         },
       },
       {
@@ -117,7 +117,7 @@ const serviceSchemaJsonLd = [
         name: "How does custom SaaS engineering work?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Custom SaaS engineering involves building scalable, multi-tenant software platforms from the ground up. Archon handles the full lifecycle: multi-tenant database architecture, real-time data pipelines and APIs, authentication and authorisation systems, and performance optimisation for production scale.",
+          text: "Custom SaaS engineering involves building scalable, multi-tenant software platforms from the ground up. Figit  handles the full lifecycle: multi-tenant database architecture, real-time data pipelines and APIs, authentication and authorisation systems, and performance optimisation for production scale.",
         },
       },
       {
@@ -125,7 +125,7 @@ const serviceSchemaJsonLd = [
         name: "What does digital transformation include?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Digital transformation at Archon means migrating legacy monolithic systems to cloud-native architectures. This includes microservices and containerisation, zero-downtime deployment strategies, cloud-native architecture redesign, and post-migration performance benchmarking.",
+          text: "Digital transformation at Figit  means migrating legacy monolithic systems to cloud-native architectures. This includes microservices and containerisation, zero-downtime deployment strategies, cloud-native architecture redesign, and post-migration performance benchmarking.",
         },
       },
       {
@@ -133,7 +133,7 @@ const serviceSchemaJsonLd = [
         name: "How long does a typical enterprise project take?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Project timelines vary by scope. Archon onboards new projects in under 48 hours with a scoped architecture brief. MVP builds typically take 4-8 weeks, mid-market enterprise projects 3-6 months, and full-scale digital transformations 6-12 months. All projects include ongoing support and maintenance.",
+          text: "Project timelines vary by scope. Figit  onboards new projects in under 48 hours with a scoped architecture brief. MVP builds typically take 4-8 weeks, mid-market enterprise projects 3-6 months, and full-scale digital transformations 6-12 months. All projects include ongoing support and maintenance.",
         },
       },
       {
@@ -141,15 +141,15 @@ const serviceSchemaJsonLd = [
         name: "Do you provide ongoing maintenance and support?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Yes. All Archon engagements include post-deployment support with a 99.99% uptime SLA. We provide continuous monitoring, security patching, performance optimisation, and scaling support as your business grows.",
+          text: "Yes. All Figit  engagements include post-deployment support with a 99.99% uptime SLA. We provide continuous monitoring, security patching, performance optimisation, and scaling support as your business grows.",
         },
       },
       {
         "@type": "Question",
-        name: "What security standards does Archon follow?",
+        name: "What security standards does Figit  follow?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Archon adheres to SOC 2 security standards. Every project includes security hardening, compliance audits, encrypted data transmission via TLS 1.3, and role-based access controls. We also support GDPR, CCPA, and India's DPDP Act 2023 compliance requirements.",
+          text: "Figit  adheres to SOC 2 security standards. Every project includes security hardening, compliance audits, encrypted data transmission via TLS 1.3, and role-based access controls. We also support GDPR, CCPA, and India's DPDP Act 2023 compliance requirements.",
         },
       },
     ],

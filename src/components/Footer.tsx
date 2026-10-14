@@ -63,7 +63,7 @@ export function Footer() {
                 />
               </svg>
               <span className="text-sm font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                Archon
+                Figit 
               </span>
             </Link>
             <p className="text-xs leading-relaxed text-muted-foreground font-light max-w-[180px]">
@@ -77,7 +77,7 @@ export function Footer() {
             </div>
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="https://twitter.com/ArchonAgency"
+                href="https://twitter.com/Figit Agency"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter / X"
@@ -88,7 +88,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://github.com/ArchonAgency"
+                href="https://github.com/Figit Agency"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -99,7 +99,7 @@ export function Footer() {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/company/ArchonAgency"
+                href="https://linkedin.com/company/Figit Agency"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -154,7 +154,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <p className="font-mono text-[10px] text-muted-foreground tracking-wide">
-            © {year} Archon. All rights reserved.
+            © {year} Figit . All rights reserved.
           </p>
           <p className="font-mono text-[10px] text-muted-foreground tracking-wide">
             Engineered for uptime. Built for scale.

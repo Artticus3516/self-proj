@@ -65,7 +65,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-transparent flex items-center justify-center px-4 py-20">
       <div className="w-full max-w-6xl grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
-        <h1 className="sr-only">Contact Archon — Enterprise IT Services & Architecture</h1>
+        <h1 className="sr-only">Contact Figit  — Enterprise IT Services & Architecture</h1>
 
         {/* ── LEFT: Blueprint Form Panel ────────────────────────────────── */}
         <motion.div

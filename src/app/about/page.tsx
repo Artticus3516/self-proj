@@ -306,22 +306,22 @@ export default function AboutPage() {
           <div className="flex flex-col gap-4 max-w-3xl">
             <FAQItem
               index={1}
-              question="Who is Archon?"
-              answer="Archon is a digital infrastructure and software agency. We specialize in engineering high-reliability foundational systems for enterprise clients."
+              question="Who is Figit ?"
+              answer="Figit  is a digital infrastructure and software agency. We specialize in engineering high-reliability foundational systems for enterprise clients."
             />
             <FAQItem
               index={2}
-              question="Where is Archon located?"
+              question="Where is Figit  located?"
               answer="We operate globally with a remote-first engineering team, providing high-availability infrastructure design to organizations around the world."
             />
             <FAQItem
               index={3}
-              question="What industries does Archon serve?"
+              question="What industries does Figit  serve?"
               answer="We work with high-stakes enterprise environments across various sectors, particularly those that require resilient, scalable architectures that cannot fail."
             />
             <FAQItem
               index={4}
-              question="What makes Archon different from other IT agencies?"
+              question="What makes Figit  different from other IT agencies?"
               answer="We prioritize systems first, building scalable foundations before writing application code. We offer precision over speed and maintain strict transparency in our architecture decisions."
             />
           </div>
