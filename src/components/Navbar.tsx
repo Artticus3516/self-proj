@@ -172,7 +172,7 @@ export function Navbar() {
                                     />
                                 </svg>
                                 <span className="text-sm font-semibold tracking-tight text-foreground group-hover:text-primary transition-colors">
-                                  Archon
+                                  Figit
                                 </span>
                             </Link>
                         </motion.div>
